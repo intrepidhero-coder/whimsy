@@ -1,0 +1,362 @@
+{
+    "COFFEEDRANK": 0,
+    "CAFEOUTOFCOFFEE": false,
+    "CARRYINGPIE": false,
+    "MYSTICACCEPTED": false,
+    "TAOACCEPTED": false,
+    "ASCETICACCEPTED": false,
+    "HEDONISTACCEPTED": false,
+    "BEGIN": {
+        "predescription": {
+            "condition": "not BEGIN['visited']",
+            "description": "Welcome to Wandering Whimsy!"
+        },
+        "description": "You are standing on the sidewalk in a rundown beach town.",
+        "postdescription": "The Moonshot cafe is to your right. The arcade to your left. Ahead of you is a sign indicating beach access.",
+        "options": [
+            {
+                "label": "Enter the cafe",
+                "destination": "CAFE"
+            },
+            {
+                "label": "Go to the arcade.",
+                "destination": "ARCADE"
+            },
+            {
+                "label": "Walk down to the beach",
+                "destination": "SBEACH"
+            }
+        ]
+    },
+    "CAFE": {
+        "description": "The cafe smells of hot grease and burnt coffee. The shabby, false wood panelled walls are smattered with flyers for boats and trailers for sale, real estate advertisements, and pictures of the local softball team.",
+        "options": [
+            {
+                "label": "Order coffee",
+                "destinations": {
+                    "if": "CAFEOUTOFCOFFEE",
+                    "then": "CAFEHASNOCOFFEE",
+                    "else": "CAFEORDERCOFFEE"
+                }
+            },
+            {
+                "condition": "not CARRYINGPIE",
+                "label": "Order a custard pie",
+                "message": "The waitress hands you a pie.",
+                "flag": "CARRYINGPIE",
+                "destination": "CAFE"
+            },
+            {
+                "label": "Talk to retirees",
+                "destination": "RETIREESSTART"
+            },
+            {
+                "label": "Go outside",
+                "destination": "BEGIN"
+            }
+        ]
+    },
+    "CAFEORDERCOFFEE": {
+        "description": "It tastes terrible.",
+        "destination": "CAFE",
+        "flag": "CAFEOUTOFCOFFEE",
+        "increment": "COFFEEDRANK"
+    },
+    "CAFEHASNOCOFFEE": {
+        "description": "Sorry hon. We're fresh out of coffee.",
+        "destination": "CAFE"
+    },
+    "RETIREESSTART": {
+        "description": "One table has three retirees sitting around it. A big, tall gentlemen with a wrinkled face and sagging jowls. A shorter, portly man with a wisp of white hair combed over his shiny pate. And a clearly once attractive woman. She has wrinkles at the corners of her eyes and mouth like starburst and when she is smiling, which seems often, her cheeks stand out, shiny and reddish. The table itself is loaded with food, omelets, hashbrowns, and enourmous cinnamon rolls. Steam rises from the food and coffee cups with amazing aromas. Your stomach growls.\n\"Howdy stranger\", the tall man smiles in a friendly way. \"Join us for breakfast?\"",
+        "options": [
+            {
+                "label": "Sit down in the empty chair.",
+                "destination": "BREAKFAST"
+            },
+            {
+                "label": "\"No thanks.\"",
+                "destination": "REJECTHEDONIST"
+            }
+        ]
+    },
+    "BREAKFAST": {
+        "description": "The cheerful woman passes you a cup of coffee and slides over the largest cinnamon roll you have ever seen. It easily fills the dinner plate it sits on, it's taller than it is wide and it's drenched in cream cheese frosting. You're salivating and slightly sick at the same time. Have you ever eaten anything larger than your own head? \n\"Whale-sized pastries are Mabeliene's special-ality.\", says the smiling lady with just a bit of a southern drawl. \"Eat, drink and be merry. Isn't that right Larry?\" \nWhen the portly man smiles back at her his eyes disappear into a squint and a small chuckle makes his round belly jiggle.",
+        "options": [
+            {
+                "label": "You find yourself smiling with him and taste your coffee.",
+                "destination": "BREAKFAST2"
+            },
+            {
+                "label": "The display of gluttony is too much. You rise to leave.",
+                "destination": "REJECTHEDONIST"
+            }
+        ]
+    },
+    "BREAKFAST2": {
+        "description": "The coffee is truly awful. \nBut the cinnamon roll is ambrosia itself. The frosting is the perfect balance of sweet and tangy, the dough is chewy and fluffy and delightfully warm. You lose yourself for a moment in sugar loaded ecstasy. \n\"Try the omlet.\", offers the tall man. His long jowly face seems naturally mournful and his brown eyes seem to hold a sadness but when he sees you enjoying the food (bacon, cheese and potatoes cooked in eggs and topped with country gravy) his smile is sincere and makes his sad eyes sparkle just a little. \n\"Always a pleasure to see a young person enjoy themselves.\", the cheery woman says. \"Why, when my grandson used to visit I'd bring him here every morning. You wouldn't believe how much he'd pack away. But a growing and active young person has to keep up their strength.\"",
+        "increment": "COFFEEDRANK",
+        "options": [
+            {
+                "label": "Continue eating, even though you're getting full already.",
+                "destination": "BREAKFAST3"
+            },
+            {
+                "label": "Thank them and leave.",
+                "destination": "REJECTTHEHEDONIST"
+            }
+        ]
+    },
+    "BREAKFAST3": {
+        "description": "As you continue to nibble, a bit of the lives of the three retirees comes out. All of them carry sorrow and joy. The woman spent her last 10 years before retirement on the late stage cancer ward of a children's hospital. Work she is proud of but clearly took a toll. The portly man was a public defender for 38 years in Chicago. He barely made enough money to retire. The tall man was a salesman who did alright but never saw his family much. All three of them are mostly estranged from children and grandchildren. She is a widow, the portly man a windower and the tall man a divorcee. All have numerous age and vocation related health issues (which they discuss at length) exacerbated by obesity and a sedentary lifestyle. But they enjoy the food and a fresh face. They seem to want nothing more than to feed you and talk at you. They laugh a lot.",
+        "options": [
+            {
+                "label": "Join in the laughter.",
+                "destination": "ACCEPTHEDONIST"
+            },
+            {
+                "label": "Thank them and leave before you're too stuffed to move.",
+                "destination": "REJECTHEDONIST"
+            }
+        ]
+    },
+    "ACCEPTHEDONIST": {
+        "description": "\"Life will have ups and down, as they say. And we've seen our share of both.\", The tall man spreads his hands to indicate his companions. \"Nothing for it but to enjoy as much of the simple pleasures as you can along the way. Am I right?\" \n The cheerful woman smiles. \"You have a delightful time in our little beach town sonny. Join us anytime you like. We'll be here!\"\n The three of them suddenly begin to systematically demolish the remaining breakfast items. You are a little shocked at their ferocity and efficiency but the laughter, smiles, and talking continue regardless. Mostly praise for Mabeliene's cooking and stories that have clearly been told many, many times already. You thank them as politely as you can and make your exit.\nYou feel extremely full.",
+        "destination": "CAFE",
+        "flag": "HEDONISTACCEPTED"
+    },
+    "REJECTHEDONIST": {
+        "description": "You rise to leave. Though the disappointment is clear in their eyes the three retirees bid you farewell and good day with friendliness.",
+        "destination": "CAFE"
+    },
+    "SBEACH": {
+        "description": "Standing on the south beach, surf is pounding the sand in front of you. To the south the headland juts out into the ocean. To the north a lighthouse stands on a promitory.",
+        "options": [
+            {
+                "label": "Go back to main street",
+                "destination": "BEGIN"
+            },
+            {
+                "label": "Climb to lighthouse",
+                "destination": "TRAILTOLIGHTHOUSE"
+            }
+        ]
+    },
+    "ARCADE": {
+        "description": "The lights are off and all the games are out of service.",
+        "options": [
+            {
+                "label": "Go outside",
+                "destination": "BEGIN"
+            },
+            {
+                "label": "Look at the machines",
+                "destination": "PICKAGAME"
+            },
+            {
+                "label": "Approach the concessions counter",
+                "destination": "ARCADECOUNTER"
+            }
+        ]
+    },
+    "LEAVEARCADE": {
+        "description": "You pause at the door of the arcade. A breath of distant laughter seems to blow out the door on a cold breeze. The ghost of ancient electronic music teases the corners of your mind. You let the door swing shut and hurry out into the sunlight.",
+        "destination": "BEGIN"
+    },
+    "PICKAGAME": {
+        "description": "There are three video games in front of you. Their cabinets dusty and dull. The screens obviously long dark. You find the joysticks and consoles strangely alluring. Should you take a closer look?",
+        "options": [
+            {
+                "label": "Look at Ms. Pac-Man.",
+                "destination": "MSPACMAN"
+            },
+            {
+                "label": "Look at Defender.",
+                "destination": "DEFENDER"
+            },
+            {
+                "label": "Look at Joust.",
+                "destination": "JOUST"
+            }
+        ]
+    },
+    "MSPACMAN": {
+        "description": "As you touch the dusty console the screen unexpectedly flickers. A small yellow circle appears in a maze filled with dots. A wedge shaped opening in the circle rapidly opens and closes like a mouth as you begin to instinctively direct it around the maze, eating the dots. The ancient electronic sounds emitted by the machine pulse in time as the creature consumes the dots. Suddenly, brightly colored ghosts appear, menacing your little yellow circle. In the room around you, whispers begin and dim, grey figures begin to float around you. \"Go left!\", a voice suddenly shouts.",
+        "options": [
+            {
+                "label": "Direct Ms Pac-Man left.",
+                "destination": "EATGHOSTS"
+            },
+            {
+                "label": "This is getting creepy. Get out of there!",
+                "destination": "LEAVEARCADE"
+            }
+        ]
+    },
+    "EATGHOSTS": {
+        "description": "Your hands move the joystick without thinking and the yellow circle eats a larger pellet. The color drains from the screen and the ghosts flee. A memory of a cheering crowd flickers in your mind. Your hands move with unknown skill as you direct your yellow circle precisely around the maze eating pellets and the ghosts. With only two ghosts left the colors return to the screen and they begin to chase you again. Your super power has run out. There is only one",
+
+    },
+    "TRAILTOLIGHTHOUSE": {
+        "description": "A steep, narrow track leads up the cliff in  a series of switchbacks.",
+        "options": [
+            {
+                "label": "Continue?",
+                "destination": "LIGHTHOUSE"
+            },
+            {
+                "label": "Turn back?",
+                "destination": "FALLTODEATH"
+            }
+        ]
+    },
+    "TRAILFROMLIGHTHOUSE": {
+        "description": "A steep, narrow track leads down the cliff in a series of switchbacks.",
+        "options": [
+            {
+                "label": "Continue?",
+                "destination": "SBEACH"
+            },
+            {
+                "label": "Turn back?",
+                "destination": "FALLTODEATH"
+            }
+        ]
+    },
+    "FALLTODEATH": {
+        "description": "Fortune favors the bold as they say. Your timid nature betrays you as a gust of wind slams into you, blowing you off the path.",
+        "destination": "END"
+    },
+    "LIGHTHOUSE": {
+        "description": "As you approach the light house a strange demon like creature runs out and past you. Screaming. You die of fright.",
+        "destination": "END"
+    },
+    "NBEACH": {
+        "description": "A long flat beach seems to continue on forever and disappear into the fog. The interminable pound of the cold blue gray surf on one hand and rolling sandy dunes on the other. Tufts of salt grass bend in the wind and loose sand skates across ground. A flock of tiny white birds chase the waves as they advance and retreat. ",
+        "options": [
+            {
+                "label": "Go to the lighthouse.",
+                "destination": "LIGHTHOUSE"
+            },
+            {
+                "label": "Enter the dunes.",
+                "destination": "DUNES1"
+            }
+        ]
+    },
+    "DUNES1": {
+        "description": "The dunes are lumpy, sandy hills, mostly topped with coarse grass. Behind you is the beach and ahead is a line of dark, twisted, and bent pine trees. One trail wanders ahead and enters the trees, another continues through the dunes.",
+        "postdescription": {
+            "condition": "choice((True, False))",
+            "description": "A mysterious tower rises out of the fog in the distance."
+        },
+        "options": [
+            {
+                "label": "Follow the trail to the forest.",
+                "destination": "TREES1"
+            },
+            {
+                "label": "Follow the trail through the dunes.",
+                "destinations": {
+                    "if": "choice((True, False))",
+                    "then": "DUNES1",
+                    "else": "DUNES2"
+                }
+            }
+        ]
+    },
+   "DUNES2": {
+        "description": "The dunes are sandy, lumpy hills, mostly topped with coarse grass. Behind you is the beach and ahead is a line of dark, twisted, and bent pine trees. One trail wanders ahead and enters the trees, another continues through the dunes.",
+        "postdescription": {
+            "condition": "choice((True, False))",
+            "description": "The spice must flow."
+        },
+        "options": [
+            {
+                "label": "Follow the trail to the forest.",
+                "destination": "TREES1"
+            },
+            {
+                "label": "Follow the trail through dunes.",
+                "destinations": {
+                    "if": "choice((True, False))",
+                    "then": "DUNES1",
+                    "else": "DUNES3"
+                }
+            }
+        ]
+   },
+   "DUNES3": {
+        "description": "In a bowl shaped depression between dunes there is a bald figure seated on a log. He sits with his legs folded, back straight and eyes closed. His hands rest on his knees. He appears to be wearing a bed sheet.",
+        "options": [
+            {
+                "label": "Speak with mystic.",
+                "destination": "MYSTIC1"
+            },
+            {
+                "label": "Continue on path",
+                "destination": "DUNES1"
+            }
+        ]
+   },
+   "MYSTIC1": {
+       "description": "As you approach the old man his eyes snap open. His gaze is riveting and seems to tear away all pretense as he looks into your very soul. \nHe also smells very bad.\n\"Do you seek the way?\", he asks.",
+       "options": [
+           {
+               "label": "\"Yes, I seek the way.\"",
+               "destination": "MYSTICWAY"
+           },
+           {
+               "label": "\"What is this way?\"",
+               "destination": "MYSTICWAY"
+           }
+       ]
+   },
+   "MYSTICWAY": {
+       "description": "\"Your feet all already upon it.\", he intones. \"The path of life of life is suffering. What does not kill you makes you stronger. \"",
+       "options": [
+           {
+               "label": "Nod, knowingly.",
+               "destination": "MYSTICWAY2"
+           },
+           {
+               "label": "\"That's baloney.",
+               "destination": "MYSTICREJECT"
+           }
+       ]
+   },
+   "MYSTICWAY2": {
+       "description": "His voice rises, \"Try looking into that place where you dare not look! If you gaze long enough into an abyss, the abyss will gaze back into you. Face your fear, for fear is the mind-killer!\"",
+       "options": [
+           {
+               "label": "Nod, knowingly.",
+               "destination": "MYSTICWAY3"
+           },
+           {
+               "label": "\"You're a couple fries short of a happy meal mister.\"",
+               "destination": "MYSTICREJECT"
+           }
+       ]
+   },
+   "MYSTICWAY3": {
+       "description": "His litany takes on a chanting quality and falls to a whisper, \n\"God is dead. God remains dead. And we have killed him. How shall we comfort ourselves?\"\nLastly, barely audible above the wind you hear,\n\"It is by will alone I set my mind in motion. The stains become a warning.\"",
+       "options": [
+           {
+               "label": "Nod, knowingly.",
+               "destination": "MYSTICACCEPT"
+           },
+           {
+               "label": "Back away slowly.",
+               "destination": "MYSTICREJECT"
+           }
+       ]
+   },
+   "MYSTICACCEPT": {
+       "description": "The mystic nods back and closes his eyes again. You feel, somehow lighter, uplifted in a strange way.",
+       "destination": "DUNES3",
+       "flag": "MYSTICACCEPTED"
+   },
+   "MYSTICREJECT": {
+       "description": "The mystic begins to scream obscenties and flail his arms. A flock of seagulls descends and swirl around him in a violent temptest of sqwaking, feathery, fury. You run for your life.",
+       "destination": "DUNES3"
+   }
+}

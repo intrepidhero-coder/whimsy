@@ -1,0 +1,60 @@
+You begin as a faceless person entering a depressed beach town. You interact with characters, each of which has a vignette that can be played through. Achievements are hidden and suprising things you can discover. They are tracked and summarized and the end of the game.
+
+The game tracks your moves and will give some indications of the time of day based on your moves. At night fall you'll have a choice of where to spend the night and the game ends.
+
+Characters
+----------
+Salty fisherman
+College freshman
+Zen girl
+Witch
+the LARPers
+Big Dog
+Mad Scientist
+Ghost kids
+
+Achievments
+-----------
+Found a herring
+Rolled a natural 20
+Beaten by a shrew
+Reached enlitenment
+Drank X cups of coffee
+Hit someone with a custard pie
+
+
+Multiple characters will spout philosophical truths and you will be given the option of agreeing or disagreeing. If you agree with all of them you will reach enlightment. If disagree with all of them you will be given a burrito.
+
+Retiree in cafe is the hedonist
+Male Mystic in the dunes is Nietzschean/Herbertian
+Zen girl is Taoist
+Female Mystic in the forest is the ascetic
+
+
+
+Locations
+---------
+Main St.
+Arcade - ghost kids, play video games
+Cafe - Retirees
+South Beach - Salty
+Lighthouse - Freshy
+City park - LARPers
+North Beach - Sight tower
+Dunes - Randomized Maze, Bears, Shrew (small, mole-like mammal challenges you to race "you are beaten by a shrew")
+Forest - Maze, Bears (laughs at you, complains about tourists, launches into a story), Shrew
+Tower - Mad Scientist, building a rocket, alien observer
+Mansion - Zen girl, dimensional portals, fairies
+Bayside - Big Dog
+Mud flats - Find iron hunk for scientist. Big Dog rescues you from mud or not
+Run down house - Witch, casts a curse on you. Makes text appear right to left and upside down.
+
+
+
+Arcade
+------
+Has 3 games: Ms Pac-Man, Defender, Joust. You must win each for the owner to appear at the concessions counter and spout philosohpy. 
+Pac-Man: Go Left (eat pellet), run away.
+Defender: Kill alien, dodge mine, rescue astronaut (p(fail) = 0.5) win 3
+Joust: Flap more!, Left, Right (p(fail) = 0.5) win 3
+
