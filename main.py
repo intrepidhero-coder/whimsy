@@ -51,6 +51,7 @@ def main():
         for key in ("predescription", "description", "postdescription"):
             if key in currentNode:
                 processDescription(currentNode[key], world)
+            print()
         if not "options" in currentNode:
             # handle description only nodes
             choice = input("Press any key")
