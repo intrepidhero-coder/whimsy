@@ -20,6 +20,8 @@ def processFlag(option, world):
         world[option["flag"]] = True
     if "increment" in option:
         world[option["increment"]] += 1
+    if "eval" in option:
+        options["eval"]["flag"] = eval(option["eval"]["exp"], GLOBALS, world)
 
 
 def processDestinations(destinations, world):

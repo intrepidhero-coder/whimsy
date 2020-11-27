@@ -2,6 +2,11 @@
     "COFFEEDRANK": 0,
     "CAFEOUTOFCOFFEE": false,
     "CARRYINGPIE": false,
+    "DEFENDERPASSES": 0,
+    "JOUSTPASSES": 0,
+    "WONPACMAN": false,
+    "WONDEFENDER": false,
+    "WONJOUST": false,
     "MYSTICACCEPTED": false,
     "TAOACCEPTED": false,
     "ASCETICACCEPTED": false,
@@ -120,7 +125,7 @@
         ]
     },
     "ACCEPTHEDONIST": {
-        "description": "\"Life will have ups and down, as they say. And we've seen our share of both.\", The tall man spreads his hands to indicate his companions. \"Nothing for it but to enjoy as much of the simple pleasures as you can along the way. Am I right?\" \n The cheerful woman smiles. \"You have a delightful time in our little beach town sonny. Join us anytime you like. We'll be here!\"\n The three of them suddenly begin to systematically demolish the remaining breakfast items. You are a little shocked at their ferocity and efficiency but the laughter, smiles, and talking continue regardless. Mostly praise for Mabeliene's cooking and stories that have clearly been told many, many times already. You thank them as politely as you can and make your exit.\nYou feel extremely full.",
+        "description": "\"Life will have ups and down, as they say. And we've seen our share of both.\", The tall man spreads his hands to indicate his companions. \"Nothing for it but to enjoy as much of the simple pleasures as you can along the way. Am I right?\" \n The cheerful woman smiles. \"You have a delightful time in our little beach town. Join us anytime you like. We'll be here!\"\n The three of them suddenly begin to systematically demolish the remaining breakfast items. You are a little shocked at their ferocity and efficiency but the laughter, smiles, and talking continue regardless. Mostly praise for Mabeliene's cooking and stories that have clearly been told many, many times already. You thank them as politely as you can and make your exit.\nYou feel extremely full.",
         "destination": "CAFE",
         "flag": "HEDONISTACCEPTED"
     },
@@ -142,7 +147,11 @@
         ]
     },
     "ARCADE": {
-        "description": "The lights are off and all the games are out of service.",
+        "description": "The dim arcade has the feel of a place long abandonded. The games are out of service.",
+        "postdescription": {
+            "condition": "WONPACMAN and WONDEFENDER and WONJOUST",
+            "description": "A single light has come on illuminating a concession counter"
+        },
         "options": [
             {
                 "label": "Go outside",
@@ -153,13 +162,14 @@
                 "destination": "PICKAGAME"
             },
             {
+                "condition": "WONPACMAN and WONDEFENDER and WONJOUST",
                 "label": "Approach the concessions counter",
                 "destination": "ARCADECOUNTER"
             }
         ]
     },
     "LEAVEARCADE": {
-        "description": "You pause at the door of the arcade. A breath of distant laughter seems to blow out the door on a cold breeze. The ghost of ancient electronic music teases the corners of your mind. You let the door swing shut and hurry out into the sunlight.",
+        "description": "You pause at the door of the arcade. A breath of distant laughter seems to blow out the door on a cold breeze. The ghosts of ancient electronic sounds tease the corners of your mind. You let the door swing shut and hurry out into the sunlight.",
         "destination": "BEGIN"
     },
     "PICKAGAME": {
@@ -193,8 +203,159 @@
         ]
     },
     "EATGHOSTS": {
-        "description": "Your hands move the joystick without thinking and the yellow circle eats a larger pellet. The color drains from the screen and the ghosts flee. A memory of a cheering crowd flickers in your mind. Your hands move with unknown skill as you direct your yellow circle precisely around the maze eating pellets and the ghosts. With only two ghosts left the colors return to the screen and they begin to chase you again. Your super power has run out. There is only one",
-
+        "description": "Your hands move the joystick without thinking and the yellow circle eats a larger pellet. The color drains from the screen and the ghosts flee. A memory of a cheering crowd flickers in your mind. Your hands move with unknown skill as you direct your yellow circle precisely around the maze eating pellets and the ghosts. With only two ghosts left the colors return to the screen and they begin to chase you again. Your super power has run out. There is only one corner of pellets left. You begin to move toward them, upper right, but an errie voice whispers in your ear, \"Left, through the tunnel.\"",
+        "options": [
+            {
+                "label": "Move right, towards the pellets.",
+                "destination": "LOSEPACMAN"
+            },
+            {
+                "label": "Go left, towards the nearest wall",
+                "destination": "WINPACMAN"
+            }
+        ]
+    },
+    "WINPACMAN": {
+        "description": "The cirlce heads towards a small gap in the left wall and suddenly appears on the right. The ghosts are thrown off as they suddenly must change directions. You drive up into the remaining corner of pellets. When the last is eaten a jingle of trimuph plays from the ancient speakers of the machine and echoes of cheers resound in the huge empty arcade. You look all around. There is no one there.",
+        "flag": "PACMANWON",
+        "destination": "ARCADE"
+    },
+    "LOSTPACMAN": {
+        "description": "Your little yellow circle crumples and disappears when the ghosts catch it. A slight breeze sighs with disappointment as it raises the hairs on your neck. \"Would you like to try again?\", the machine asks in friendly yellow block letters.",
+        "destination": "ARCADE"
+    },
+    "DEFENDER": {
+        "increment": "DEFENDERPASSES",
+        "predescription": {
+            "condition": "DEFENDERPASSESS == 0",
+            "description": "As you approach the game flickers to life."
+        },
+        "description": "Your tiny ship appears in the center of the screen. The fire button makes dramatic laser blasts shoot towards your enemies... and your friends. Aliens are abducting colonists from the planet's surface, laying mines, and of course hunting you. Your ship responds to the slightest touch of the controls with speed and power. What will you do?",
+        "options": [
+            {
+                "label": "FIRE!",
+                "destinations": {
+                    "if": "choice(True, False)",
+                    "then": "DEFENDER",
+                    "else": "LOSTDEFENDER"
+                }
+            },
+            {
+                "label": "Rescue that colonist!",
+                "destinations": {
+                    "if": "choice(True, False)",
+                    "then": "DEFENDER",
+                    "else": "LOSTDEFENDER"
+                }
+            },
+            {
+                "label": "Dodge the mine!",
+                "destinations": {
+                    "if": "choice(True, False)",
+                    "then": "DEFENDER",
+                    "else": "LOSTDEFENDER"
+                }
+            },
+            {
+                "condition": "DEFENDERPASSES >= 2",
+                "label": "Fire a bomb!",
+                "destination": "WONDEFENDER"
+            }
+        ]
+    },
+    "WONDEFENDER": {
+        "eval": {
+            "flag": "DEFENDERPASSES",
+            "exp": "0"
+        },
+        "description": "The bomb was well timed. The minelayer and abductors vaporize. Your heart is racing with andrenaline but your hands are steady. In a bit of brilliant flying you swoop in and rescue the falling colonist. A perfectly aimed laser blast destroys the last hunter. You are victorious.",
+        "destination": "ARCADE",
+        "flag": "WONDEFENDER"
+    },
+    "LOSTDEFENDER": {
+        "eval": {
+            "flag": "DEFENDERPASSES",
+            "exp": "0"
+        },
+        "description": "Your tiny ship explodes in a brilliant display of light. \"GAME OVER\" is displayed in large red letters.",
+        "destination": "ARCADE"
+    },
+    "JOUST": {
+        "increment": "JOUSTPASSES",
+        "predescription": {
+            "condition": "JOUSTPASSESS == 0",
+            "description": "As you approach the game flickers to life."
+        },
+        "description": "The noble knight sits atop his... ostrich?",
+        "options": [
+            {
+                "label": "Flap!",
+                "destinations": {
+                    "if": "choice(True, False)",
+                    "then": "JOUST",
+                    "else": "LOSTJOUST"
+                }
+            },
+            {
+                "label": "Go Left!",
+                "destinations": {
+                    "if": "choice(True, False)",
+                    "then": "JOUST",
+                    "else": "LOSTJOUST"
+                }
+            },
+            {
+                "label": "Go Right!",
+                "destinations": {
+                    "if": "choice(True, False)",
+                    "then": "JOUST",
+                    "else": "LOSTJOUST"
+                }
+            },
+            {
+                "condition": "JOUSTPASSES >= 2",
+                "label": "Dodge the lava monster!",
+                "destination": "WONJOUST"
+            }
+        ]
+    },
+    "WONJOUST": {
+        "eval": {
+            "flag": "JOUSTPASSES",
+            "exp": "0"
+        },
+        "description": "You un-buzzard the last remaining enemy knight with a perfectly executed double flap and glide maneuver. You have earned your spurs this day.",
+        "destination": "ARCADE",
+        "flag": "WONJOUST"
+    },
+    "LOSTJOUST": {
+        "eval": {
+            "flag": "JOUSTPASSES",
+            "exp": "0"
+        },
+        "description": "The knight falls from his ostrich and does not rise again.",
+        "destination": "ARCADE"
+    },
+    "ARCADECOUNTER": {
+        "description": "\"You did pretty good on those games over there.\" The disembodied voice shocks you to the core. Suddenly the lights are bright, the dusty counter is gleaming and the popcorn machine lights up and wafts it's delicious smell around the room. \"What can I get ya?\" A middle aged man with greying beard, long crooked nose, and pointed chin slowly appears behind the counter. He smiles at you. The drink machine turns on, the cola sign clearly visible through the man's head.",
+        "options": [
+            {
+                "label": "Uh, a small popcorn please?",
+                "destination": "STOIC1"
+            },
+            {
+                "label": "Run away screaming.",
+                "destination": "LEAVEARCADE"
+            }
+        ]
+    },
+    "STOIC1": {
+        "description": "The popcorn smells like butter. The bag he hands you is still warm. Settling his elbows on the counter he sighs and asks, \"So, what's new out there? Any good games come out lately?\" With a good game there's always an element of chance. The result is always outside your control. With games it's not about whether you win or lose, it's how you play the game. And you my friend, play with style.",
+        "options": [
+            {
+                "label": "\"Aren't you dead? Can a ghost play a video game?\",
+                "destination": "STOIC2"
+            }
     },
     "TRAILTOLIGHTHOUSE": {
         "description": "A steep, narrow track leads up the cliff in  a series of switchbacks.",

@@ -1,1 +1,7 @@
-python3 -c "import json; json.loads(open('world.json').read())"
+python3 -c "import json; w = json.loads(open('world.json').read()); open('world.json.pp', 'w').write(json.dumps(w))"
+
+# check for 
+# orphan nodes (in world but not in any destinations)
+# missing nodes (in destinations but not world)
+# all flags initialized
+# 
