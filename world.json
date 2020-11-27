@@ -635,9 +635,93 @@
        ]
    },
    "DOG1": {
-       "description": "Slowly you approach the big dog. \"Good dog.\", you try to keep your fear out of your voice. The dog is almost as tall as you are. Gently you rest your hand on it's head and stroke the soft fur between its ears. \nIt's tongue hangs out and it's tail begins to wag, sweeping the trail of leaves and twigs. \nA ragged breath escapes that you didn't realize you were holding in.\nWith a surprising bark the dog turns and bounds away up the trail.",
+       "description": "Slowly you approach the big dog. \"Good dog.\", you try to keep your fear out of your voice. The dog is almost as tall as you are. Gently you rest your hand on it's head and stroke the soft fur between its ears. \nIt's tongue hangs out and it's tail begins to wag, sweeping the trail of leaves and twigs. \nA ragged breath escapes that you didn't realize you were holding in.\nWith a loud bark the dog turns and bounds away up the trail.",
        "destination": "TREES5"
+   },
+   "TREES5": {
+       "description": "You follow the big, black dog around the corner. The trail climbs to your left and the dog disappears up and over the little crest of the hill. To your right the trail descends into shadowed glen.",
+       "options": [
+           {
+               "label": "Climb the hill.",
+               "destination": "BAYSIDE1"
+           },
+           {
+               "label": "Explore the glen.",
+               "destination": "ASCETICHUT"
+           }
+       ]
+   },
+   "TREES6": 
+       "description": "The trail climbs to your left over the little crest of the hill. To your right the trail descends into shadowed glen.",
+       "options": [
+           {
+               "label": "Climb the hill.",
+               "destination": "BAYSIDE1"
+           },
+           {
+               "label": "Explore the glen.",
+               "destination": "ASCETICHUT"
+           }
+       ]
+   },
+   "ASCETICHUT": {
+       "description": "In the middle of a small clearing there is a wooden hut. Smoke curls from a metal stove pipe sticking out the thatched roof. A woman in what looks like a burlap robe sits cross legged on a large flat stone. Hands on her knees and eyes clothes.",
+       "options": [
+           {
+               "label": "Try to talk to her.",
+               "destination": "ASCETIC1"
+           },
+           {
+               "label": "Leave quietly",
+               "destination": "TREES6"
+           }
+       ]
+   },
+   "ASCETIC1": {
+       "description": "Her eyes snap open. You notice that she appears very thin and smells bad. Her head is shaved.\n\"Deny thyself, that you may know the truth. It is only through sacrifice that flesh quiets so that the mind may become clearer.\"",
+      "options": [
+          {
+             "label": "\"That sounds like a terrible idea.\"",
+             "destination": "REJECTASCETIC"
+          },
+          {
+              "label": "\"What truth?\"",
+              "destination": "ASCETIC2"
+          }
+      ]
+   },
+   "ASCETIC2": {
+       "description": "\"There is no spoon.\"",
+       "options": [
+           {
+               "label": "There is no spoon?",
+               "destination": "ASCETIC3"
+           }
+       ]
+   },
+   "ASCETIC3": {
+       "description": "\"Then you will see it is not the spoon that bends, it is yourself. The higher mysteries of the universe reveal themselves only to those who leave behind desire and need and ascend to the realm of pure thought. Do not indulge your body, lest it ensnare you.\"",
+       "options": [
+           {
+              "label": "\"Got it, thoughts good, body bad.\"",
+              "destination": "ACCEPTASCETIC"
+           },
+           {
+               "label": "\"You're a spoon short of a place setting lady.\"",
+               "destination": "REJECTASCETIC"
+           }
+       ]
+   },
+   "REJECTASCETIC": {
+       "description": "The woman releases a huffy breath and shuts her eyes tight. It seems you've been dismissed.",
+       "destination": "TREES6"
+   },
+   "ACCEPTASCETIC": {
+       "description": "The woman nods sagely and shuts eyes again, resuming her meditation. As you turn to leave you whisper under your breath, \"And don't do anything fun.\".\nFortunately, she doesn't here you.",
+       "destination": "TREES6",
+       "flag": "ASCETICACCEPTED"
    }
+
 
 
 }
