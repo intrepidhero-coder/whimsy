@@ -451,7 +451,7 @@
         ]
     },
     "FALLTODEATH": {
-        "description": "Fortune favors the bold as they say. Your timid nature betrays you as a gust of wind slams into you, blowing you off the path.",
+        "description": "Fortune favors the bold as they say. Your timid nature betrays you to the wind. A gust slams into you, blowing you off the path.",
         "destination": "END"
     },
     "LIGHTHOUSE": {
@@ -789,14 +789,23 @@
        "description": "The sucking mud has a death grip (literally) on your legs. Though you struggle with all your might, it only pulls you down deeper. It is up to you middle now. The water is rapidly rising too.",
        "options": [
            {
+               "condition": "DOG1['visited']",
                "label": "Throw the shiny thing so you can use your hands to pull yourself out.",
                "destination": "DOGRESCUE1"
+           },
+           {
+               "label": "Try some more!",
+               "destination": "MUDDEATH"
            },
            {
                "label": "Stare at the shiny object some more.",
                "destination": "STARE"
            }
        ]
+   },
+   "MUDDEATH": {
+       "description": "The mud pulls you down and the waters close over your. Oh, I can't bear to look.",
+       "destination": "END"
    },
    "DOGRESCUE1": {
        "description": "The shiny round thing flies through the air and though your impending death is growing closer you still feel compelled to watch it's graceful arc, flashing in the sunlight. Just as it nears the water a huge black dog leaps into the air and catches the shiny thing in it's mouth. The dog splashes through the tide toward you. You grab onto it's thick coat and it easily pulls you free of the muck with a loud, \"SLUUUURP!\"",
@@ -881,7 +890,8 @@
                "label": "\"Uh, I don't have a pie.\"",
                "destination": "REJECTTAO"
            }
-   }
+       ]
+   },
    "REJECTTAO": {
        "description": "She pushes her sunglasses back up to the bridge of her nose. \"The way that can be walked is not the eternal way.\"\nShe returns to her painting.",
        "destination": "BAYSIDE3"
