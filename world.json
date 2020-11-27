@@ -12,6 +12,7 @@
     "ASCETICACCEPTED": false,
     "HEDONISTACCEPTED": false,
     "STOICACCEPTED": false,
+    "SHINY": false,
     "BEGIN": {
         "predescription": {
             "condition": "not BEGIN['visited']",
@@ -155,20 +156,20 @@
         "description": "He's wearing a floppy hat with lures stuck in it, chest high waders, and a scraggly graying beard. He smells strongly of old fish. \nThe fisherman greets you with a friendly smile, \"Howdy there. Welcome to the end of the earth.\"",
         "options": [
             {
-                "label": "\"How's fishing?\",
+                "label": "\"How's fishing?\"",
                 "destination": "FISHERMAN2"
             }
         ]
     },
     "FISHERMAN2": { 
-        "description": ""\Lousy. Fish won't bite for nothing.\", but his smile only broadens. \"But then I don't like fish much anyway. I just come out here to enjoy the ocean and the sky, the wind and the spray. All that force of nature, makes ya feel alive, ya know? Why do you 'spose people feel that way?\"",
+        "description": "\"Lousy. Fish won't bite for nothing.\", but his smile only broadens. \"But then I don't like fish much anyway. I just come out here to enjoy the ocean and the sky, the wind and the spray. All that force of nature, makes ya feel alive, ya know? Why do you 'spose people feel that way?\"",
         "destination": "FISHERMAN3"
     },
     "FISHERMAN3": {
         "description": "\"I mean, some people don't feel that way. They prefer staying warm and dry, civilized and comfortable. Different strokes for different folks I 'spose. Takes all kinds. Most people have an internal philosophy, even if they haven't conciously thought it through. Some of the ones who have will try to convince you theirs the only way, but the ones who've thought about it and decided what works for them, but don't need to convince nobody, thems the ones I prefer to chew the fat with. Solid folks I calls 'em. Good for a sharing a cup 'o joe with or just setting out enjoying the wind.\" \nBy this point the fisherman is stroking his beard and staring at the waves. You're not sure he remembers you're there or if he's just musing at the ocean. He might be a little batty.",
         "options": [
             {
-                "label": "Why did you call this the \"end of the earth?\",
+                "label": "Why did you call this the \"end of the earth?\"",
                 "destination": "FISHERMAN4"
             }
         ]
@@ -183,8 +184,19 @@
         ]
     },
     "FISHERMAN5": {
-        "description": "\"Me, I just feel lucky to be alive. \nYou enjoy your stay in our town. Talk to folks and take what they're willing to share. You never know what might come in handy or who might just give you a gem. Just don' take anybody too seriously.\"\n And with another wink he stomps off into the surf to cast his line.",
-        "destination": "SBEACH"
+        "description": "\"Me, I just feel lucky to be alive. \nYou enjoy your stay in our town. Talk to folks and take what they're willing to share. You never know what might come in handy or who might just give you a gem. Just don' take anybody too seriously.\"\n And with another wink he stomps off into the surf to cast his line.\nYou look down and see a small dead fish on the sand.",
+        "options": [
+            {
+                "label": "Pick it up?",
+                "flag": "HERRING",
+                "message": "You found a herring.",
+                "destination": "SBEACH",
+            },
+            {
+                "label": "Eww.",
+                "destination": "SBEACH"
+            }
+        ]
     },
     "ARCADE": {
         "description": "The dim arcade has the feel of a place long abandonded. The games are out of service.",
@@ -651,7 +663,7 @@
            }
        ]
    },
-   "TREES6": 
+   "TREES6": {
        "description": "The trail climbs to your left over the little crest of the hill. To your right the trail descends into shadowed glen.",
        "options": [
            {
@@ -663,6 +675,10 @@
                "destination": "ASCETICHUT"
            }
        ]
+   },
+   "TREES7": {
+       "description": "After much wandering through the maze like forest you come out on the dunes.",
+       "destination": "DUNES1"
    },
    "ASCETICHUT": {
        "description": "In the middle of a small clearing there is a wooden hut. Smoke curls from a metal stove pipe sticking out the thatched roof. A woman in what looks like a burlap robe sits cross legged on a large flat stone. Hands on her knees and eyes clothes.",
@@ -717,9 +733,104 @@
        "destination": "TREES6"
    },
    "ACCEPTASCETIC": {
-       "description": "The woman nods sagely and shuts eyes again, resuming her meditation. As you turn to leave you whisper under your breath, \"And don't do anything fun.\".\nFortunately, she doesn't here you.",
+       "description": "The woman nods sagely and shuts her eyes again, resuming her meditation. As you turn to leave you whisper under your breath, \"And don't do anything fun.\".\nFortunately, she doesn't here you.",
        "destination": "TREES6",
        "flag": "ASCETICACCEPTED"
+   },
+   "BAYSIDE1": {
+       "description": "You come out of the forest onto another beach. But instead of surf and ocean this appears to be a tidal bay. You can see across it to the mainland and where the water might be later today is a vast mudflat.",
+       "options": [
+           {
+               "label": "Follow the beach.",
+               "destinations": {
+                   "if": "not SHINY",
+                   "then": "BAYSIDE2",
+                   "else": "BAYSIDE3"
+               }
+           },
+           {
+               "label": "Enter the forest.",
+               "destination": "TREES7"
+           }
+       ]
+   },
+   "BAYSIDE2": {
+       "description": "Something far out on the mudflat catches the sun with a flash of light.",
+       "options": [
+           {
+               "label": "Investigate the shiny object",
+               "destination": "MUDFLAT"
+           },
+           {
+               "label": "Follow the beach",
+               "destination": "BAYSIDE3"
+           }
+       ]
+   },
+   "MUDFLAT": {
+       "description": "You trudge for seemingly forever out onto the mudlfat. Finally you come upon the shiny object. It comes free of the muck with SLUUUUP sound. It's roundish, about as big as a grapefruit, kind of heavy. And it's uh...\n shiny. \n\nYou blink and suddenly realize you've been staring at it for a long time. Meanwhile your feet, ankles and calves have sunk into the muck.\nA stream of water is running by. The tide is coming in.",
+       "options": [
+           {
+               "label": "Try to extricate yourself.",
+               "destination": "MUD1"
+           },
+           {
+               "label": "Stare at the shiny object some more.",
+               "destination": "STARE"
+           }
+       ]
+   },
+   "STARE": {
+       "description": "Though very captivating, it is difficult to truly appreciate the shiny object while sinking to your doom.",
+       "destination": "MUD1"
+   },
+   "MUD1": {
+       "description": "The sucking mud has a death grip (literally) on your legs. Though you struggle with all your might, it only pulls you down deeper. It is up to you middle now. The water is rapidly rising too.",
+       "options": [
+           {
+               "label": "Throw the shiny thing so you can use your hands to pull yourself out.",
+               "destination": "DOGRESCUE1"
+           },
+           {
+               "label": "Stare at the shiny object some more.",
+               "destination": "STARE"
+           }
+       ]
+   },
+   "DOGRESCUE1": {
+       "description": "The shiny round thing flies through the air and though your impending death is growing closer you still feel compelled to watch it's graceful arc, flashing in the sunlight. Just as it nears the water a huge black dog leaps into the air and catches the shiny thing in it's mouth. The dog splashes through the tide toward you. You grab onto it's thick coat and it easily pulls you free of the muck with a loud, \"SLUUUURP!\"",
+       "destination": "DOGRESCUE2"
+   },
+   "DOGRESCUE2": {
+       "description": "The big dog pulls you to the shore. Once there it drops the shiny thing at your feet and sits down. It's big tongue lolling out of it's mouth.",
+       "flag": "SHINY",
+       "options": [
+           {
+               "label": "\"Good dog.\"",
+               "destination": "BAYSIDE3"
+           }
+       ]
+   },
+   "BAYSIDE3": {
+       "description": "A gravel road runs alongside the bay and ends abrubtly at a boat ramp. A dilapidated house sits between the road and the bay.",
+       "options": [
+            {
+                "label": "Approach the dilapidated house.",
+                "destination": "HOUSE"
+            },
+            {
+                "label": "Follow the road.",
+                "destination": "ROAD1"
+            },
+            {
+                "label": "Follow the beach",
+                "destinations": {
+                   "if": "not SHINY",
+                   "then": "BAYSIDE2",
+                   "else": "BAYSIDE3"
+               }
+            }
+       ]
    }
 
 
