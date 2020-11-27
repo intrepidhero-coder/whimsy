@@ -860,11 +860,11 @@
        ]
    },
    "ZEN2": {
-       "description": "She looks at you over her star shaped glasses. \"Why are you not painting your feet? That which can be learned, must also be unlearned for wisdom is found in forgetting. The name that can be named is not the eternal name. The nameless is the beginning of Heaven and Earth. Now hit me with a cream pie.\"",
+       "description": "She looks at you over her star shaped glasses. \"Why are you not painting your feet? That which can be learned, must also be unlearned for wisdom is found in forgetting. The name that can be named is not the eternal name. The nameless is the beginning of Heaven and Earth. Banana farts cannot slurple to the mountains. Now hit me with a cream pie.\"",
        "options": [
            {
                "condition": "CARRYINGPIE",
-               "label": "Ok.",
+               "label": "\"Ok.\"",
                "destination": "ACCEPTTAO",
                "eval": {
                    "flag": "CARRYINGPIE",
@@ -873,21 +873,21 @@
            },
            {
                "condition": "CARRYINGPIE",
-               "label": "Uh, I'd rather not.",
+               "label": "\"What?!\"",
                "destination": "REJECTTAO"
            },
            {
                "condition": "not CARRYINGPIE",
-               "label": "Uh, I don't have a pie.",
+               "label": "\"Uh, I don't have a pie.\"",
                "destination": "REJECTTAO"
            }
-            
+   }
    "REJECTTAO": {
        "description": "She pushes her sunglasses back up to the bridge of her nose. \"The way that can be walked is not the eternal way.\"\nShe returns to her painting.",
        "destination": "BAYSIDE3"
    },
    "ACCETPTAO": {
-       "description": "The picks up a gong and strikes it with a mallet. \"BONG!\" The tone is clear and resonant. Then she sticks her finger in the custard on her face and puts in her mouth. \"Mmmmmm.\" You leave her to it, feeling... strangely satisfied.",
+       "description": "She picks up a gong and strikes it with a mallet. \n\"BONG!\" \nThe tone is clear and resonant. Then she sticks her finger in the custard on her face and puts in her mouth. \n\"Mmmmmm.\" \nYou leave her to it, feeling... strangely satisfied.",
        "destination": "BAYSIDE3",
        "flag": "TAOACCEPTED",
        "increment": "PEOPLEPIED"
