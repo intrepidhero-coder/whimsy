@@ -11,6 +11,7 @@
     "TAOACCEPTED": false,
     "ASCETICACCEPTED": false,
     "HEDONISTACCEPTED": false,
+    "STOICACCEPTED": false,
     "BEGIN": {
         "predescription": {
             "condition": "not BEGIN['visited']",
@@ -125,7 +126,7 @@
         ]
     },
     "ACCEPTHEDONIST": {
-        "description": "\"Life will have ups and down, as they say. And we've seen our share of both.\", The tall man spreads his hands to indicate his companions. \"Nothing for it but to enjoy as much of the simple pleasures as you can along the way. Am I right?\" \n The cheerful woman smiles. \"You have a delightful time in our little beach town. Join us anytime you like. We'll be here!\"\n The three of them suddenly begin to systematically demolish the remaining breakfast items. You are a little shocked at their ferocity and efficiency but the laughter, smiles, and talking continue regardless. Mostly praise for Mabeliene's cooking and stories that have clearly been told many, many times already. You thank them as politely as you can and make your exit.\nYou feel extremely full.",
+        "description": "\"Life will have ups and down, as they say. And we've seen our share of both.\", The tall man spreads his hands to indicate his companions. \"Nothing for it but to enjoy as much of the simple pleasures as you can along the way. Am I right?\" \nThe cheerful woman smiles. \"You have a delightful time in our little beach town. Join us anytime you like. We'll be here!\" \nThe three of them suddenly begin to systematically demolish the remaining breakfast items. You are a little shocked at their ferocity and efficiency but the laughter, smiles, and talking continue regardless. Mostly praise for Mabeliene's cooking and stories that have clearly been told many, many times already. You thank them as politely as you can and make your exit.\nYou feel extremely full.",
         "destination": "CAFE",
         "flag": "HEDONISTACCEPTED"
     },
@@ -350,12 +351,26 @@
         ]
     },
     "STOIC1": {
-        "description": "The popcorn smells like butter. The bag he hands you is still warm. Settling his elbows on the counter he sighs and asks, \"So, what's new out there? Any good games come out lately?\" With a good game there's always an element of chance. The result is always outside your control. With games it's not about whether you win or lose, it's how you play the game. And you my friend, play with style.",
+        "description": "The popcorn smells like butter. The bag he hands you is still warm. Settling his elbows on the counter he sighs and asks, \"So, what's new out there? Any good games come out lately?\"",
         "options": [
             {
-                "label": "\"Aren't you dead? Can a ghost play a video game?\",
+                "label": "\"Aren't you dead? Can a ghost play a video game?\"",
+                "destination": "REJECTSTOIC"
+            },
+            {
+                "label": "\"What makes a game good?\"",
                 "destination": "STOIC2"
             }
+        ]
+    },
+    "STOIC2": {
+        "description": "\"With a good game there's always an element of chance. The result is always outside your control. With a good game it's not about whether you win or lose, it's how you play the game. Just like life.\" As the concessionaire fades from view you hear a whisper, \"You gotta play with style.\" \nThe lights go out and your popcorn disappears but the salty, buttery taste lingers.",
+        "flag": "STOICACCEPTED",
+        "destination": "ARCADE"
+    },
+    "REJECTSTOIC": {
+        "description": "\"Humph! Have it your way kid.\"",
+        "destination": "ARCADE"
     },
     "TRAILTOLIGHTHOUSE": {
         "description": "A steep, narrow track leads up the cliff in  a series of switchbacks.",
