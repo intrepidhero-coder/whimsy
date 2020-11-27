@@ -2,6 +2,7 @@
     "COFFEEDRANK": 0,
     "CAFEOUTOFCOFFEE": false,
     "CARRYINGPIE": false,
+    "PEOPLEPIED": 0,
     "DEFENDERPASSES": 0,
     "JOUSTPASSES": 0,
     "WONPACMAN": false,
@@ -831,9 +832,67 @@
                }
             }
        ]
+   },
+   "HOUSE": {
+       "description": "The once white siding and the roof of this single wide trailer is spotted with clumps of moss. The whole house gives the impression of sagging under the weight of years of coastal rain and wind. The windows are filty. In the front yard a girl sits in a lawn chair wearing denim overalls, t-shirt and star shaped sunglasses.",
+       "options": [
+           {
+               "label": "Talk to the girl.",
+               "destination": "ZEN1"
+           },
+           {
+               "label": "Head back to the boat ramp.",
+               "destination": "BAYSIDE3"
+           }
+       ]
+   },
+   "ZEN1": {
+       "description": "The girl leans over intently painting every part of her foot EXCEPT her toenails bright sparkly red. Her sun glasses slip down to the end of her nose and she looks over them. She seems to be working on a complicated paisley pattern. \"Be with you in a second.\", she says without looking up.",
+       "options": [
+           {
+               "label": "\"Uhhh, why are you painting your feet?\"",
+               "destination": "ZEN2"
+           },
+           {
+               "label": "\"Maybe I'll just go.\"",
+               "destination": "REJECTTAO"
+           }
+       ]
+   },
+   "ZEN2": {
+       "description": "She looks at you over her star shaped glasses. \"Why are you not painting your feet? That which can be learned, must also be unlearned for wisdom is found in forgetting. The name that can be named is not the eternal name. The nameless is the beginning of Heaven and Earth. Now hit me with a cream pie.\"",
+       "options": [
+           {
+               "condition": "CARRYINGPIE",
+               "label": "Ok.",
+               "destination": "ACCEPTTAO",
+               "eval": {
+                   "flag": "CARRYINGPIE",
+                   "exp": "False"
+               }
+           },
+           {
+               "condition": "CARRYINGPIE",
+               "label": "Uh, I'd rather not.",
+               "destination": "REJECTTAO"
+           },
+           {
+               "condition": "not CARRYINGPIE",
+               "label": "Uh, I don't have a pie.",
+               "destination": "REJECTTAO"
+           }
+            
+   "REJECTTAO": {
+       "description": "She pushes her sunglasses back up to the bridge of her nose. \"The way that can be walked is not the eternal way.\"\nShe returns to her painting.",
+       "destination": "BAYSIDE3"
+   },
+   "ACCETPTAO": {
+       "description": "The picks up a gong and strikes it with a mallet. \"BONG!\" The tone is clear and resonant. Then she sticks her finger in the custard on her face and puts in her mouth. \"Mmmmmm.\" You leave her to it, feeling... strangely satisfied.",
+       "destination": "BAYSIDE3",
+       "flag": "TAOACCEPTED",
+       "increment": "PEOPLEPIED"
+   },
+   "ROAD1": {
    }
-
-
-
 }
 
