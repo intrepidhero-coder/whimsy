@@ -190,7 +190,7 @@
                 "label": "Pick it up?",
                 "flag": "HERRING",
                 "message": "You found a herring.",
-                "destination": "SBEACH",
+                "destination": "SBEACH"
             },
             {
                 "label": "Eww.",
@@ -802,7 +802,7 @@
        "destination": "DOGRESCUE2"
    },
    "DOGRESCUE2": {
-       "description": "The big dog pulls you to the shore. Once there it drops the shiny thing at your feet and sits down. It's big tongue lolling out of it's mouth.",
+       "description": "The big dog pulls you to the shore. Once there it drops the shiny thing at your feet and sits down. It's big tongue lolling out of it's mouth. You pick it up.",
        "flag": "SHINY",
        "options": [
            {
