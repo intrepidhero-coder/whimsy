@@ -527,7 +527,7 @@
        ]
    },
    "MYSTICWAY": {
-       "description": "\"Your feet all already upon it.\", he intones. \"The path of life of life is suffering. What does not kill you makes you stronger. \"",
+       "description": "\"Your feet are already upon it.\", he intones. \"The path of life of life is suffering. What does not kill you makes you stronger. \"",
        "options": [
            {
                "label": "Nod, knowingly.",
@@ -553,7 +553,7 @@
        ]
    },
    "MYSTICWAY3": {
-       "description": "His litany takes on a chanting quality and falls to a whisper, \n\"God is dead. God remains dead. And we have killed him. How shall we comfort ourselves?\"\nLastly, barely audible above the wind you hear,\n\"It is by will alone I set my mind in motion. The stains become a warning.\"",
+       "description": "His litany takes on a chanting quality and falls to a whisper, \n\"God is dead. God remains dead. And we have killed him. How shall we comfort ourselves?\"\nLastly, barely audible above the wind you hear,\n\"It is by will alone I set my mind in motion. The spice must flow.\"",
        "options": [
            {
                "label": "Nod, knowingly.",
@@ -566,12 +566,79 @@
        ]
    },
    "MYSTICACCEPT": {
-       "description": "The mystic nods back and closes his eyes again. You feel, somehow lighter, uplifted in a strange way.",
+       "description": "The mystic nods back and closes his eyes again. You feel, somehow lighter, uplifted in a strange way... \nand yet, utterly confused.",
        "destination": "DUNES3",
        "flag": "MYSTICACCEPTED"
    },
    "MYSTICREJECT": {
        "description": "The mystic begins to scream obscenties and flail his arms. A flock of seagulls descends and swirl around him in a violent temptest of sqwaking, feathery, fury. You run for your life.",
        "destination": "DUNES3"
+   },
+   "TREES1": {
+       "description": "The coastal pines bend over the trail forming a tunnel roofed with their twisted branches. Huckberries grow to head height alongside and the sandy ground is covered with low growing bear berry. \nRight at the entrance to the forrest a pile of black goop and seeds sits in the middle of trail.\nBear scat.\n\nA few yards in, the trail splits.",
+       "options": [
+           {
+               "label": "Continue down the trail and to the right.",
+               "destination": "TREES2"
+           },
+           {
+               "label": "Continue down the trail and to the left.",
+               "destination": "TREES3"
+           },
+           {
+               "label": "Go back.",
+               "destination": "DUNES1"
+           }
+       ]
+   },
+   "TREES2": {
+       "description": "The trail has a magical feel to it. It's curves and dips leave you with little visibility. Sometimes you must duck to pass the low hanging branches of the trees. Sometimes you are brushed by the huckleberries, heavy with fruit, on either side. Sometimes you pass a small clearing thick with coarse grass. Bear sign and tracks are plentiful. The calls of hawks, larks, and seagulls are common. \nYou stop at a fork in the trail. A squirrel drops a few bits of pinecones on you and then scolds you for disturbing his snack.",
+       "options": [
+           {
+               "label": "Go left",
+               "destination": "TREES3"
+           },
+           {
+               "label": "Go right",
+               "destination": "TREES4"
+           }
+       ]
+   },
+   "TREES3": {
+       "description": "The dark tunnel of trail gives you a slightly claustrophobic feeling. You cannot see much ahead. There could be a bear around any corner. Your steps quicken. A smaller trail diverges to your right.",
+       "postdescription": {
+           "condition": "choice(False, False, False, True)",
+           "description": "A bear suddenly steps out a bush just ahead of you!\n\nYou freeze in terror!\n\nBut it seems as surprised as you are. The bear dives across the trail into the bushes again. He hear it crashing through undergrowth as it runs away."
+       },
+       "options": [
+           {
+               "label": "Continue",
+               "destination": "TREES3"
+           },
+           {
+               "label": "Take the track to the right.",
+               "destination": "TREES2"
+           }
+       ]
+   },
+   "TREES4": {
+       "description": "There is a huge black dog sitting in the middle of the trail. It's pointed ears stand up, it's attention fully on you.",
+       "options": [
+           {
+               "label": "Speak in a calm voice and slowly approach.",
+               "destination": "DOG1"
+           },
+           {
+               "label": "Back away slowly",
+               "destination": "TREES2"
+           }
+       ]
+   },
+   "DOG1": {
+       "description": "Slowly you approach the big dog. \"Good dog.\", you try to keep your fear out of your voice. The dog is almost as tall as you are. Gently you rest your hand on it's head and stroke the soft fur between its ears. \nIt's tongue hangs out and it's tail begins to wag, sweeping the trail of leaves and twigs. \nA ragged breath escapes that you didn't realize you were holding in.\nWith a surprising bark the dog turns and bounds away up the trail.",
+       "destination": "TREES5"
    }
+
+
 }
+
