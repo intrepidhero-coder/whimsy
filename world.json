@@ -135,7 +135,7 @@
         "destination": "CAFE"
     },
     "SBEACH": {
-        "description": "Standing on the south beach, surf is pounding the sand in front of you. To the south the headland juts out into the ocean. To the north a lighthouse stands on a promitory.",
+        "description": "Standing on the south beach, surf is pounding the sand in front of you. To the south the headland juts out into the ocean. To the north a lighthouse stands on a promitory. A fisherman stands is preparing his rod down by the surf.",
         "options": [
             {
                 "label": "Go back to main street",
@@ -144,8 +144,47 @@
             {
                 "label": "Climb to lighthouse",
                 "destination": "TRAILTOLIGHTHOUSE"
+            },
+            {
+                "label": "Talk to fisherman",
+                "destination": "FISHERMAN1"
             }
         ]
+    },
+    "FISHERMAN1": {
+        "description": "He's wearing a floppy hat with lures stuck in it, chest high waders, and a scraggly graying beard. He smells strongly of old fish. \nThe fisherman greets you with a friendly smile, \"Howdy there. Welcome to the end of the earth.\"",
+        "options": [
+            {
+                "label": "\"How's fishing?\",
+                "destination": "FISHERMAN2"
+            }
+        ]
+    },
+    "FISHERMAN2": { 
+        "description": ""\Lousy. Fish won't bite for nothing.\", but his smile only broadens. \"But then I don't like fish much anyway. I just come out here to enjoy the ocean and the sky, the wind and the spray. All that force of nature, makes ya feel alive, ya know? Why do you 'spose people feel that way?\"",
+        "destination": "FISHERMAN3"
+    },
+    "FISHERMAN3": {
+        "description": "\"I mean, some people don't feel that way. They prefer staying warm and dry, civilized and comfortable. Different strokes for different folks I 'spose. Takes all kinds. Most people have an internal philosophy, even if they haven't conciously thought it through. Some of the ones who have will try to convince you theirs the only way, but the ones who've thought about it and decided what works for them, but don't need to convince nobody, thems the ones I prefer to chew the fat with. Solid folks I calls 'em. Good for a sharing a cup 'o joe with or just setting out enjoying the wind.\" \nBy this point the fisherman is stroking his beard and staring at the waves. You're not sure he remembers you're there or if he's just musing at the ocean. He might be a little batty.",
+        "options": [
+            {
+                "label": "Why did you call this the \"end of the earth?\",
+                "destination": "FISHERMAN4"
+            }
+        ]
+    },
+    "FISHERMAN4": {
+        "description": "\"Well look at it! The land comes this far and stops. Looks like the ocean takes over and just goes forever, don' it? 'Sides this town is full of folks running from summin. Running from heartache, or debt, or disease. Or trying run away from here. Running from themselves mostly. Things ain't too good ya know? Not a lot of jobs in a place like this. Hard work, logging or fishin' for a living. Which is why I don't.\", he says with a wink. \"Lots of folks dependent on the tourists, but they come and go. Lots of folks 'round here are just plain down on their luck.\"",
+        "options": [
+            {
+                "label": "\"What about you?\"",
+                "destination": "FISHERMAN5"
+            }
+        ]
+    },
+    "FISHERMAN5": {
+        "description": "\"Me, I just feel lucky to be alive. \nYou enjoy your stay in our town. Talk to folks and take what they're willing to share. You never know what might come in handy or who might just give you a gem. Just don' take anybody too seriously.\"\n And with another wink he stomps off into the surf to cast his line.",
+        "destination": "SBEACH"
     },
     "ARCADE": {
         "description": "The dim arcade has the feel of a place long abandonded. The games are out of service.",
