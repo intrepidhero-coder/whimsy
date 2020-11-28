@@ -1,4 +1,4 @@
-[ ] Count moves
+[/] Count moves
 [ ] End game on N moves
 [ ] Add notes about making the bus at the end of the day
 [ ] Add scorecard at end

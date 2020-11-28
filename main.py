@@ -75,6 +75,8 @@ def engine():
             currentNodeKey = currentNode["destination"]
             # optionally, these nodes can affect game state
             processFlag(currentNode)
+            currentNode["visited"] = True
+            world["MOVES"] += 1
             continue
         else:
             # display options
