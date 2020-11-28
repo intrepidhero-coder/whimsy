@@ -2,6 +2,12 @@ import os
 import json
 from random import choice, randint
 
+ABOUT = '''
+Welcome to Wandering Whimsy!
+A light adventure game by FadedBlueSky Software
+Copyright: Brian Davis 2020
+Icon: Lighthouse by Nociconist from the Noun Project
+'''
 
 GLOBALS = {"randint": randint, "choice": choice}
 
@@ -79,7 +85,7 @@ def engine():
             ]
             for n, opt in enumerate(options):
                 output("{}. {}".format(n, opt["label"]))
-        output("(save or quit)")
+        output("(save, quit or about)")
         choice = (yield "? ")
         choice = choice.lower().strip()
         # basic game commands
@@ -90,6 +96,8 @@ def engine():
             choice = (yield "Are you sure you want to quit? Y/N ").lower().strip()
             if len(choice) > 0 and choice[0] == "y":
                 return
+        elif "about".startswith(choice):
+            output(ABOUT)
         else:
             # did the user select a valid option?
             try:
