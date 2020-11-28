@@ -93,7 +93,7 @@ def engine():
                 for opt in currentNode["options"]
                 if not "condition" in opt or _eval(opt["condition"])
             ]
-            for n, opt in enumerate(options):
+            for n, opt in enumerate(options, 1):
                 output("{}. {}".format(n, opt["label"]))
         output("(save, quit or about)")
         choice = (yield "? ")
@@ -114,8 +114,8 @@ def engine():
                 choice = int(choice)
             except:
                 continue
-            if choice in range(len(options)):
-                option = options[choice]
+            if choice in range(1, len(options)+1):
+                option = options[choice - 1]
                 if "destinations" in option:
                     # an option can lead to different destinations depending on game state
                     currentNodeKey = processDestinations(option["destinations"])
