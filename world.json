@@ -1,4 +1,19 @@
 {
+    "EVENTS": {
+        "100": {
+            "message": "You glance at your watch and notice that it is past noon."
+        },
+        "150": {
+            "message": "You glance at your watch and notice that it is past 3pm."
+        },
+        "175": {
+            "message": "You glance at your watch and notice that it is past 5pm."
+        },
+        "200": {
+            "message": "You glance at your watch and notice that it is nearly 7pm. You hustle back to the bus stop and just barely make it onto the bus.",
+            "jump": "END"
+        }
+    },
     "COFFEEDRANK": 0,
     "CAFEOUTOFCOFFEE": false,
     "CARRYINGPIE": false,

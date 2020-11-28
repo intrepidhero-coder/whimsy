@@ -62,6 +62,14 @@ def engine():
     world["MOVES"] = 0
     while currentNodeKey != "END":
         currentNode = world[currentNodeKey]
+        k = str(world["MOVES"])
+        if k in world["EVENTS"]:
+            e = world["EVENTS"][k]
+            output(e["message"])
+            if "jump" in e:
+                choice = yield "Press Enter"
+                currentNodeKey = e["jump"]
+                continue
         if not "visited" in currentNode:
             # visited is not in the base world file
             currentNode["visited"] = False

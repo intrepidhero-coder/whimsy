@@ -3,7 +3,7 @@
 [ ] Add notes about making the bus at the end of the day
 [ ] Add scorecard at end
 [/] Qt GUI
-[ ] Style the GUI
+[/] Style the GUI
 [ ] Compile for windows
 [ ] Compile for linux
 [ ] Compile for mac?
