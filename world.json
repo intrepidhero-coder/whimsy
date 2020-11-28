@@ -13,6 +13,8 @@
     "ASCETICACCEPTED": false,
     "HEDONISTACCEPTED": false,
     "STOICACCEPTED": false,
+    "HERRING": false,
+    "SHREW": false,
     "SHINY": false,
     "BACKWORDS": false,
     "BEGIN": {
@@ -36,7 +38,7 @@
                 "destination": "SBEACH"
             },
             {
-                "label": "Walk up the road."
+                "label": "Walk up the road.",
                 "destination": "ROADS"
             }
         ]
@@ -190,7 +192,7 @@
         ]
     },
     "FISHERMAN5": {
-        "description": "\"Me, I just feel lucky to be alive. \nYou enjoy your stay in our town. Talk to folks and take what they're willing to share. You never know what might come in handy or who might just give you a gem. Just don' take anybody too seriously.\"\n And with another wink he stomps off into the surf to cast his line.\nYou look down and see a small dead fish on the sand.",
+        "description": "\"Me, I just feel lucky to be alive. \nYou enjoy your stay in our town. Talk to folks and take what they're willing to share. You never know what might come in handy or who might just give you a gem. Just don' take anybody too seriously.\" \nAnd with another wink he stomps off into the surf to cast his line.\nYou look down and see a small dead fish on the sand.",
         "options": [
             {
                 "label": "Pick it up?",
@@ -395,7 +397,7 @@
         "destination": "ARCADE"
     },
     "ARCADECOUNTER": {
-        "description": "\"You did pretty good on those games over there.\" The disembodied voice shocks you to the core. Suddenly the lights are bright, the dusty counter is gleaming and the popcorn machine lights up and wafts it's delicious smell around the room. \"What can I get ya?\" A middle aged man with greying beard, long crooked nose, and pointed chin slowly appears behind the counter. He smiles at you. The drink machine turns on, the cola sign clearly visible through the man's head.",
+        "description": "\"You did pretty good on those games over there.\" The disembodied voice shocks you to the core. Suddenly the lights are bright, the dusty counter is gleaming and the popcorn machine lights up and wafts it's delicious smell around the room. \"What can I get ya?\" A middle aged man with greying beard, long crooked nose, and pointed chin slowly appears behind the counter. He smiles at you. The drink machine turns on, the cola sign clearly visible through the man's ghostly head.",
         "options": [
             {
                 "label": "Uh, a small popcorn please?",
@@ -631,7 +633,7 @@
        "options": [
            {
                "label": "Continue",
-               "destination": "TREES3"
+               "destination": "MAZE0"
            },
            {
                "label": "Take the track to the right.",
@@ -698,6 +700,72 @@
                "destination": "TREES6"
            }
        ]
+   },
+   "MAZE0": {
+       "description": "You come upon a small furry mammal. You approach it slowly and suprisingly it doesn't scurry away. You are standing right next to it when it looks up and clearly says, \"Hey mac, wanna race?\"\n\nSurprise and shock chase your wits away and you are slow to recover. You were just spoken to by a small woodland animal! In a Jersey accent?",
+       "options": [
+           {
+               "label": "Uh, ok, sure.",
+               "destination": "MAZE1"
+           },
+           {
+               "label": "What, what are you?",
+               "message": "I'm the fastest thing on four legs in the forest. And you better hurry if you're gonna catch me.",
+               "destination": "MAZE1"
+           }
+       ]
+   },
+   "MAZE1": {
+       "description": "The creature takes off down the trail at a surprising speed. Without really thinking about it, primal instincts kick in and you bolt after it. Now which way did it go?",
+       "options": [
+           {
+               "label": "Left",
+               "destination": "MAZE2"
+           },
+           {
+               "label": "Right",
+               "destination": "MAZE2"
+           }
+       ]
+   },
+   "MAZE2": {
+       "description": "The trail is full of blind corners and dark over hanging branches.",
+       "postdescription": {
+           "condition": "choice(True, False)",
+           "description": "You catch a glimpse of your furry friend as it rounds the corner ahead."
+       },
+       "options": [
+           {
+               "label": "Left",
+               "destinations": {
+                   "if": "choice(True, False, False)",
+                   "then": "MAZE3",
+                   "else": "MAZE2"
+               }
+           },
+           {
+               "label": "Right",
+               "destinations": {
+                   "if": "choice(True, False, False)",
+                   "then": "MAZE3",
+                   "else": "MAZE2"
+               }
+           }
+       ]
+   },
+   "MAZE3": {
+       "description": "You catch up to the creature just as it crosses a line drawn in the sandy forest floor. You double over and place your hands on your knees, trying to catch your breath. \"Congrats. You gets da medal.\", he says. \n\"But I lost.\", you stammer out.\n\"Ya, dats right two legs. Yous lost.\" The small create smiles widely. \"See ya.\".",
+       "options": [
+           {
+               "label": "Pick up the medal and look at it.",
+               "destination": "MAZEFINAL"
+           }
+       ]
+   },
+   "MAZEFINAL": {
+       "description": "You turn the medal over in your hands. Raised block letter spell out:\nYOU WERE BEATEN BY A SHREW\n\n...You turn and walk back into the forest.",
+       "flag": "SHREW",
+       "destination": "TREES4"
    },
    "ASCETIC1": {
        "description": "Her eyes snap open. You notice that she appears very thin and smells bad. Her head is shaved.\n\"Deny thyself, that you may know the truth. It is only through sacrifice that flesh quiets so that the mind may become clearer.\"",
@@ -956,10 +1024,10 @@
    },
    "PARK": {
        "description": "The grass is thick and spongy. You pause a moment beneath a large oak tree.",
-      "postdescription": {
-         "condition": "not PARK['visited']",
-         "description": "As you take in your surroundings a group of people ran between two clumps of trees. You catch glimpse of bright colors and... were those capes?",
-      }
+       "postdescription": {
+           "condition": "not PARK['visited']",
+           "description": "As you take in your surroundings a group of people ran between two clumps of trees. You catch glimpse of bright colors and... were those capes?"
+        },
        "options": [
            {
                "label": "Investigate woods.",
@@ -993,7 +1061,7 @@
                "eval": {
                    "flag": "CARRYINGPIE",
                    "exp": "False"
-               }
+               },
                "increment": "PEOPLEPIED",
                "destination": "LARPPIE"
            },
@@ -1053,7 +1121,7 @@
        "description": "The pie strikes her in the face and the spell is broken. You heroically run away.",
        "eval": {
            "flag": "CARRYINGPIE",
-           "exp": "False
+           "exp": "False"
        },
        "increment": "PEOPLEPIED",
        "destination": "ROADS"
