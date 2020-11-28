@@ -85,7 +85,7 @@
         "destination": "CAFE"
     },
     "RETIREESSTART": {
-        "description": "One table has three retirees sitting around it. A big, tall gentlemen with a wrinkled face and sagging jowls. A shorter, portly man with a wisp of white hair combed over his shiny pate. And a clearly once attractive woman. She has wrinkles at the corners of her eyes and mouth like starburst and when she is smiling, which seems often, her cheeks stand out, shiny and reddish. The table itself is loaded with food, omelets, hashbrowns, and enourmous cinnamon rolls. Steam rises from the food and coffee cups with amazing aromas. Your stomach growls.\n\"Howdy stranger\", the tall man smiles in a friendly way. \"Join us for breakfast?\"",
+        "description": "One table has three retirees sitting around it. A big, tall gentlemen with a wrinkled face and sagging jowls. A shorter, portly man with a wisp of white hair combed over his shiny pate. And a clearly once attractive woman. She has wrinkles at the corners of her eyes and mouth like starburst and when she is smiling, which seems often, her cheeks stand out, shiny and reddish. The table itself is loaded with food, omelets, hash browns, and enormous cinnamon rolls. Steam rises from the food and coffee cups with amazing aromas. Your stomach growls.\n\"Howdy stranger\", the tall man smiles in a friendly way. \"Join us for breakfast?\"",
         "options": [
             {
                 "label": "Sit down in the empty chair.",
@@ -111,7 +111,7 @@
         ]
     },
     "BREAKFAST2": {
-        "description": "The coffee is truly awful. \nBut the cinnamon roll is ambrosia itself. The frosting is the perfect balance of sweet and tangy, the dough is chewy and fluffy and delightfully warm. You lose yourself for a moment in sugar loaded ecstasy. \n\"Try the omlet.\", offers the tall man. His long jowly face seems naturally mournful and his brown eyes seem to hold a sadness but when he sees you enjoying the food (bacon, cheese and potatoes cooked in eggs and topped with country gravy) his smile is sincere and makes his sad eyes sparkle just a little. \n\"Always a pleasure to see a young person enjoy themselves.\", the cheery woman says. \"Why, when my grandson used to visit I'd bring him here every morning. You wouldn't believe how much he'd pack away. But a growing and active young person has to keep up their strength.\"",
+        "description": "The coffee is truly awful. \nBut the cinnamon roll is ambrosia itself. The frosting is the perfect balance of sweet and tangy, the dough is chewy and fluffy and delightfully warm. You lose yourself for a moment in sugar loaded ecstasy. \n\"Try the omelet.\", offers the tall man. His long jowly face seems naturally mournful and his brown eyes seem to hold a sadness but when he sees you enjoying the food (bacon, cheese and potatoes cooked in eggs and topped with country gravy) his smile is sincere and makes his sad eyes sparkle just a little. \n\"Always a pleasure to see a young person enjoy themselves.\", the cheery woman says. \"Why, when my grandson used to visit I'd bring him here every morning. You wouldn't believe how much he'd pack away. But a growing and active young person has to keep up their strength.\"",
         "increment": "COFFEEDRANK",
         "options": [
             {
@@ -125,7 +125,7 @@
         ]
     },
     "BREAKFAST3": {
-        "description": "As you continue to nibble, a bit of the lives of the three retirees comes out. All of them carry sorrow and joy. The woman spent her last 10 years before retirement on the late stage cancer ward of a children's hospital. Work she is proud of but clearly took a toll. The portly man was a public defender for 38 years in Chicago. He barely made enough money to retire. The tall man was a salesman who did alright but never saw his family much. All three of them are mostly estranged from children and grandchildren. She is a widow, the portly man a windower and the tall man a divorcee. All have numerous age and vocation related health issues (which they discuss at length) exacerbated by obesity and a sedentary lifestyle. But they enjoy the food and a fresh face. They seem to want nothing more than to feed you and talk at you. They laugh a lot.",
+        "description": "As you continue to nibble, a bit of the lives of the three retirees comes out. All of them carry sorrow and joy. The woman spent her last 10 years before retirement on the late stage cancer ward of a children's hospital. Work she is proud of but clearly took a toll. The portly man was a public defender for 38 years in Chicago. He barely made enough money to retire. The tall man was a salesman who did alright but never saw his family much. All three of them are mostly estranged from children and grandchildren. She is a widow, the portly man a widower and the tall man a divorcee. All have numerous age and vocation related health issues (which they discuss at length) exacerbated by obesity and a sedentary lifestyle. But they enjoy the food and a fresh face. They seem to want nothing more than to feed you and talk at you. They laugh a lot.",
         "options": [
             {
                 "label": "Join in the laughter.",
@@ -147,7 +147,7 @@
         "destination": "CAFE"
     },
     "SBEACH": {
-        "description": "Standing on the south beach, surf is pounding the sand in front of you. To the south the headland juts out into the ocean. To the north a lighthouse stands on a promitory. A fisherman stands is preparing his rod down by the surf.",
+        "description": "Standing on the south beach, surf is pounding the sand in front of you. To the south the headland juts out into the ocean. To the north a lighthouse stands on a promontory. A fisherman stands is preparing his rod down by the surf.",
         "options": [
             {
                 "label": "Go back to main street.",
@@ -177,7 +177,7 @@
         "destination": "FISHERMAN3"
     },
     "FISHERMAN3": {
-        "description": "\"I mean, some people don't feel that way. They prefer staying warm and dry, civilized and comfortable. Different strokes for different folks I 'spose. Takes all kinds. Most people have an internal philosophy, even if they haven't conciously thought it through. Some of the ones who have will try to convince you theirs the only way, but the ones who've thought about it and decided what works for them, but don't need to convince nobody, thems the ones I prefer to chew the fat with. Solid folks I calls 'em. Good for a sharing a cup 'o joe with or just setting out enjoying the wind.\" \nBy this point the fisherman is stroking his beard and staring at the waves. You're not sure he remembers you're there or if he's just musing at the ocean. He might be a little batty.",
+        "description": "\"I mean, some people don't feel that way. They prefer staying warm and dry, civilized and comfortable. Different strokes for different folks I 'spose. Takes all kinds. Most people have an internal philosophy, even if they haven't consciously thought it through. Some of the ones who have will try to convince you theirs the only way, but the ones who've thought about it and decided what works for them, but don't need to convince nobody, thems the ones I prefer to chew the fat with. Solid folks I calls 'em. Good for a sharing a cup 'o joe with or just setting out enjoying the wind.\" \nBy this point the fisherman is stroking his beard and staring at the waves. You're not sure he remembers you're there or if he's just musing at the ocean. He might be a little batty.",
         "options": [
             {
                 "label": "Why did you call this the \"end of the earth?\"",
@@ -210,7 +210,7 @@
         ]
     },
     "ARCADE": {
-        "description": "The dim arcade has the feel of a place long abandonded. The games are out of service.",
+        "description": "The dim arcade has the feel of a place long abandoned. The games are out of service.",
         "postdescription": {
             "condition": "WONPACMAN and WONDEFENDER and WONJOUST",
             "description": "A single light has come on illuminating a concession counter"
@@ -266,7 +266,7 @@
         ]
     },
     "EATGHOSTS": {
-        "description": "Your hands move the joystick without thinking and the yellow circle eats a larger pellet. The color drains from the screen and the ghosts flee. A memory of a cheering crowd flickers in your mind. Your hands move with unknown skill as you direct your yellow circle precisely around the maze eating pellets and the ghosts. With only two ghosts left the colors return to the screen and they begin to chase you again. Your super power has run out. There is only one corner of pellets left. You begin to move toward them, upper right, but an errie voice whispers in your ear, \"Left, through the tunnel.\"",
+        "description": "Your hands move the joystick without thinking and the yellow circle eats a larger pellet. The color drains from the screen and the ghosts flee. A memory of a cheering crowd flickers in your mind. Your hands move with unknown skill as you direct your yellow circle precisely around the maze eating pellets and the ghosts. With only two ghosts left the colors return to the screen and they begin to chase you again. Your super power has run out. There is only one corner of pellets left. You begin to move toward them, upper right, but an eerie voice whispers in your ear, \"Left, through the tunnel.\"",
         "options": [
             {
                 "label": "Move right, towards the pellets.",
@@ -279,7 +279,7 @@
         ]
     },
     "WINPACMAN": {
-        "description": "The cirlce heads towards a small gap in the left wall and suddenly appears on the right. The ghosts are thrown off as they suddenly must change directions. You drive up into the remaining corner of pellets. When the last is eaten a jingle of trimuph plays from the ancient speakers of the machine and echoes of cheers resound in the huge empty arcade. You look all around. There is no one there.",
+        "description": "The circle heads towards a small gap in the left wall and suddenly appears on the right. The ghosts are thrown off as they suddenly must change directions. You drive up into the remaining corner of pellets. When the last is eaten a jingle of triumph plays from the ancient speakers of the machine and echoes of cheers resound in the huge empty arcade. You look all around. There is no one there.",
         "flag": "WONPACMAN",
         "destination": "ARCADE"
     },
@@ -331,7 +331,7 @@
             "flag": "DEFENDERPASSES",
             "exp": "0"
         },
-        "description": "The bomb was well timed. The minelayer and abductors vaporize. Your heart is racing with andrenaline but your hands are steady. In a bit of brilliant flying you swoop in and rescue the falling colonist. A perfectly aimed laser blast destroys the last hunter. You are victorious.",
+        "description": "The bomb was well timed. The mine layer and abductors vaporize. Your heart is racing with adrenaline but your hands are steady. In a bit of brilliant flying you swoop in and rescue the falling colonist. A perfectly aimed laser blast destroys the last hunter. You are victorious.",
         "destination": "ARCADE",
         "flag": "WONDEFENDER"
     },
@@ -349,7 +349,7 @@
             "condition": "JOUSTPASSESS == 0",
             "description": "As you approach the game flickers to life."
         },
-        "description": "The noble knight sits atop his... ostrich?",
+        "description": "The noble knight sits atop his... Ostrich?",
         "options": [
             {
                 "label": "Flap!",
@@ -603,11 +603,11 @@
         "flag": "MYSTICACCEPTED"
     },
     "MYSTICREJECT": {
-        "description": "The mystic begins to scream obscenties and flail his arms. A flock of seagulls descends and swirl around him in a violent temptest of sqwaking, feathery, fury. You run for your life.",
+        "description": "The mystic begins to scream obscenities and flail his arms. A flock of seagulls descends and swirl around him in a violent tempest of squawking, feathery, fury. You run for your life.",
         "destination": "DUNES3"
     },
     "TREES1": {
-        "description": "The coastal pines bend over the trail forming a tunnel roofed with their twisted branches. Huckberries grow to head height alongside and the sandy ground is covered with low growing bear berry. \nRight at the entrance to the forrest a pile of black goop and seeds sits in the middle of trail.\nBear scat.\n\nA few yards in, the trail splits.",
+        "description": "The coastal pines bend over the trail forming a tunnel roofed with their twisted branches. Huckleberries grow to head height alongside and the sandy ground is covered with low growing bear berry. \nRight at the entrance to the forest a pile of black goop and seeds sits in the middle of trail.\nBear scat.\n\nA few yards in, the trail splits.",
         "options": [
             {
                 "label": "Continue down the trail and to the right.",
@@ -624,7 +624,7 @@
         ]
     },
     "TREES2": {
-        "description": "The trail has a magical feel to it. It's curves and dips leave you with little visibility. Sometimes you must duck to pass the low hanging branches of the trees. Sometimes you are brushed by the huckleberries, heavy with fruit, on either side. Sometimes you pass a small clearing thick with coarse grass. Bear sign and tracks are plentiful. The calls of hawks, larks, and seagulls are common. \nYou stop at a fork in the trail. A squirrel drops a few bits of pinecones on you and then scolds you for disturbing his snack.",
+        "description": "The trail has a magical feel to it. It's curves and dips leave you with little visibility. Sometimes you must duck to pass the low hanging branches of the trees. Sometimes you are brushed by the huckleberries, heavy with fruit, on either side. Sometimes you pass a small clearing thick with coarse grass. Bear sign and tracks are plentiful. The calls of hawks, larks, and seagulls are common. \nYou stop at a fork in the trail. A squirrel drops a few bits of pine cones on you and then scolds you for disturbing his snack.",
         "options": [
             {
                 "label": "Go left.",
@@ -714,7 +714,7 @@
         ]
     },
     "MAZE0": {
-        "description": "You come upon a small furry mammal. You approach it slowly and suprisingly it doesn't scurry away. You are standing right next to it when it looks up and clearly says, \"Hey mac, wanna race?\"\n\nSurprise and shock chase your wits away and you are slow to recover. You were just spoken to by a small woodland animal! In a Jersey accent?",
+        "description": "You come upon a small furry mammal. You approach it slowly and surprisingly it doesn't scurry away. You are standing right next to it when it looks up and clearly says, \"Hey mac, wanna race?\"\n\nSurprise and shock chase your wits away and you are slow to recover. You were just spoken to by a small woodland animal! In a Jersey accent?",
         "options": [
             {
                 "label": "Uh, ok, sure.",
@@ -775,7 +775,7 @@
         ]
     },
     "MAZEFINAL": {
-        "description": "You turn the medal over in your hands. Raised block letter spell out:\nYOU WERE BEATEN BY A SHREW\n\n...You turn and walk back into the forest.",
+        "description": "You turn the medal over in your hands. Raised block letters spell out:\nYOU WERE BEATEN BY A SHREW\n\n...You turn and walk back into the forest.",
         "flag": "SHREW",
         "destination": "TREES4"
     },
@@ -819,7 +819,7 @@
         "destination": "TREES6"
     },
     "ACCEPTASCETIC": {
-        "description": "The woman nods sagely and shuts her eyes again, resuming her meditation. As you turn to leave you whisper under your breath, \"And don't do anything fun.\".\nFortunately, she doesn't here you.",
+        "description": "The woman nods sagely and shuts her eyes again, resuming her meditation. As you turn to leave you whisper under your breath, \"And don't do anything fun.\".\nFortunately, she doesn't hear you.",
         "destination": "TREES6",
         "flag": "ASCETICACCEPTED"
     },
@@ -854,7 +854,7 @@
         ]
     },
     "MUDFLAT": {
-        "description": "You trudge for seemingly forever out onto the mudlfat. Finally you come upon the shiny object. It comes free of the muck with SLUUUUP sound. It's roundish, about as big as a grapefruit, kind of heavy. And it's uh...\n shiny. \n\nYou blink and suddenly realize you've been staring at it for a long time. Meanwhile your feet, ankles and calves have sunk into the muck.\nA stream of water is running by. The tide is coming in.",
+        "description": "You trudge for seemingly forever out onto the mudflat. Finally you come upon the shiny object. It comes free of the muck with SLUUUUP sound. It's roundish, about as big as a grapefruit, kind of heavy. And it's uh...\n shiny. \n\nYou blink and suddenly realize you've been staring at it for a long time. Meanwhile your feet, ankles and calves have sunk into the muck.\nA stream of water is running by. The tide is coming in.",
         "options": [
             {
                 "label": "Try to extricate yourself.",
@@ -907,7 +907,7 @@
         ]
     },
     "BAYSIDE3": {
-        "description": "A gravel road runs alongside the bay and ends abrubtly at a boat ramp. A dilapidated house sits between the road and the bay.",
+        "description": "A gravel road runs alongside the bay and ends abruptly at a boat ramp. A dilapidated house sits between the road and the bay.",
         "options": [
             {
                 "label": "Approach the dilapidated house.",
@@ -928,7 +928,7 @@
         ]
     },
     "HOUSE": {
-        "description": "The once white siding and the roof of this single wide trailer is spotted with clumps of moss. The whole house gives the impression of sagging under the weight of years of coastal rain and wind. The windows are filty. In the front yard a girl sits in a lawn chair wearing denim overalls, t-shirt and star shaped sunglasses.",
+        "description": "The once white siding and the roof of this single wide trailer is spotted with clumps of moss. The whole house gives the impression of sagging under the weight of years of coastal rain and wind. The windows are filthy. In the front yard a girl sits in a lawn chair wearing denim overalls, t-shirt and star shaped sunglasses.",
         "options": [
             {
                 "label": "Talk to the girl.",
@@ -988,7 +988,7 @@
         "increment": "PEOPLEPIED"
     },
     "ROAD1": {
-        "description": "Here the road splits. It continues as gravel to the west, back towards the ocean side and away from the bay. South, it turns to ashpalt and continues towards town.",
+        "description": "Here the road splits. It continues as gravel to the west, back towards the ocean side and away from the bay. South, it turns to asphalt and continues towards town.",
         "options": [
             {
                 "label": "Go west.",
@@ -1166,7 +1166,7 @@
         ]
     },
     "JOFREAKS": {
-        "description": "The crazy looking man raves and flaps his arms. He doesn't look exactly threatening but you're really not sure what he's capable of. You back slowyly out the door.",
+        "description": "The crazy looking man raves and flaps his arms. He doesn't look exactly threatening but you're really not sure what he's capable of. You back slowly out the door.",
         "destination": "TOWER1"
     },
     "TOWER3": {
@@ -1184,7 +1184,7 @@
         ]
     },
     "DESCRIBERTE": {
-        "description": "The good doctor launches into a lengthly explanation of which you understand very little. \n\"Whuh?\", you query.\nDoctor von Baron Kamelstien looks at you in irritation. \"It's a shiny ball. About this big.\" He holds up his hands to show something about the size of a grapefruit.",
+        "description": "The good doctor launches into a lengthy explanation of which you understand very little. \n\"Whuh?\", you query.\nDoctor von Baron Kamelstien looks at you in irritation. \"It's a shiny ball. About this big.\" He holds up his hands to show something about the size of a grapefruit.",
         "options": [
             {
                 "condition": "SHINY",

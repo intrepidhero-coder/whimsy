@@ -3,6 +3,8 @@ from spellchecker import SpellChecker
 
 spell = SpellChecker()
 
+SPELLCHECK = False
+
 w = json.loads(open('world.json').read())
 open('world.json.pp', 'w').write(json.dumps(w))
 
@@ -16,7 +18,7 @@ while tocheck:
     if type(n) is str and not n.upper() == n:
         words = [word.strip("()!?.,\"'-") for word in n.split()]
         unk = spell.unknown(words)
-        if unk:
+        if unk and SPELLCHECK:
             print("Possible misspelled word: {} in {}".format(unk, n))
 
     if type(n) is list:
