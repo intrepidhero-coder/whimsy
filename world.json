@@ -19,11 +19,11 @@
             "condition": "not BEGIN['visited']",
             "description": "Welcome to Wandering Whimsy!"
         },
-        "description": "You are standing on the sidewalk in a rundown beach town.",
-        "postdescription": "The Moonshot cafe is to your right. The arcade to your left. Ahead of you is a sign indicating beach access.",
+        "description": "You are standing on the sidewalk at the south end of a rundown beach town. It sits on a peninsula between the ocean and a bay.",
+        "postdescription": "The Moonshot cafe is to your right. The arcade to your left. Ahead of you is a sign indicating beach access. Main street runs north through the town.",
         "options": [
             {
-                "label": "Enter the cafe",
+                "label": "Enter the cafe.",
                 "destination": "CAFE"
             },
             {
@@ -31,8 +31,12 @@
                 "destination": "ARCADE"
             },
             {
-                "label": "Walk down to the beach",
+                "label": "Walk down to the beach.",
                 "destination": "SBEACH"
+            },
+            {
+                "label": "Walk up the road."
+                "destination": "ROADS"
             }
         ]
     },
@@ -903,6 +907,109 @@
        "increment": "PEOPLEPIED"
    },
    "ROAD1": {
+       "description": "Here the road splits. It continues as gravel to the west, back towards the ocean side and away from the bay. South, it turns to ashpalt and continues towards town.",
+       "options": [
+           {
+               "label": "Go west.",
+               "destination": "ROADW"
+           },
+           {
+               "label": "Go south.",
+               "destination": "ROADS"
+           }
+       ]
+   },
+   "ROADW": {
+       "description": "You walk down the gravel road for a while. It winds through a forest of tall evergreens. You come around a bend and a mysterious looking tower looms into view.",
+       "options": [
+           {
+               "label": "Investigate tower.",
+               "destination": "TOWER1"
+           },
+           {
+               "label": "Go east.",
+               "destination": "ROAD1"
+           }
+       ]
+   },
+   "ROADS": {
+       "description": "The road follows the edge of the bay. You come to a sign that says, \"Oceanside City Park\". There is a large grassy area with a few scattered oak trees.\nA shabby plywood stand is also beside the road. Hand painted across the front is a sign with, \"Fresh Oysters\" crossed out and \"Fortune teller\" scrawled underneath.",
+       "options": [
+           {
+               "label": "Talk to fortune teller.",
+               "destination": "WITCH1"
+           },
+           {
+               "label": "Check out the park.",
+               "destination": "PARK"
+           },
+           {
+               "label": "Head south into town.",
+               "destination": "BEGIN"
+           }
+       ]
+   },
+   "PARK": {
+       "description": "The grass is thick and spongy. You pause a moment beneath a large oak tree.",
+      "postdescription": {
+         "condition": "not PARK['visited']",
+         "description": "As you take in your surroundings a group of people ran between two clumps of trees. You catch glimpse of bright colors and... were those capes?",
+      }
+       "options": [
+           {
+               "label": "Investigate woods.",
+               "destination": "LARP1"
+           },
+           {
+               "label": "Go back to the road.",
+               "destination": "ROADS"
+           }
+       ]
+   },
+   "LARP1": {
+       "description": "As you enter the nearer clump of trees you experience a moment of dizziness. The world seems to come out of and then back into focus. Colors invert and then return. Suddenly out of the wood steps a figure in chain mail. A burly man with a golden beard raises a glittering sword. \"Defend yourself!\", he cries.",
+       "options": [
+           {
+               "label": "Scream loudly.",
+               "destination": "LARP2"
+           },
+           {
+               "label": "Duck for cover.",
+               "destination": "LARP2"
+           }
+       ]
+   },
+   "LARP2": {
+       "description": "Another figure steps from the wood. This time a woman in a flowing purple robe. Her jet black hair stream behind her and she raises her beringed hand to the knight. Arrows of white fire fly from her hand striking the him in the chest. He flies backwards and hits the ground. He does not stir.",
+       "options": [
+           {
+               "condition": "CARRYINGPIE",
+               "label": "Throw your pie at her.",
+               "eval": {
+                   "flag": "CARRYINGPIE",
+                   "exp": "False"
+               }
+               "increment": "PEOPLEPIED",
+               "destination": "LARPPIE"
+           },
+           {
+               "label": "Gibber with fear.",
+               "destination": "LARP3"
+           }
+       ]
+   },
+   "LARP3": {
+       "description": "She turns her terrible gaze on you, a predatory smile on her lips. Her hand comes up again. \"How foolish of you to come weaponless.\", she laughs an evil laugh. You desperately wish you had a sword, or... something to throw at her. As the arrows of light pierce the air between you, you smell something... baking? And then darkness takes you.",
+       "destination": "END"
+   },
+   "LARPPIE": {
+       "description": "When the pie leaves your hand it changes, becoming a serpentine dagger. It flies true and strikes the sorceress in the chest. Your head swims again and colors invert and you find yourself sitting on the grass in the park. A girl in front of you is holding a prop dagger under her arm and dramatically acting out her own death. She topples to the ground. A small group of young people in costumes gather around cheering and laughing, waving foam weapons. They pull you to your feet and clap you on your back and send you on your way.\nYou shake your head in wonder.",
+       "destination": "ROADS"
+   },
+   "WITCH1": {
+
+   },
+   "TOWER1": {
    }
 }
 
