@@ -15,7 +15,7 @@ QTextEdit {
     background-color: #111111;
     color: #EEEEEE;
     font-size: 13pt;
-    font-family: serif;
+    font-family: georgia;
     border: 1px solid black;
 }
 """
