@@ -1,21 +1,20 @@
 from PySide2.QtWidgets import QApplication, QTextEdit
 from PySide2.QtGui import QTextCursor
-from PySide2.QtCore import Qt, QProcess, Slot
+from PySide2.QtCore import Qt, Slot
+
+
+import main
 
 
 class Gui(QTextEdit):
     def __init__(self):
         QTextEdit.__init__(self)
         self.backstop = 0
-        self.shell = QProcess(self)
-        self.shell.setProgram("/bin/sh")
-        self.shell.setArguments(["-i"])
-        self.shell.setProcessChannelMode(QProcess.MergedChannels)
-        self.shell.readyRead.connect(self.readProcessOutput)
-        self.shell.finished.connect(self.closeEvent)
-        self.shell.start()
-        if not self.shell.waitForStarted():
-            self.append("Failed to start shell")
+        self.game = main.engine()
+        main.output = self.append
+        # get the first prompt
+        nextprompt = next(self.game)
+        self.processOutput(nextprompt)
 
     def moveToLastLine(self):
         tc = self.textCursor()
@@ -59,21 +58,22 @@ class Gui(QTextEdit):
         cmdString = tc.selectedText()
         tc.movePosition(QTextCursor.EndOfLine)
         self.setTextCursor(tc)
-        self.shell.write(cmdString.encode())
-        self.shell.write("\n".encode())
+        print(cmdString)
+        try:
+            nextprompt = self.game.send(cmdString)
+        except StopIteration:
+            self.close()
+        else:
+            self.processOutput(nextprompt)
 
-    @Slot()
-    def readProcessOutput(self):
-        stdOut = self.shell.readAll().data()
-        self.append(stdOut.decode())
+    def processOutput(self, message):
+        self.append(message)
         self.backstop = self.textCursor().position()
 
     def quit(self):
         self.close()
 
     def closeEvent(self, event):
-        self.shell.kill()
-        self.shell.waitForFinished()
         self.close()
 
 

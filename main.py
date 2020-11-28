@@ -62,7 +62,7 @@ def engine():
         for key in ("predescription", "description", "postdescription"):
             if key in currentNode:
                 processDescription(currentNode[key])
-            output()
+            output("")
         if not "options" in currentNode:
             # handle description only nodes
             choice = yield "Press Enter"
