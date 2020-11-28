@@ -40,7 +40,7 @@
             "condition": "not BEGIN['visited']",
             "description": "Welcome to Wandering Whimsy!"
         },
-        "description": "You are standing on the sidewalk at the south end of a rundown beach town. It sits on a peninsula between the ocean and a bay.",
+        "description": "You are standing on the sidewalk at the south end of a rundown beach town. It sits on a peninsula between the ocean and a bay. You have the day to explore the town and beach before catching the last bus home at 7pm.",
         "postdescription": "The Moonshot Cafe is to your right. The arcade is to your left. Ahead of you is a sign indicating beach access. Main street runs north through the town.",
         "options": [
             {
