@@ -1158,7 +1158,7 @@
        "destination": "TOWER1"
    },
    "TOWER3": {
-       "description": "\"It's Doctor! Dr. Joseph von Baron Kamelstien. I'm so glad you're here. I've lost my retroturboencabulator! Without it I will never complete my mission to send intelligent life to the Moon! You have to help me.\",
+       "description": "\"It's Doctor! Dr. Joseph von Baron Kamelstien. I'm so glad you're here. I've lost my retroturboencabulator! Without it I will never complete my mission to send intelligent life to the Moon! You have to help me.\"",
        "options": [
            {
                "label": "\"Sure thing Doc. Uh, what's it look like?",

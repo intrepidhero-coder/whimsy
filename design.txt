@@ -1,3 +1,13 @@
+[ ] Count moves
+[ ] End game on N moves
+[ ] Add notes about making the bus at the end of the day
+[ ] Add scorecard at end
+[ ] Qt GUI
+[ ] Compile for windows
+[ ] Compile for linux
+[ ] Compile for mac?
+
+
 You begin as a faceless person entering a depressed beach town. You interact with characters, each of which has a vignette that can be played through. Achievements are hidden and suprising things you can discover. They are tracked and summarized and the end of the game.
 
 The game tracks your moves and will give some indications of the time of day based on your moves. At night fall you'll have a choice of where to spend the night and the game ends.
