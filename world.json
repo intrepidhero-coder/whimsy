@@ -14,6 +14,68 @@
             "jump": "END"
         }
     },
+    "SCORE": [
+        {
+            "condition": "WONPACMAN",
+            "message": "You beat Ms Pac-Man."
+        },
+        {
+            "condition": "WONDEFENDER",
+            "message": "You beat Defender. Dude, that's a hard game."
+        },
+        {
+            "condition": "WONJOUST",
+            "message": "You beat Joust. What were they thinking when they came up with that game?"
+        },
+        {
+            "condition": "WONPACMAN and WONDEFENDER and WONJOUST",
+            "message": "You beat the arcade!"
+        },
+        {
+            "condition": "MYSTICACCEPTED",
+            "message": "You received the teachings of Nietzsche."
+        },
+        {
+            "condition": "TAOACCEPTED",
+            "message": "You received the teachings of the Tao."
+        },
+        {
+            "condition": "ASCETICACCEPTED",
+            "message": "You received the teachings of Aceticism."
+        },
+        {
+            "condition": "HEDONISTACCEPTED",
+            "message": "You received the teachings of the Hedonist."
+        },
+        {
+            "condition": "STOICACCEPTED",
+            "message": "You received the teachings of Stoicism."
+        },
+        {
+            "condition": "MYSTICACCEPTED and TAOACCEPTED and ASCETICACCEPTED and  HEDONISTACCEPTED and STOICACCEPTED",
+            "message": "You reached enlitenment,"
+        },
+        {
+            "condition": "not (MYSTICACCEPTED or TAOACCEPTED or ASCETICACCEPTED or  HEDONISTACCEPTED or STOICACCEPTED)",
+            "message": "You rejected all philosophy. Here, have a burrito instead."
+        },
+        {
+            "condition": "HERRING",
+            "message": "You found a herring."
+        },
+        {
+            "condition": "SHREW",
+            "message": "You were beaten by a shrew."
+        },
+        {
+            "value": "PEOPLEPIED",
+            "message": "You hit {} people with cream pies."
+        },
+        {
+            "value": "COFFEEDRANK",
+            "message": "You drank {} cups of coffee."
+        }
+    ],
     "COFFEEDRANK": 0,
     "CAFEOUTOFCOFFEE": false,
     "CARRYINGPIE": false,
@@ -337,11 +399,11 @@
             {
                 "condition": "DEFENDERPASSES >= 2",
                 "label": "Fire a bomb!",
-                "destination": "WONDEFENDER"
+                "destination": "WINDEFENDER"
             }
         ]
     },
-    "WONDEFENDER": {
+    "WINDEFENDER": {
         "eval": {
             "flag": "DEFENDERPASSES",
             "exp": "0"
@@ -393,11 +455,11 @@
             {
                 "condition": "JOUSTPASSES >= 2",
                 "label": "Dodge the lava monster!",
-                "destination": "WONJOUST"
+                "destination": "WINJOUST"
             }
         ]
     },
-    "WONJOUST": {
+    "WINJOUST": {
         "eval": {
             "flag": "JOUSTPASSES",
             "exp": "0"

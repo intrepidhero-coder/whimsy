@@ -126,7 +126,16 @@ def engine():
                 # last thing before leaving a node: mark it visited and record a move
                 currentNode["visited"] = True
                 world["MOVES"] += 1
-    # TODO: display acheivments
+    # Display achievements
+    output("")
+    output("Final Score: {}".format(randint(1, 10000)))
+    for item in world["SCORE"]:
+        if "condition" in item:
+            if _eval(item["condition"]):
+                output(item["message"])
+        elif "value" in item:
+            output(item["message"].format(_eval(item["value"])))
+    choice = yield "Press Enter"
 
 def main():
     game = engine()
