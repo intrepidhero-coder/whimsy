@@ -1126,9 +1126,128 @@
        "increment": "PEOPLEPIED",
        "destination": "ROADS"
    },
-           
-   
    "TOWER1": {
+       "description": "The tower is 4 or 5 stories tall and made of concrete. The top story has window all around, a bit like a lighthouse. But this doesn't really seem like a lighthouse. There's not light for example. Or house for that matter. There are no windows below the top floor and huge electrical cables are running into the side of the tower. Giant, sliding metal doors are facing the road. Beside them is smaller door.",
+       "options": [
+           {
+               "label": "Go inside.",
+               "destination": "TOWER2"
+           },
+           {
+               "label": "Leave.",
+               "destination": "ROADW"
+           }
+       ]
+   },
+   "TOWER2": {
+       "description": "You try the small door first and find it unlocked. Inside the hum of electrical machinery is everywhere. Cables and hoses run in big bundles across the walls and ceiling. A huge cavernous space is inside. In the center of this space...\nstands a rocket.\nFour big landing struts hold it upright, four triangular fins stick out the bottom. A giant bell nozzle projects from the engine. \n\"What are you doing here?!\", screams a shrill voice.\nYou better think fast.",
+       "options": [
+           {
+               "label": "\"Uh, dominoes pizza delivery?\"",
+               "message": "\"What?!\", screams the man. \"I didn't order pizza! We don't even have Dominoes in this town!\"",
+               "destination": "JOFREAKS"
+           },
+           {
+               "label": "I'm a reporter from the Oceanfront Gazette, here interview you, Mr...",
+               "destination": "TOWER3"
+           }
+       ]
+   },
+   "JOFREAKS": {
+       "description": "The crazy looking man raves and flaps his arms. He doesn't look exactly threatening but you're really not sure what he's capable of. You back slowyly out the door.",
+       "destination": "TOWER1"
+   },
+   "TOWER3": {
+       "description": "\"It's Doctor! Dr. Joseph von Baron Kamelstien. I'm so glad you're here. I've lost my retroturboencabulator! Without it I will never complete my mission to send intelligent life to the Moon! You have to help me.\",
+       "options": [
+           {
+               "label": "\"Sure thing Doc. Uh, what's it look like?",
+               "destination": "DESCRIBERTE"
+           },
+           {
+               "condition": "SHINY",
+               "label": "Pull out the shiny thing you found in the mud.",
+               "destination": "FOUNDRTE"
+           }
+       ]
+   },
+   "DESCRIBERTE": {
+       "description": "The good doctor launches into a lengthly explanation of which you understand very little. \n\"Whuh?\", you query.\nDoctor von Baron Kamelstien looks at you in irritation. \"It's a shiny ball. About this big.\" He holds up his hands to show something about the size of a grapefruit.",
+       "options": [
+           {
+               "condition": "SHINY",
+               "label": "Pull out the shiny thing you found in the mud.",
+               "destination": "FOUNDRTE"
+           },
+           {
+               "label": "Go looking for it.",
+               "destination": "TOWER1"
+           }
+       ]
+   },
+   "FOUNDRTE": {
+       "description": "Doctor Joseph claps his hands. \"You found it! Oh, huzzah!\" He snatches the retro...thingummy and scurries around the rocket, shouting and banging on things.\n\nYou let the good doctor go about his business and wonder if this thing could really ever fly. As you stand there pondering a strange sound reaches your ears, not from the rocket but from behind you. \n\"BZZZZRT!\"\nFollowed by strange voices behind you. Metallic, monotone voices. \"XT-4751, we have received new orders from command.\"\n\"I acknowledge RJ-1004. Orders received. Glory to Tharblaxx.",
+       "options": [
+           {
+               "label": "Turn around slowly.",
+               "destination": "ALIENS1"
+           },
+           {
+               "label": "Call for the Doctor",
+               "message": "Doctor Jo can't seem to hear you over his work and ravings.",
+               "destination": "ALIENS1"
+           }
+       ]
+   },
+   "ALIENS1": {
+       "description": "Two creatures begin to make their way over to the rocket. They are tall and thin with strange angular heads... or maybe helmets? Their intentions are unclear but they seem menacing.",
+       "options": [
+           {
+               "label": "Grab the nearest blunt instrument and attack them!",
+               "destination": "ALIENSFIGHT"
+           },
+           {
+               "label": "Call out to them.",
+               "destination": "ALIENSTALK"
+           }
+       ]
+   },
+   "ALIENSFIGHT": {
+       "description": "The wrench isn't much of a weapon and honestly, you're not much of fighter. Your first (and last) blow bounces clumsily off the alien's head/helmet. Both aliens turn to face you.",
+       "destination": "ALIENSTALK"
+   },
+   "ALIENSTALK": {
+       "description": "\"Hey, wait!\", your tremulous voice carries surprisingly well and Doctor Jo finally quits yelling and banging on things to come see what's going on. The aliens stop and face you both. One raises an open palm and says, \"Greetings Earthling. Take me to your leader.\"\n\nThey both begin to emit strange sounds, low and quiet at first but gradually louder. A strange pulsating burst of noise. One of them begins to stomp rhythmically while the other beats the chest plate of it's suit. \nSlowly understanding begins to dawn on you.",
+       "destination": "ALIENSLAUGH"
+   },
+   "ALIENSLAUGH": {
+       "description": "\"You are correct RJ-1004. Truly that line never gets old.\"\nThe aliens are laughing? Your temper begins to rise. The wrench is still in your hand but you also spy some equipment on a nearby table that looks almost like a gun.",
+       "options": [
+           {
+               "label": "Grab equipment from the table and turn it on the aliens.",
+               "destination": "PIEOLATOR"
+           },
+           {
+               "label": "Take another swing with the wrench.",
+               "destination": "BEPIED"
+           }
+       ]
+   },
+   "PIEOLATOR": {
+       "description": "You grab for the device and throw the big switch on top. The whine of a capacitor charging fills the air. \"Nine! Die PIE-o-LATOR is not perfected! Desist!\", screams the doctor. But your rage will not be diverted. As soon as the charging indicator hits green you sweep the weapon across the aliens and pull the trigger. The air is filled with screams and the smell of burning sugar. The aliens are quickly buried in a mountain of cream pies.",
+       "destination": "GOLAUNCH"
+   },
+   "BEPIED": {
+       "description": "Your second attempt at physical violence is even more feeble. The aliens push you aside and draw weapons. They train them on you and scream in horrible alien languages. The air is filled with the sounds of your own anguish and the smell of pastries.",
+       "destination": "GOLAUNCH"
+   },
+   "GOLAUNCH": {
+       "description": "You, RJ, and XT are sitting on a park bench about a mile away. The aliens have opened a small portal in their helmets and are scraping bits of pastry off of you and each other and stuffing it inside and making slurping sounds. You're basically doing the same thing. The three of you watch in wonder as the rocket begins to glide upwards atop a huge trail of fire. \"Best of luck Dr. Jo.\", you say. \"Hey is he just going to run into more guys like you up there?\", you ask your new friends. \n\"No. We are not from your galaxy. It is unlikely you or Dr. Jo will encounter our kind ever again. Goodbye.\"\n\"BIP!\"\nWith a weird sound your friends are gone and so are all the sticky desserts that they had plastered you with.\nWho is ever going to believe you met aliens? Aliens that go around starting intergalactic food fights? What a day.",
+       "destination": "ROAD1",
+       "eval": {
+           "flag": "PEOPLEPIED",
+           "exp": "PEOPLEPIED + 2"
+       }
    }
 }
 
