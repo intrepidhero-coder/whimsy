@@ -26,7 +26,7 @@
             "description": "Welcome to Wandering Whimsy!"
         },
         "description": "You are standing on the sidewalk at the south end of a rundown beach town. It sits on a peninsula between the ocean and a bay.",
-        "postdescription": "The Moonshot cafe is to your right. The arcade to your left. Ahead of you is a sign indicating beach access. Main street runs north through the town.",
+        "postdescription": "The Moonshot Cafe is to your right. The arcade is to your left. Ahead of you is a sign indicating beach access. Main street runs north through the town.",
         "options": [
             {
                 "label": "Enter the cafe.",
