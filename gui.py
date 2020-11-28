@@ -75,7 +75,7 @@ class Gui(QTextEdit):
         self.shell.kill()
         self.shell.waitForFinished()
         self.close()
-        
+
 
 class Main:
     def __init__(self):

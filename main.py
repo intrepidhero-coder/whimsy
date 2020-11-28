@@ -2,7 +2,13 @@ import os
 import json
 from random import choice, randint
 
-GLOBALS = {"randint": randint, "choice": choice}
+
+class AdventureGame:
+    GLOBALS = {"randint": randint, "choice": choice}
+
+    def __init__(self):
+        pass
+
 
 def processDescription(desc, world):
     if "condition" in desc:
@@ -61,7 +67,11 @@ def main():
             continue
         else:
             # display options
-            options = [opt for opt in currentNode["options"] if not "condition" in opt or eval(opt["condition"], GLOBALS, world)]
+            options = [
+                opt
+                for opt in currentNode["options"]
+                if not "condition" in opt or eval(opt["condition"], GLOBALS, world)
+            ]
             for n, opt in enumerate(options):
                 print("{}. {}".format(n, opt["label"]))
         print("(save or quit)")
