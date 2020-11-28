@@ -375,7 +375,7 @@
             {
                 "label": "FIRE!",
                 "destinations": {
-                    "if": "choice(True, False)",
+                    "if": "choice([True, False])",
                     "then": "DEFENDER",
                     "else": "LOSTDEFENDER"
                 }
@@ -383,7 +383,7 @@
             {
                 "label": "Rescue that colonist!",
                 "destinations": {
-                    "if": "choice(True, False)",
+                    "if": "choice([True, False])",
                     "then": "DEFENDER",
                     "else": "LOSTDEFENDER"
                 }
@@ -391,7 +391,7 @@
             {
                 "label": "Dodge the mine!",
                 "destinations": {
-                    "if": "choice(True, False)",
+                    "if": "choice([True, False])",
                     "then": "DEFENDER",
                     "else": "LOSTDEFENDER"
                 }
@@ -431,7 +431,7 @@
             {
                 "label": "Flap!",
                 "destinations": {
-                    "if": "choice(True, False)",
+                    "if": "choice([True, False])",
                     "then": "JOUST",
                     "else": "LOSTJOUST"
                 }
@@ -439,7 +439,7 @@
             {
                 "label": "Go Left!",
                 "destinations": {
-                    "if": "choice(True, False)",
+                    "if": "choice([True, False])",
                     "then": "JOUST",
                     "else": "LOSTJOUST"
                 }
@@ -447,7 +447,7 @@
             {
                 "label": "Go Right!",
                 "destinations": {
-                    "if": "choice(True, False)",
+                    "if": "choice([True, False])",
                     "then": "JOUST",
                     "else": "LOSTJOUST"
                 }
@@ -570,7 +570,7 @@
     "DUNES1": {
         "description": "The dunes are lumpy, sandy hills, mostly topped with coarse grass. Behind you is the beach and ahead is a line of dark, twisted, and bent pine trees. One trail wanders ahead and enters the trees, another continues through the dunes.",
         "postdescription": {
-            "condition": "choice((True, False))",
+            "condition": "choice([True, False])",
             "description": "A mysterious tower rises out of the fog in the distance."
         },
         "options": [
@@ -581,7 +581,7 @@
             {
                 "label": "Follow the trail through the dunes.",
                 "destinations": {
-                    "if": "choice((True, False))",
+                    "if": "choice([True, False])",
                     "then": "DUNES1",
                     "else": "DUNES2"
                 }
@@ -591,7 +591,7 @@
     "DUNES2": {
         "description": "The dunes are sandy, lumpy hills, mostly topped with coarse grass. Behind you is the beach and ahead is a line of dark, twisted, and bent pine trees. One trail wanders ahead and enters the trees, another continues through the dunes.",
         "postdescription": {
-            "condition": "choice((True, False))",
+            "condition": "choice([True, False])",
             "description": "The spice must flow."
         },
         "options": [
@@ -716,7 +716,7 @@
     "TREES3": {
         "description": "The dark tunnel of trail gives you a slightly claustrophobic feeling. You cannot see much ahead. There could be a bear around any corner. Your steps quicken. A smaller trail diverges to your right.",
         "postdescription": {
-            "condition": "choice(False, False, False, True)",
+            "condition": "choice([False, False, False, True])",
             "description": "A bear suddenly steps out a bush just ahead of you!\n\nYou freeze in terror!\n\nBut it seems as surprised as you are. The bear dives across the trail into the bushes again. He hear it crashing through undergrowth as it runs away."
         },
         "options": [
@@ -820,14 +820,14 @@
     "MAZE2": {
         "description": "The trail is full of blind corners and dark over hanging branches.",
         "postdescription": {
-            "condition": "choice(True, False)",
+            "condition": "choice([True, False])",
             "description": "You catch a glimpse of your furry friend as it rounds the corner ahead."
         },
         "options": [
             {
                 "label": "Left.",
                 "destinations": {
-                    "if": "choice(True, False, False)",
+                    "if": "choice([True, False, False])",
                     "then": "MAZE3",
                     "else": "MAZE2"
                 }
@@ -835,7 +835,7 @@
             {
                 "label": "Right.",
                 "destinations": {
-                    "if": "choice(True, False, False)",
+                    "if": "choice([True, False, False])",
                     "then": "MAZE3",
                     "else": "MAZE2"
                 }
