@@ -73,6 +73,8 @@ def engine():
         if not "visited" in currentNode:
             # visited is not in the base world file
             currentNode["visited"] = False
+        # optionally, nodes can affect game state
+        processFlag(currentNode)
         for key in ("predescription", "description", "postdescription"):
             if key in currentNode:
                 processDescription(currentNode[key])
@@ -81,8 +83,6 @@ def engine():
             # handle description only nodes
             choice = yield "Press Enter"
             currentNodeKey = currentNode["destination"]
-            # optionally, these nodes can affect game state
-            processFlag(currentNode)
             currentNode["visited"] = True
             world["MOVES"] += 1
             continue
