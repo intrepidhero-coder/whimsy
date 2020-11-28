@@ -1,14 +1,49 @@
+import os
+import sys
+
+
 from PySide2.QtWidgets import QApplication, QTextEdit
-from PySide2.QtGui import QTextCursor
+from PySide2.QtGui import QTextCursor, QIcon
 from PySide2.QtCore import Qt, Slot
 
 
 import main
 
 
+STYLESHEET = """
+QTextEdit {
+    background-color: #111111;
+    color: #EEEEEE;
+    font-size: 13pt;
+    font-family: serif;
+    border: 1px solid black;
+}
+"""
+
+
+EXEDIR = (
+    hasattr(sys, "_MEIPASS")
+    and os.path.abspath(os.path.dirname(sys.executable))
+    or os.path.abspath(os.path.dirname(sys.argv[0]))
+)
+
+
+def RESOURCE(filename):
+    return os.path.join(EXEDIR, "data", filename)
+
+
 class Gui(QTextEdit):
     def __init__(self):
         QTextEdit.__init__(self)
+        self.setMinimumSize(800, 600)
+        self.setStyleSheet(STYLESHEET)
+        self.setWindowIcon(QIcon(RESOURCE("noun_Lighthouse_1548448.png")))
+        if os.name == "nt":
+            import ctypes
+
+            myappid = "MyOrg.Mygui.1.0.0"  # Arbitrary
+            ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+
         self.backstop = 0
         self.game = main.engine()
         main.output = self.append
