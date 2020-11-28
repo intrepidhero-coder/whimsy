@@ -4,4 +4,5 @@ python3 -c "import json; w = json.loads(open('world.json').read()); open('world.
 # orphan nodes (in world but not in any destinations)
 # missing nodes (in destinations but not world)
 # all flags initialized
-# 
+# consistent punctuation in options
+# spellcheck 
