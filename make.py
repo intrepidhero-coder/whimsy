@@ -67,7 +67,7 @@ def makeExe():
     os.environ["PYTHONHASHSEED"] = SEED
     # TODO: add excludes
     result = sub.run(
-        ["pyinstaller", "--onefile", "--noconfirm", "--name", NAME, MAIN + ".py",]
+        ["pyinstaller", "--onefile", "--windowed", "--noconfirm", "--name", NAME, MAIN + ".py",]
     )
 
     # build.txt to dist
