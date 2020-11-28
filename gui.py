@@ -29,7 +29,7 @@ EXEDIR = (
 
 
 def RESOURCE(filename):
-    return os.path.join(EXEDIR, "data", filename)
+    return os.path.join(EXEDIR, filename)
 
 
 class Gui(QTextEdit):
@@ -93,7 +93,6 @@ class Gui(QTextEdit):
         cmdString = tc.selectedText()
         tc.movePosition(QTextCursor.EndOfLine)
         self.setTextCursor(tc)
-        print(cmdString)
         try:
             nextprompt = self.game.send(cmdString)
         except StopIteration:
