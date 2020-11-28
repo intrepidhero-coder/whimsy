@@ -14,6 +14,7 @@
     "HEDONISTACCEPTED": false,
     "STOICACCEPTED": false,
     "SHINY": false,
+    "BACKWORDS": false,
     "BEGIN": {
         "predescription": {
             "condition": "not BEGIN['visited']",
@@ -937,7 +938,11 @@
        "options": [
            {
                "label": "Talk to fortune teller.",
-               "destination": "WITCH1"
+               "destinations": {
+                  "if": "BACKWORDS",
+                  "then": "WITCHCURE",
+                  "else": "WITCH1"
+               }
            },
            {
                "label": "Check out the park.",
@@ -1007,8 +1012,54 @@
        "destination": "ROADS"
    },
    "WITCH1": {
-
+       "description": "A shockingly old woman sits on a stool in the booth. Her face seemingly nothing but wrinkled folds of skin. Her stringy gray hair hangs down haphazardly. \"Would you like your fortune told?\", she croaks.",
+       "options": [
+           {
+               "label": "\"Yes, please.\"",
+               "message": "\"Money first.\"\n\"Uhh, sorry, I don't have any money.\"",
+               "destination": "WITCHCURSE"
+           },
+           {
+               "label": "\"No thanks\"",
+               "message": "\"You impolite barbarian cur!\"",
+               "destination": "WITCHCURSE"
+           }
+       ]
    },
+   "WITCHCURSE": {
+       "description": "\"You starvelling, you eel-skin, you dried neat’s-tongue, you bull’s-pizzle, you stock-fish–O for breath to utter what is like thee!-you tailor’s-yard, you sheath, you bow-case, you vile standing tuck!\"\n\"I curse you to go backwards for the rest of your miserable days!\"",
+       "flag": "BACKWORDS",
+       "destination": "WITCHCURE"
+   },
+   "WITCHCURE": {
+       "description": "If only you had some way to strike back at this foul demon. Something to throw at her maybe?",
+       "options": [
+           {
+               "condition": "CARRYINGPIE",
+               "label": "Throw a pie.",
+               "destination": "CURED",
+               "eval": {
+                   "flag": "BACKWORDS",
+                   "exp": "False"
+               }
+           },
+           {
+               "label": "Alas!",
+               "destination": "ROADS"
+           }
+       ]
+   },
+   "CURED": {
+       "description": "The pie strikes her in the face and the spell is broken. You heroically run away.",
+       "eval": {
+           "flag": "CARRYINGPIE",
+           "exp": "False
+       },
+       "increment": "PEOPLEPIED",
+       "destination": "ROADS"
+   },
+           
+   
    "TOWER1": {
    }
 }
