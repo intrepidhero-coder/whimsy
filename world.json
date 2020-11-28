@@ -426,7 +426,7 @@
             "condition": "JOUSTPASSES == 0",
             "description": "As you approach the game flickers to life."
         },
-        "description": "The noble knight sits atop his... Ostrich?",
+        "description": "The noble knight sits atop his... Ostrich? Enemy knights fly at you atop their evil buzzards. The lava monster lurks in the corners, waiting for unsuspecting knights on ugly, oversized fowl.",
         "options": [
             {
                 "label": "Flap!",
