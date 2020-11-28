@@ -43,18 +43,20 @@ def makeExe():
         return
 
     # clone
+    """
     cwd = os.path.join(cwd, "source")
     os.mkdir(cwd)
     result = sub.run(
-        ["git", "clone", "--branch", tag, repo, cwd], capture_output=True
+        ["git", "clone", repo, cwd], capture_output=True
     )
-    if len(result.stderr) != 0:
+    if not b"done." in result.stderr:
         print("Failed to clone {}".format(repo))
         print(result.stderr)
         return
     os.chdir(cwd)
     print("Cloned ", repo)
 
+    """
     # get the date of the current checkout
     result = sub.run(["hg", "log", "-r", tag], capture_output=True)
     str_date = result.stdout.decode("latin-1").splitlines()[3][5:].strip()
@@ -104,7 +106,7 @@ def makeExe():
     for fullname in filenames:
         print("Adding: ", fullname)
         # file modified times are set to the date of the selected checkout
-        os.utime(fullname, times=(co_date, co_date))
+        #os.utime(fullname, times=(co_date, co_date))
         zip_archive.write(fullname)
     zip_archive.close()
     sh.copy(zip_filename, repo)
