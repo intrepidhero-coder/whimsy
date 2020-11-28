@@ -17,6 +17,9 @@
     "SHREW": false,
     "SHINY": false,
     "BACKWORDS": false,
+    "FAKE": {
+        "description": "You won't ever reach the fake node."
+    },
     "BEGIN": {
         "predescription": {
             "condition": "not BEGIN['visited']",
@@ -47,7 +50,7 @@
         "description": "The cafe smells of hot grease and burnt coffee. The shabby, false wood panelled walls are smattered with flyers for boats and trailers for sale, real estate advertisements, and pictures of the local softball team.",
         "options": [
             {
-                "label": "Order coffee",
+                "label": "Order coffee.",
                 "destinations": {
                     "if": "CAFEOUTOFCOFFEE",
                     "then": "CAFEHASNOCOFFEE",
@@ -56,17 +59,17 @@
             },
             {
                 "condition": "not CARRYINGPIE",
-                "label": "Order a custard pie",
+                "label": "Order a custard pie.",
                 "message": "The waitress hands you a pie.",
                 "flag": "CARRYINGPIE",
                 "destination": "CAFE"
             },
             {
-                "label": "Talk to retirees",
+                "label": "Talk to retirees.",
                 "destination": "RETIREESSTART"
             },
             {
-                "label": "Go outside",
+                "label": "Go outside.",
                 "destination": "BEGIN"
             }
         ]
@@ -117,7 +120,7 @@
             },
             {
                 "label": "Thank them and leave.",
-                "destination": "REJECTTHEHEDONIST"
+                "destination": "REJECTHEDONIST"
             }
         ]
     },
@@ -147,15 +150,15 @@
         "description": "Standing on the south beach, surf is pounding the sand in front of you. To the south the headland juts out into the ocean. To the north a lighthouse stands on a promitory. A fisherman stands is preparing his rod down by the surf.",
         "options": [
             {
-                "label": "Go back to main street",
+                "label": "Go back to main street.",
                 "destination": "BEGIN"
             },
             {
-                "label": "Climb to lighthouse",
+                "label": "Climb to lighthouse.",
                 "destination": "TRAILTOLIGHTHOUSE"
             },
             {
-                "label": "Talk to fisherman",
+                "label": "Talk to fisherman.",
                 "destination": "FISHERMAN1"
             }
         ]
@@ -214,16 +217,16 @@
         },
         "options": [
             {
-                "label": "Go outside",
+                "label": "Go outside.",
                 "destination": "BEGIN"
             },
             {
-                "label": "Look at the machines",
+                "label": "Look at the machines.",
                 "destination": "PICKAGAME"
             },
             {
                 "condition": "WONPACMAN and WONDEFENDER and WONJOUST",
-                "label": "Approach the concessions counter",
+                "label": "Approach the concessions counter.",
                 "destination": "ARCADECOUNTER"
             }
         ]
@@ -267,17 +270,17 @@
         "options": [
             {
                 "label": "Move right, towards the pellets.",
-                "destination": "LOSEPACMAN"
+                "destination": "LOSTPACMAN"
             },
             {
-                "label": "Go left, towards the nearest wall",
+                "label": "Go left, towards the nearest wall.",
                 "destination": "WINPACMAN"
             }
         ]
     },
     "WINPACMAN": {
         "description": "The cirlce heads towards a small gap in the left wall and suddenly appears on the right. The ghosts are thrown off as they suddenly must change directions. You drive up into the remaining corner of pellets. When the last is eaten a jingle of trimuph plays from the ancient speakers of the machine and echoes of cheers resound in the huge empty arcade. You look all around. There is no one there.",
-        "flag": "PACMANWON",
+        "flag": "WONPACMAN",
         "destination": "ARCADE"
     },
     "LOSTPACMAN": {
@@ -462,8 +465,17 @@
         "destination": "END"
     },
     "LIGHTHOUSE": {
-        "description": "As you approach the light house a strange demon like creature runs out and past you. Screaming. You die of fright.",
-        "destination": "END"
+        "description": "The lighthouse is old looking. It's once bright white sides have streak of rust and grim. The windows are filmed over and it's copper roof tarnished green. And yet there is a solid strength to it. As though it's watch continues on.",
+        "options": [
+            {
+                "label": "Follow trail to north beach.",
+                "destination": "NBEACH"
+            },
+            {
+                "label": "Follow trail to south beach.",
+                "destination": "TRAILFROMLIGHTHOUSE"
+            }
+        ]
     },
     "NBEACH": {
         "description": "A long flat beach seems to continue on forever and disappear into the fog. The interminable pound of the cold blue gray surf on one hand and rolling sandy dunes on the other. Tufts of salt grass bend in the wind and loose sand skates across ground. A flock of tiny white birds chase the waves as they advance and retreat. ",
@@ -499,7 +511,7 @@
             }
         ]
     },
-   "DUNES2": {
+    "DUNES2": {
         "description": "The dunes are sandy, lumpy hills, mostly topped with coarse grass. Behind you is the beach and ahead is a line of dark, twisted, and bent pine trees. One trail wanders ahead and enters the trees, another continues through the dunes.",
         "postdescription": {
             "condition": "choice((True, False))",
@@ -519,8 +531,8 @@
                 }
             }
         ]
-   },
-   "DUNES3": {
+    },
+    "DUNES3": {
         "description": "In a bowl shaped depression between dunes there is a bald figure seated on a log. He sits with his legs folded, back straight and eyes closed. His hands rest on his knees. He appears to be wearing a bed sheet.",
         "options": [
             {
@@ -528,375 +540,375 @@
                 "destination": "MYSTIC1"
             },
             {
-                "label": "Continue on path",
+                "label": "Continue on path.",
                 "destination": "DUNES1"
             }
         ]
-   },
-   "MYSTIC1": {
-       "description": "As you approach the old man his eyes snap open. His gaze is riveting and seems to tear away all pretense as he looks into your very soul. \nHe also smells very bad.\n\"Do you seek the way?\", he asks.",
-       "options": [
-           {
-               "label": "\"Yes, I seek the way.\"",
-               "destination": "MYSTICWAY"
-           },
-           {
-               "label": "\"What is this way?\"",
-               "destination": "MYSTICWAY"
-           }
-       ]
-   },
-   "MYSTICWAY": {
-       "description": "\"Your feet are already upon it.\", he intones. \"The path of life of life is suffering. What does not kill you makes you stronger. \"",
-       "options": [
-           {
-               "label": "Nod, knowingly.",
-               "destination": "MYSTICWAY2"
-           },
-           {
-               "label": "\"That's baloney.",
-               "destination": "MYSTICREJECT"
-           }
-       ]
-   },
-   "MYSTICWAY2": {
-       "description": "His voice rises, \"Try looking into that place where you dare not look! If you gaze long enough into an abyss, the abyss will gaze back into you. Face your fear, for fear is the mind-killer!\"",
-       "options": [
-           {
-               "label": "Nod, knowingly.",
-               "destination": "MYSTICWAY3"
-           },
-           {
-               "label": "\"You're a couple fries short of a happy meal mister.\"",
-               "destination": "MYSTICREJECT"
-           }
-       ]
-   },
-   "MYSTICWAY3": {
-       "description": "His litany takes on a chanting quality and falls to a whisper, \n\"God is dead. God remains dead. And we have killed him. How shall we comfort ourselves?\"\nLastly, barely audible above the wind you hear,\n\"It is by will alone I set my mind in motion. The spice must flow.\"",
-       "options": [
-           {
-               "label": "Nod, knowingly.",
-               "destination": "MYSTICACCEPT"
-           },
-           {
-               "label": "Back away slowly.",
-               "destination": "MYSTICREJECT"
-           }
-       ]
-   },
-   "MYSTICACCEPT": {
-       "description": "The mystic nods back and closes his eyes again. You feel, somehow lighter, uplifted in a strange way... \nand yet, utterly confused.",
-       "destination": "DUNES3",
-       "flag": "MYSTICACCEPTED"
-   },
-   "MYSTICREJECT": {
-       "description": "The mystic begins to scream obscenties and flail his arms. A flock of seagulls descends and swirl around him in a violent temptest of sqwaking, feathery, fury. You run for your life.",
-       "destination": "DUNES3"
-   },
-   "TREES1": {
-       "description": "The coastal pines bend over the trail forming a tunnel roofed with their twisted branches. Huckberries grow to head height alongside and the sandy ground is covered with low growing bear berry. \nRight at the entrance to the forrest a pile of black goop and seeds sits in the middle of trail.\nBear scat.\n\nA few yards in, the trail splits.",
-       "options": [
-           {
-               "label": "Continue down the trail and to the right.",
-               "destination": "TREES2"
-           },
-           {
-               "label": "Continue down the trail and to the left.",
-               "destination": "TREES3"
-           },
-           {
-               "label": "Go back.",
-               "destination": "DUNES1"
-           }
-       ]
-   },
-   "TREES2": {
-       "description": "The trail has a magical feel to it. It's curves and dips leave you with little visibility. Sometimes you must duck to pass the low hanging branches of the trees. Sometimes you are brushed by the huckleberries, heavy with fruit, on either side. Sometimes you pass a small clearing thick with coarse grass. Bear sign and tracks are plentiful. The calls of hawks, larks, and seagulls are common. \nYou stop at a fork in the trail. A squirrel drops a few bits of pinecones on you and then scolds you for disturbing his snack.",
-       "options": [
-           {
-               "label": "Go left",
-               "destination": "TREES3"
-           },
-           {
-               "label": "Go right",
-               "destination": "TREES4"
-           }
-       ]
-   },
-   "TREES3": {
-       "description": "The dark tunnel of trail gives you a slightly claustrophobic feeling. You cannot see much ahead. There could be a bear around any corner. Your steps quicken. A smaller trail diverges to your right.",
-       "postdescription": {
-           "condition": "choice(False, False, False, True)",
-           "description": "A bear suddenly steps out a bush just ahead of you!\n\nYou freeze in terror!\n\nBut it seems as surprised as you are. The bear dives across the trail into the bushes again. He hear it crashing through undergrowth as it runs away."
-       },
-       "options": [
-           {
-               "label": "Continue",
-               "destination": "MAZE0"
-           },
-           {
-               "label": "Take the track to the right.",
-               "destination": "TREES2"
-           }
-       ]
-   },
-   "TREES4": {
-       "description": "There is a huge black dog sitting in the middle of the trail. It's pointed ears stand up, it's attention fully on you.",
-       "options": [
-           {
-               "label": "Speak in a calm voice and slowly approach.",
-               "destination": "DOG1"
-           },
-           {
-               "label": "Back away slowly",
-               "destination": "TREES2"
-           }
-       ]
-   },
-   "DOG1": {
-       "description": "Slowly you approach the big dog. \"Good dog.\", you try to keep your fear out of your voice. The dog is almost as tall as you are. Gently you rest your hand on it's head and stroke the soft fur between its ears. \nIt's tongue hangs out and it's tail begins to wag, sweeping the trail of leaves and twigs. \nA ragged breath escapes that you didn't realize you were holding in.\nWith a loud bark the dog turns and bounds away up the trail.",
-       "destination": "TREES5"
-   },
-   "TREES5": {
-       "description": "You follow the big, black dog around the corner. The trail climbs to your left and the dog disappears up and over the little crest of the hill. To your right the trail descends into shadowed glen.",
-       "options": [
-           {
-               "label": "Climb the hill.",
-               "destination": "BAYSIDE1"
-           },
-           {
-               "label": "Explore the glen.",
-               "destination": "ASCETICHUT"
-           }
-       ]
-   },
-   "TREES6": {
-       "description": "The trail climbs to your left over the little crest of the hill. To your right the trail descends into shadowed glen.",
-       "options": [
-           {
-               "label": "Climb the hill.",
-               "destination": "BAYSIDE1"
-           },
-           {
-               "label": "Explore the glen.",
-               "destination": "ASCETICHUT"
-           }
-       ]
-   },
-   "TREES7": {
-       "description": "After much wandering through the maze like forest you come out on the dunes.",
-       "destination": "DUNES1"
-   },
-   "ASCETICHUT": {
-       "description": "In the middle of a small clearing there is a wooden hut. Smoke curls from a metal stove pipe sticking out the thatched roof. A woman in what looks like a burlap robe sits cross legged on a large flat stone. Hands on her knees and eyes clothes.",
-       "options": [
-           {
-               "label": "Try to talk to her.",
-               "destination": "ASCETIC1"
-           },
-           {
-               "label": "Leave quietly",
-               "destination": "TREES6"
-           }
-       ]
-   },
-   "MAZE0": {
-       "description": "You come upon a small furry mammal. You approach it slowly and suprisingly it doesn't scurry away. You are standing right next to it when it looks up and clearly says, \"Hey mac, wanna race?\"\n\nSurprise and shock chase your wits away and you are slow to recover. You were just spoken to by a small woodland animal! In a Jersey accent?",
-       "options": [
-           {
-               "label": "Uh, ok, sure.",
-               "destination": "MAZE1"
-           },
-           {
-               "label": "What, what are you?",
-               "message": "I'm the fastest thing on four legs in the forest. And you better hurry if you're gonna catch me.",
-               "destination": "MAZE1"
-           }
-       ]
-   },
-   "MAZE1": {
-       "description": "The creature takes off down the trail at a surprising speed. Without really thinking about it, primal instincts kick in and you bolt after it. Now which way did it go?",
-       "options": [
-           {
-               "label": "Left",
-               "destination": "MAZE2"
-           },
-           {
-               "label": "Right",
-               "destination": "MAZE2"
-           }
-       ]
-   },
-   "MAZE2": {
-       "description": "The trail is full of blind corners and dark over hanging branches.",
-       "postdescription": {
-           "condition": "choice(True, False)",
-           "description": "You catch a glimpse of your furry friend as it rounds the corner ahead."
-       },
-       "options": [
-           {
-               "label": "Left",
-               "destinations": {
-                   "if": "choice(True, False, False)",
-                   "then": "MAZE3",
-                   "else": "MAZE2"
-               }
-           },
-           {
-               "label": "Right",
-               "destinations": {
-                   "if": "choice(True, False, False)",
-                   "then": "MAZE3",
-                   "else": "MAZE2"
-               }
-           }
-       ]
-   },
-   "MAZE3": {
-       "description": "You catch up to the creature just as it crosses a line drawn in the sandy forest floor. You double over and place your hands on your knees, trying to catch your breath. \"Congrats. You gets da medal.\", he says. \n\"But I lost.\", you stammer out.\n\"Ya, dats right two legs. Yous lost.\" The small create smiles widely. \"See ya.\".",
-       "options": [
-           {
-               "label": "Pick up the medal and look at it.",
-               "destination": "MAZEFINAL"
-           }
-       ]
-   },
-   "MAZEFINAL": {
-       "description": "You turn the medal over in your hands. Raised block letter spell out:\nYOU WERE BEATEN BY A SHREW\n\n...You turn and walk back into the forest.",
-       "flag": "SHREW",
-       "destination": "TREES4"
-   },
-   "ASCETIC1": {
-       "description": "Her eyes snap open. You notice that she appears very thin and smells bad. Her head is shaved.\n\"Deny thyself, that you may know the truth. It is only through sacrifice that flesh quiets so that the mind may become clearer.\"",
-      "options": [
-          {
-             "label": "\"That sounds like a terrible idea.\"",
-             "destination": "REJECTASCETIC"
-          },
-          {
-              "label": "\"What truth?\"",
-              "destination": "ASCETIC2"
-          }
-      ]
-   },
-   "ASCETIC2": {
-       "description": "\"There is no spoon.\"",
-       "options": [
-           {
-               "label": "There is no spoon?",
-               "destination": "ASCETIC3"
-           }
-       ]
-   },
-   "ASCETIC3": {
-       "description": "\"Then you will see it is not the spoon that bends, it is yourself. The higher mysteries of the universe reveal themselves only to those who leave behind desire and need and ascend to the realm of pure thought. Do not indulge your body, lest it ensnare you.\"",
-       "options": [
-           {
-              "label": "\"Got it, thoughts good, body bad.\"",
-              "destination": "ACCEPTASCETIC"
-           },
-           {
-               "label": "\"You're a spoon short of a place setting lady.\"",
-               "destination": "REJECTASCETIC"
-           }
-       ]
-   },
-   "REJECTASCETIC": {
-       "description": "The woman releases a huffy breath and shuts her eyes tight. It seems you've been dismissed.",
-       "destination": "TREES6"
-   },
-   "ACCEPTASCETIC": {
-       "description": "The woman nods sagely and shuts her eyes again, resuming her meditation. As you turn to leave you whisper under your breath, \"And don't do anything fun.\".\nFortunately, she doesn't here you.",
-       "destination": "TREES6",
-       "flag": "ASCETICACCEPTED"
-   },
-   "BAYSIDE1": {
-       "description": "You come out of the forest onto another beach. But instead of surf and ocean this appears to be a tidal bay. You can see across it to the mainland and where the water might be later today is a vast mudflat.",
-       "options": [
-           {
-               "label": "Follow the beach.",
-               "destinations": {
-                   "if": "not SHINY",
-                   "then": "BAYSIDE2",
-                   "else": "BAYSIDE3"
-               }
-           },
-           {
-               "label": "Enter the forest.",
-               "destination": "TREES7"
-           }
-       ]
-   },
-   "BAYSIDE2": {
-       "description": "Something far out on the mudflat catches the sun with a flash of light.",
-       "options": [
-           {
-               "label": "Investigate the shiny object",
-               "destination": "MUDFLAT"
-           },
-           {
-               "label": "Follow the beach",
-               "destination": "BAYSIDE3"
-           }
-       ]
-   },
-   "MUDFLAT": {
-       "description": "You trudge for seemingly forever out onto the mudlfat. Finally you come upon the shiny object. It comes free of the muck with SLUUUUP sound. It's roundish, about as big as a grapefruit, kind of heavy. And it's uh...\n shiny. \n\nYou blink and suddenly realize you've been staring at it for a long time. Meanwhile your feet, ankles and calves have sunk into the muck.\nA stream of water is running by. The tide is coming in.",
-       "options": [
-           {
-               "label": "Try to extricate yourself.",
-               "destination": "MUD1"
-           },
-           {
-               "label": "Stare at the shiny object some more.",
-               "destination": "STARE"
-           }
-       ]
-   },
-   "STARE": {
-       "description": "Though very captivating, it is difficult to truly appreciate the shiny object while sinking to your doom.",
-       "destination": "MUD1"
-   },
-   "MUD1": {
-       "description": "The sucking mud has a death grip (literally) on your legs. Though you struggle with all your might, it only pulls you down deeper. It is up to you middle now. The water is rapidly rising too.",
-       "options": [
-           {
-               "condition": "DOG1['visited']",
-               "label": "Throw the shiny thing so you can use your hands to pull yourself out.",
-               "destination": "DOGRESCUE1"
-           },
-           {
-               "label": "Try some more!",
-               "destination": "MUDDEATH"
-           },
-           {
-               "label": "Stare at the shiny object some more.",
-               "destination": "STARE"
-           }
-       ]
-   },
-   "MUDDEATH": {
-       "description": "The mud pulls you down and the waters close over your. Oh, I can't bear to look.",
-       "destination": "END"
-   },
-   "DOGRESCUE1": {
-       "description": "The shiny round thing flies through the air and though your impending death is growing closer you still feel compelled to watch it's graceful arc, flashing in the sunlight. Just as it nears the water a huge black dog leaps into the air and catches the shiny thing in it's mouth. The dog splashes through the tide toward you. You grab onto it's thick coat and it easily pulls you free of the muck with a loud, \"SLUUUURP!\"",
-       "destination": "DOGRESCUE2"
-   },
-   "DOGRESCUE2": {
-       "description": "The big dog pulls you to the shore. Once there it drops the shiny thing at your feet and sits down. It's big tongue lolling out of it's mouth. You pick it up.",
-       "flag": "SHINY",
-       "options": [
-           {
-               "label": "\"Good dog.\"",
-               "destination": "BAYSIDE3"
-           }
-       ]
-   },
-   "BAYSIDE3": {
-       "description": "A gravel road runs alongside the bay and ends abrubtly at a boat ramp. A dilapidated house sits between the road and the bay.",
-       "options": [
+    },
+    "MYSTIC1": {
+        "description": "As you approach the old man his eyes snap open. His gaze is riveting and seems to tear away all pretense as he looks into your very soul. \nHe also smells very bad.\n\"Do you seek the way?\", he asks.",
+        "options": [
+            {
+                "label": "\"Yes, I seek the way.\"",
+                "destination": "MYSTICWAY"
+            },
+            {
+                "label": "\"What is this way?\"",
+                "destination": "MYSTICWAY"
+            }
+        ]
+    },
+    "MYSTICWAY": {
+        "description": "\"Your feet are already upon it.\", he intones. \"The path of life of life is suffering. What does not kill you makes you stronger. \"",
+        "options": [
+            {
+                "label": "Nod, knowingly.",
+                "destination": "MYSTICWAY2"
+            },
+            {
+                "label": "\"That's baloney.\"",
+                "destination": "MYSTICREJECT"
+            }
+        ]
+    },
+    "MYSTICWAY2": {
+        "description": "His voice rises, \"Try looking into that place where you dare not look! If you gaze long enough into an abyss, the abyss will gaze back into you. Face your fear, for fear is the mind-killer!\"",
+        "options": [
+            {
+                "label": "Nod, knowingly.",
+                "destination": "MYSTICWAY3"
+            },
+            {
+                "label": "\"You're a couple fries short of a happy meal mister.\"",
+                "destination": "MYSTICREJECT"
+            }
+        ]
+    },
+    "MYSTICWAY3": {
+        "description": "His litany takes on a chanting quality and falls to a whisper, \n\"God is dead. God remains dead. And we have killed him. How shall we comfort ourselves?\"\nLastly, barely audible above the wind you hear,\n\"It is by will alone I set my mind in motion. The spice must flow.\"",
+        "options": [
+            {
+                "label": "Nod, knowingly.",
+                "destination": "MYSTICACCEPT"
+            },
+            {
+                "label": "Back away slowly.",
+                "destination": "MYSTICREJECT"
+            }
+        ]
+    },
+    "MYSTICACCEPT": {
+        "description": "The mystic nods back and closes his eyes again. You feel, somehow lighter, uplifted in a strange way... \nand yet, utterly confused.",
+        "destination": "DUNES3",
+        "flag": "MYSTICACCEPTED"
+    },
+    "MYSTICREJECT": {
+        "description": "The mystic begins to scream obscenties and flail his arms. A flock of seagulls descends and swirl around him in a violent temptest of sqwaking, feathery, fury. You run for your life.",
+        "destination": "DUNES3"
+    },
+    "TREES1": {
+        "description": "The coastal pines bend over the trail forming a tunnel roofed with their twisted branches. Huckberries grow to head height alongside and the sandy ground is covered with low growing bear berry. \nRight at the entrance to the forrest a pile of black goop and seeds sits in the middle of trail.\nBear scat.\n\nA few yards in, the trail splits.",
+        "options": [
+            {
+                "label": "Continue down the trail and to the right.",
+                "destination": "TREES2"
+            },
+            {
+                "label": "Continue down the trail and to the left.",
+                "destination": "TREES3"
+            },
+            {
+                "label": "Go back.",
+                "destination": "DUNES1"
+            }
+        ]
+    },
+    "TREES2": {
+        "description": "The trail has a magical feel to it. It's curves and dips leave you with little visibility. Sometimes you must duck to pass the low hanging branches of the trees. Sometimes you are brushed by the huckleberries, heavy with fruit, on either side. Sometimes you pass a small clearing thick with coarse grass. Bear sign and tracks are plentiful. The calls of hawks, larks, and seagulls are common. \nYou stop at a fork in the trail. A squirrel drops a few bits of pinecones on you and then scolds you for disturbing his snack.",
+        "options": [
+            {
+                "label": "Go left.",
+                "destination": "TREES3"
+            },
+            {
+                "label": "Go right.",
+                "destination": "TREES4"
+            }
+        ]
+    },
+    "TREES3": {
+        "description": "The dark tunnel of trail gives you a slightly claustrophobic feeling. You cannot see much ahead. There could be a bear around any corner. Your steps quicken. A smaller trail diverges to your right.",
+        "postdescription": {
+            "condition": "choice(False, False, False, True)",
+            "description": "A bear suddenly steps out a bush just ahead of you!\n\nYou freeze in terror!\n\nBut it seems as surprised as you are. The bear dives across the trail into the bushes again. He hear it crashing through undergrowth as it runs away."
+        },
+        "options": [
+            {
+                "label": "Continue.",
+                "destination": "MAZE0"
+            },
+            {
+                "label": "Take the track to the right.",
+                "destination": "TREES2"
+            }
+        ]
+    },
+    "TREES4": {
+        "description": "There is a huge black dog sitting in the middle of the trail. It's pointed ears stand up, it's attention fully on you.",
+        "options": [
+            {
+                "label": "Speak in a calm voice and slowly approach.",
+                "destination": "DOG1"
+            },
+            {
+                "label": "Back away slowly.",
+                "destination": "TREES2"
+            }
+        ]
+    },
+    "DOG1": {
+        "description": "Slowly you approach the big dog. \"Good dog.\", you try to keep your fear out of your voice. The dog is almost as tall as you are. Gently you rest your hand on it's head and stroke the soft fur between its ears. \nIt's tongue hangs out and it's tail begins to wag, sweeping the trail of leaves and twigs. \nA ragged breath escapes that you didn't realize you were holding in.\nWith a loud bark the dog turns and bounds away up the trail.",
+        "destination": "TREES5"
+    },
+    "TREES5": {
+        "description": "You follow the big, black dog around the corner. The trail climbs to your left and the dog disappears up and over the little crest of the hill. To your right the trail descends into shadowed glen.",
+        "options": [
+            {
+                "label": "Climb the hill.",
+                "destination": "BAYSIDE1"
+            },
+            {
+                "label": "Explore the glen.",
+                "destination": "ASCETICHUT"
+            }
+        ]
+    },
+    "TREES6": {
+        "description": "The trail climbs to your left over the little crest of the hill. To your right the trail descends into shadowed glen.",
+        "options": [
+            {
+                "label": "Climb the hill.",
+                "destination": "BAYSIDE1"
+            },
+            {
+                "label": "Explore the glen.",
+                "destination": "ASCETICHUT"
+            }
+        ]
+    },
+    "TREES7": {
+        "description": "After much wandering through the maze like forest you come out on the dunes.",
+        "destination": "DUNES1"
+    },
+    "ASCETICHUT": {
+        "description": "In the middle of a small clearing there is a wooden hut. Smoke curls from a metal stove pipe sticking out the thatched roof. A woman in what looks like a burlap robe sits cross legged on a large flat stone. Hands on her knees and eyes clothes.",
+        "options": [
+            {
+                "label": "Try to talk to her.",
+                "destination": "ASCETIC1"
+            },
+            {
+                "label": "Leave quietly.",
+                "destination": "TREES6"
+            }
+        ]
+    },
+    "MAZE0": {
+        "description": "You come upon a small furry mammal. You approach it slowly and suprisingly it doesn't scurry away. You are standing right next to it when it looks up and clearly says, \"Hey mac, wanna race?\"\n\nSurprise and shock chase your wits away and you are slow to recover. You were just spoken to by a small woodland animal! In a Jersey accent?",
+        "options": [
+            {
+                "label": "Uh, ok, sure.",
+                "destination": "MAZE1"
+            },
+            {
+                "label": "What, what are you?",
+                "message": "I'm the fastest thing on four legs in the forest. And you better hurry if you're gonna catch me.",
+                "destination": "MAZE1"
+            }
+        ]
+    },
+    "MAZE1": {
+        "description": "The creature takes off down the trail at a surprising speed. Without really thinking about it, primal instincts kick in and you bolt after it. Now which way did it go?",
+        "options": [
+            {
+                "label": "Left.",
+                "destination": "MAZE2"
+            },
+            {
+                "label": "Right.",
+                "destination": "MAZE2"
+            }
+        ]
+    },
+    "MAZE2": {
+        "description": "The trail is full of blind corners and dark over hanging branches.",
+        "postdescription": {
+            "condition": "choice(True, False)",
+            "description": "You catch a glimpse of your furry friend as it rounds the corner ahead."
+        },
+        "options": [
+            {
+                "label": "Left.",
+                "destinations": {
+                    "if": "choice(True, False, False)",
+                    "then": "MAZE3",
+                    "else": "MAZE2"
+                }
+            },
+            {
+                "label": "Right.",
+                "destinations": {
+                    "if": "choice(True, False, False)",
+                    "then": "MAZE3",
+                    "else": "MAZE2"
+                }
+            }
+        ]
+    },
+    "MAZE3": {
+        "description": "You catch up to the creature just as it crosses a line drawn in the sandy forest floor. You double over and place your hands on your knees, trying to catch your breath. \"Congrats. You gets da medal.\", he says. \n\"But I lost.\", you stammer out.\n\"Ya, dats right two legs. Yous lost.\" The small create smiles widely. \"See ya.\".",
+        "options": [
+            {
+                "label": "Pick up the medal and look at it.",
+                "destination": "MAZEFINAL"
+            }
+        ]
+    },
+    "MAZEFINAL": {
+        "description": "You turn the medal over in your hands. Raised block letter spell out:\nYOU WERE BEATEN BY A SHREW\n\n...You turn and walk back into the forest.",
+        "flag": "SHREW",
+        "destination": "TREES4"
+    },
+    "ASCETIC1": {
+        "description": "Her eyes snap open. You notice that she appears very thin and smells bad. Her head is shaved.\n\"Deny thyself, that you may know the truth. It is only through sacrifice that flesh quiets so that the mind may become clearer.\"",
+        "options": [
+            {
+                "label": "\"That sounds like a terrible idea.\"",
+                "destination": "REJECTASCETIC"
+            },
+            {
+                "label": "\"What truth?\"",
+                "destination": "ASCETIC2"
+            }
+        ]
+    },
+    "ASCETIC2": {
+        "description": "\"There is no spoon.\"",
+        "options": [
+            {
+                "label": "There is no spoon?",
+                "destination": "ASCETIC3"
+            }
+        ]
+    },
+    "ASCETIC3": {
+        "description": "\"Then you will see it is not the spoon that bends, it is yourself. The higher mysteries of the universe reveal themselves only to those who leave behind desire and need and ascend to the realm of pure thought. Do not indulge your body, lest it ensnare you.\"",
+        "options": [
+            {
+                "label": "\"Got it, thoughts good, body bad.\"",
+                "destination": "ACCEPTASCETIC"
+            },
+            {
+                "label": "\"You're a spoon short of a place setting lady.\"",
+                "destination": "REJECTASCETIC"
+            }
+        ]
+    },
+    "REJECTASCETIC": {
+        "description": "The woman releases a huffy breath and shuts her eyes tight. It seems you've been dismissed.",
+        "destination": "TREES6"
+    },
+    "ACCEPTASCETIC": {
+        "description": "The woman nods sagely and shuts her eyes again, resuming her meditation. As you turn to leave you whisper under your breath, \"And don't do anything fun.\".\nFortunately, she doesn't here you.",
+        "destination": "TREES6",
+        "flag": "ASCETICACCEPTED"
+    },
+    "BAYSIDE1": {
+        "description": "You come out of the forest onto another beach. But instead of surf and ocean this appears to be a tidal bay. You can see across it to the mainland and where the water might be later today is a vast mudflat.",
+        "options": [
+            {
+                "label": "Follow the beach.",
+                "destinations": {
+                    "if": "not SHINY",
+                    "then": "BAYSIDE2",
+                    "else": "BAYSIDE3"
+                }
+            },
+            {
+                "label": "Enter the forest.",
+                "destination": "TREES7"
+            }
+        ]
+    },
+    "BAYSIDE2": {
+        "description": "Something far out on the mudflat catches the sun with a flash of light.",
+        "options": [
+            {
+                "label": "Investigate the shiny object.",
+                "destination": "MUDFLAT"
+            },
+            {
+                "label": "Follow the beach.",
+                "destination": "BAYSIDE3"
+            }
+        ]
+    },
+    "MUDFLAT": {
+        "description": "You trudge for seemingly forever out onto the mudlfat. Finally you come upon the shiny object. It comes free of the muck with SLUUUUP sound. It's roundish, about as big as a grapefruit, kind of heavy. And it's uh...\n shiny. \n\nYou blink and suddenly realize you've been staring at it for a long time. Meanwhile your feet, ankles and calves have sunk into the muck.\nA stream of water is running by. The tide is coming in.",
+        "options": [
+            {
+                "label": "Try to extricate yourself.",
+                "destination": "MUD1"
+            },
+            {
+                "label": "Stare at the shiny object some more.",
+                "destination": "STARE"
+            }
+        ]
+    },
+    "STARE": {
+        "description": "Though very captivating, it is difficult to truly appreciate the shiny object while sinking to your doom.",
+        "destination": "MUD1"
+    },
+    "MUD1": {
+        "description": "The sucking mud has a death grip (literally) on your legs. Though you struggle with all your might, it only pulls you down deeper. It is up to you middle now. The water is rapidly rising too.",
+        "options": [
+            {
+                "condition": "DOG1['visited']",
+                "label": "Throw the shiny thing so you can use your hands to pull yourself out.",
+                "destination": "DOGRESCUE1"
+            },
+            {
+                "label": "Try some more!",
+                "destination": "MUDDEATH"
+            },
+            {
+                "label": "Stare at the shiny object some more.",
+                "destination": "STARE"
+            }
+        ]
+    },
+    "MUDDEATH": {
+        "description": "The mud pulls you down and the waters close over your. Oh, I can't bear to look.",
+        "destination": "END"
+    },
+    "DOGRESCUE1": {
+        "description": "The shiny round thing flies through the air and though your impending death is growing closer you still feel compelled to watch it's graceful arc, flashing in the sunlight. Just as it nears the water a huge black dog leaps into the air and catches the shiny thing in it's mouth. The dog splashes through the tide toward you. You grab onto it's thick coat and it easily pulls you free of the muck with a loud, \"SLUUUURP!\"",
+        "destination": "DOGRESCUE2"
+    },
+    "DOGRESCUE2": {
+        "description": "The big dog pulls you to the shore. Once there it drops the shiny thing at your feet and sits down. It's big tongue lolling out of it's mouth. You pick it up.",
+        "flag": "SHINY",
+        "options": [
+            {
+                "label": "\"Good dog.\"",
+                "destination": "BAYSIDE3"
+            }
+        ]
+    },
+    "BAYSIDE3": {
+        "description": "A gravel road runs alongside the bay and ends abrubtly at a boat ramp. A dilapidated house sits between the road and the bay.",
+        "options": [
             {
                 "label": "Approach the dilapidated house.",
                 "destination": "HOUSE"
@@ -906,348 +918,348 @@
                 "destination": "ROAD1"
             },
             {
-                "label": "Follow the beach",
+                "label": "Follow the beach.",
                 "destinations": {
-                   "if": "not SHINY",
-                   "then": "BAYSIDE2",
-                   "else": "BAYSIDE3"
-               }
+                    "if": "not SHINY",
+                    "then": "BAYSIDE2",
+                    "else": "BAYSIDE3"
+                }
             }
-       ]
-   },
-   "HOUSE": {
-       "description": "The once white siding and the roof of this single wide trailer is spotted with clumps of moss. The whole house gives the impression of sagging under the weight of years of coastal rain and wind. The windows are filty. In the front yard a girl sits in a lawn chair wearing denim overalls, t-shirt and star shaped sunglasses.",
-       "options": [
-           {
-               "label": "Talk to the girl.",
-               "destination": "ZEN1"
-           },
-           {
-               "label": "Head back to the boat ramp.",
-               "destination": "BAYSIDE3"
-           }
-       ]
-   },
-   "ZEN1": {
-       "description": "The girl leans over intently painting every part of her foot EXCEPT her toenails bright sparkly red. Her sun glasses slip down to the end of her nose and she looks over them. She seems to be working on a complicated paisley pattern. \"Be with you in a second.\", she says without looking up.",
-       "options": [
-           {
-               "label": "\"Uhhh, why are you painting your feet?\"",
-               "destination": "ZEN2"
-           },
-           {
-               "label": "\"Maybe I'll just go.\"",
-               "destination": "REJECTTAO"
-           }
-       ]
-   },
-   "ZEN2": {
-       "description": "She looks at you over her star shaped glasses. \"Why are you not painting your feet? That which can be learned, must also be unlearned for wisdom is found in forgetting. The name that can be named is not the eternal name. The nameless is the beginning of Heaven and Earth. Banana farts cannot slurple to the mountains. Now hit me with a cream pie.\"",
-       "options": [
-           {
-               "condition": "CARRYINGPIE",
-               "label": "\"Ok.\"",
-               "destination": "ACCEPTTAO",
-               "eval": {
-                   "flag": "CARRYINGPIE",
-                   "exp": "False"
-               }
-           },
-           {
-               "condition": "CARRYINGPIE",
-               "label": "\"What?!\"",
-               "destination": "REJECTTAO"
-           },
-           {
-               "condition": "not CARRYINGPIE",
-               "label": "\"Uh, I don't have a pie.\"",
-               "destination": "REJECTTAO"
-           }
-       ]
-   },
-   "REJECTTAO": {
-       "description": "She pushes her sunglasses back up to the bridge of her nose. \"The way that can be walked is not the eternal way.\"\nShe returns to her painting.",
-       "destination": "BAYSIDE3"
-   },
-   "ACCETPTAO": {
-       "description": "She picks up a gong and strikes it with a mallet. \n\"BONG!\" \nThe tone is clear and resonant. Then she sticks her finger in the custard on her face and puts in her mouth. \n\"Mmmmmm.\" \nYou leave her to it, feeling... strangely satisfied.",
-       "destination": "BAYSIDE3",
-       "flag": "TAOACCEPTED",
-       "increment": "PEOPLEPIED"
-   },
-   "ROAD1": {
-       "description": "Here the road splits. It continues as gravel to the west, back towards the ocean side and away from the bay. South, it turns to ashpalt and continues towards town.",
-       "options": [
-           {
-               "label": "Go west.",
-               "destination": "ROADW"
-           },
-           {
-               "label": "Go south.",
-               "destination": "ROADS"
-           }
-       ]
-   },
-   "ROADW": {
-       "description": "You walk down the gravel road for a while. It winds through a forest of tall evergreens. You come around a bend and a mysterious looking tower looms into view.",
-       "options": [
-           {
-               "label": "Investigate tower.",
-               "destination": "TOWER1"
-           },
-           {
-               "label": "Go east.",
-               "destination": "ROAD1"
-           }
-       ]
-   },
-   "ROADS": {
-       "description": "The road follows the edge of the bay. You come to a sign that says, \"Oceanside City Park\". There is a large grassy area with a few scattered oak trees.\nA shabby plywood stand is also beside the road. Hand painted across the front is a sign with, \"Fresh Oysters\" crossed out and \"Fortune teller\" scrawled underneath.",
-       "options": [
-           {
-               "label": "Talk to fortune teller.",
-               "destinations": {
-                  "if": "BACKWORDS",
-                  "then": "WITCHCURE",
-                  "else": "WITCH1"
-               }
-           },
-           {
-               "label": "Check out the park.",
-               "destination": "PARK"
-           },
-           {
-               "label": "Head south into town.",
-               "destination": "BEGIN"
-           }
-       ]
-   },
-   "PARK": {
-       "description": "The grass is thick and spongy. You pause a moment beneath a large oak tree.",
-       "postdescription": {
-           "condition": "not PARK['visited']",
-           "description": "As you take in your surroundings a group of people ran between two clumps of trees. You catch glimpse of bright colors and... were those capes?"
+        ]
+    },
+    "HOUSE": {
+        "description": "The once white siding and the roof of this single wide trailer is spotted with clumps of moss. The whole house gives the impression of sagging under the weight of years of coastal rain and wind. The windows are filty. In the front yard a girl sits in a lawn chair wearing denim overalls, t-shirt and star shaped sunglasses.",
+        "options": [
+            {
+                "label": "Talk to the girl.",
+                "destination": "ZEN1"
+            },
+            {
+                "label": "Head back to the boat ramp.",
+                "destination": "BAYSIDE3"
+            }
+        ]
+    },
+    "ZEN1": {
+        "description": "The girl leans over intently painting every part of her foot EXCEPT her toenails bright sparkly red. Her sun glasses slip down to the end of her nose and she looks over them. She seems to be working on a complicated paisley pattern. \"Be with you in a second.\", she says without looking up.",
+        "options": [
+            {
+                "label": "\"Uhhh, why are you painting your feet?\"",
+                "destination": "ZEN2"
+            },
+            {
+                "label": "\"Maybe I'll just go.\"",
+                "destination": "REJECTTAO"
+            }
+        ]
+    },
+    "ZEN2": {
+        "description": "She looks at you over her star shaped glasses. \"Why are you not painting your feet? That which can be learned, must also be unlearned for wisdom is found in forgetting. The name that can be named is not the eternal name. The nameless is the beginning of Heaven and Earth. Banana farts cannot slurple to the mountains. Now hit me with a cream pie.\"",
+        "options": [
+            {
+                "condition": "CARRYINGPIE",
+                "label": "\"Ok.\"",
+                "destination": "ACCEPTTAO",
+                "eval": {
+                    "flag": "CARRYINGPIE",
+                    "exp": "False"
+                }
+            },
+            {
+                "condition": "CARRYINGPIE",
+                "label": "\"What?!\"",
+                "destination": "REJECTTAO"
+            },
+            {
+                "condition": "not CARRYINGPIE",
+                "label": "\"Uh, I don't have a pie.\"",
+                "destination": "REJECTTAO"
+            }
+        ]
+    },
+    "REJECTTAO": {
+        "description": "She pushes her sunglasses back up to the bridge of her nose. \"The way that can be walked is not the eternal way.\"\nShe returns to her painting.",
+        "destination": "BAYSIDE3"
+    },
+    "ACCEPTTAO": {
+        "description": "She picks up a gong and strikes it with a mallet. \n\"BONG!\" \nThe tone is clear and resonant. Then she sticks her finger in the custard on her face and puts in her mouth. \n\"Mmmmmm.\" \nYou leave her to it, feeling... strangely satisfied.",
+        "destination": "BAYSIDE3",
+        "flag": "TAOACCEPTED",
+        "increment": "PEOPLEPIED"
+    },
+    "ROAD1": {
+        "description": "Here the road splits. It continues as gravel to the west, back towards the ocean side and away from the bay. South, it turns to ashpalt and continues towards town.",
+        "options": [
+            {
+                "label": "Go west.",
+                "destination": "ROADW"
+            },
+            {
+                "label": "Go south.",
+                "destination": "ROADS"
+            }
+        ]
+    },
+    "ROADW": {
+        "description": "You walk down the gravel road for a while. It winds through a forest of tall evergreens. You come around a bend and a mysterious looking tower looms into view.",
+        "options": [
+            {
+                "label": "Investigate tower.",
+                "destination": "TOWER1"
+            },
+            {
+                "label": "Go east.",
+                "destination": "ROAD1"
+            }
+        ]
+    },
+    "ROADS": {
+        "description": "The road follows the edge of the bay. You come to a sign that says, \"Oceanside City Park\". There is a large grassy area with a few scattered oak trees.\nA shabby plywood stand is also beside the road. Hand painted across the front is a sign with, \"Fresh Oysters\" crossed out and \"Fortune teller\" scrawled underneath.",
+        "options": [
+            {
+                "label": "Talk to fortune teller.",
+                "destinations": {
+                    "if": "BACKWORDS",
+                    "then": "WITCHCURE",
+                    "else": "WITCH1"
+                }
+            },
+            {
+                "label": "Check out the park.",
+                "destination": "PARK"
+            },
+            {
+                "label": "Head south into town.",
+                "destination": "BEGIN"
+            }
+        ]
+    },
+    "PARK": {
+        "description": "The grass is thick and spongy. You pause a moment beneath a large oak tree.",
+        "postdescription": {
+            "condition": "not PARK['visited']",
+            "description": "As you take in your surroundings a group of people ran between two clumps of trees. You catch glimpse of bright colors and... were those capes?"
         },
-       "options": [
-           {
-               "label": "Investigate woods.",
-               "destination": "LARP1"
-           },
-           {
-               "label": "Go back to the road.",
-               "destination": "ROADS"
-           }
-       ]
-   },
-   "LARP1": {
-       "description": "As you enter the nearer clump of trees you experience a moment of dizziness. The world seems to come out of and then back into focus. Colors invert and then return. Suddenly out of the wood steps a figure in chain mail. A burly man with a golden beard raises a glittering sword. \"Defend yourself!\", he cries.",
-       "options": [
-           {
-               "label": "Scream loudly.",
-               "destination": "LARP2"
-           },
-           {
-               "label": "Duck for cover.",
-               "destination": "LARP2"
-           }
-       ]
-   },
-   "LARP2": {
-       "description": "Another figure steps from the wood. This time a woman in a flowing purple robe. Her jet black hair stream behind her and she raises her beringed hand to the knight. Arrows of white fire fly from her hand striking the him in the chest. He flies backwards and hits the ground. He does not stir.",
-       "options": [
-           {
-               "condition": "CARRYINGPIE",
-               "label": "Throw your pie at her.",
-               "eval": {
-                   "flag": "CARRYINGPIE",
-                   "exp": "False"
-               },
-               "increment": "PEOPLEPIED",
-               "destination": "LARPPIE"
-           },
-           {
-               "label": "Gibber with fear.",
-               "destination": "LARP3"
-           }
-       ]
-   },
-   "LARP3": {
-       "description": "She turns her terrible gaze on you, a predatory smile on her lips. Her hand comes up again. \"How foolish of you to come weaponless.\", she laughs an evil laugh. You desperately wish you had a sword, or... something to throw at her. As the arrows of light pierce the air between you, you smell something... baking? And then darkness takes you.",
-       "destination": "END"
-   },
-   "LARPPIE": {
-       "description": "When the pie leaves your hand it changes, becoming a serpentine dagger. It flies true and strikes the sorceress in the chest. Your head swims again and colors invert and you find yourself sitting on the grass in the park. A girl in front of you is holding a prop dagger under her arm and dramatically acting out her own death. She topples to the ground. A small group of young people in costumes gather around cheering and laughing, waving foam weapons. They pull you to your feet and clap you on your back and send you on your way.\nYou shake your head in wonder.",
-       "destination": "ROADS"
-   },
-   "WITCH1": {
-       "description": "A shockingly old woman sits on a stool in the booth. Her face seemingly nothing but wrinkled folds of skin. Her stringy gray hair hangs down haphazardly. \"Would you like your fortune told?\", she croaks.",
-       "options": [
-           {
-               "label": "\"Yes, please.\"",
-               "message": "\"Money first.\"\n\"Uhh, sorry, I don't have any money.\"",
-               "destination": "WITCHCURSE"
-           },
-           {
-               "label": "\"No thanks\"",
-               "message": "\"You impolite barbarian cur!\"",
-               "destination": "WITCHCURSE"
-           }
-       ]
-   },
-   "WITCHCURSE": {
-       "description": "\"You starvelling, you eel-skin, you dried neat’s-tongue, you bull’s-pizzle, you stock-fish–O for breath to utter what is like thee!-you tailor’s-yard, you sheath, you bow-case, you vile standing tuck!\"\n\"I curse you to go backwards for the rest of your miserable days!\"",
-       "flag": "BACKWORDS",
-       "destination": "WITCHCURE"
-   },
-   "WITCHCURE": {
-       "description": "If only you had some way to strike back at this foul demon. Something to throw at her maybe?",
-       "options": [
-           {
-               "condition": "CARRYINGPIE",
-               "label": "Throw a pie.",
-               "destination": "CURED",
-               "eval": {
-                   "flag": "BACKWORDS",
-                   "exp": "False"
-               }
-           },
-           {
-               "label": "Alas!",
-               "destination": "ROADS"
-           }
-       ]
-   },
-   "CURED": {
-       "description": "The pie strikes her in the face and the spell is broken. You heroically run away.",
-       "eval": {
-           "flag": "CARRYINGPIE",
-           "exp": "False"
-       },
-       "increment": "PEOPLEPIED",
-       "destination": "ROADS"
-   },
-   "TOWER1": {
-       "description": "The tower is 4 or 5 stories tall and made of concrete. The top story has window all around, a bit like a lighthouse. But this doesn't really seem like a lighthouse. There's not light for example. Or house for that matter. There are no windows below the top floor and huge electrical cables are running into the side of the tower. Giant, sliding metal doors are facing the road. Beside them is smaller door.",
-       "options": [
-           {
-               "label": "Go inside.",
-               "destination": "TOWER2"
-           },
-           {
-               "label": "Leave.",
-               "destination": "ROADW"
-           }
-       ]
-   },
-   "TOWER2": {
-       "description": "You try the small door first and find it unlocked. Inside the hum of electrical machinery is everywhere. Cables and hoses run in big bundles across the walls and ceiling. A huge cavernous space is inside. In the center of this space...\nstands a rocket.\nFour big landing struts hold it upright, four triangular fins stick out the bottom. A giant bell nozzle projects from the engine. \n\"What are you doing here?!\", screams a shrill voice.\nYou better think fast.",
-       "options": [
-           {
-               "label": "\"Uh, dominoes pizza delivery?\"",
-               "message": "\"What?!\", screams the man. \"I didn't order pizza! We don't even have Dominoes in this town!\"",
-               "destination": "JOFREAKS"
-           },
-           {
-               "label": "I'm a reporter from the Oceanfront Gazette, here interview you, Mr...",
-               "destination": "TOWER3"
-           }
-       ]
-   },
-   "JOFREAKS": {
-       "description": "The crazy looking man raves and flaps his arms. He doesn't look exactly threatening but you're really not sure what he's capable of. You back slowyly out the door.",
-       "destination": "TOWER1"
-   },
-   "TOWER3": {
-       "description": "\"It's Doctor! Dr. Joseph von Baron Kamelstien. I'm so glad you're here. I've lost my retroturboencabulator! Without it I will never complete my mission to send intelligent life to the Moon! You have to help me.\"",
-       "options": [
-           {
-               "label": "\"Sure thing Doc. Uh, what's it look like?",
-               "destination": "DESCRIBERTE"
-           },
-           {
-               "condition": "SHINY",
-               "label": "Pull out the shiny thing you found in the mud.",
-               "destination": "FOUNDRTE"
-           }
-       ]
-   },
-   "DESCRIBERTE": {
-       "description": "The good doctor launches into a lengthly explanation of which you understand very little. \n\"Whuh?\", you query.\nDoctor von Baron Kamelstien looks at you in irritation. \"It's a shiny ball. About this big.\" He holds up his hands to show something about the size of a grapefruit.",
-       "options": [
-           {
-               "condition": "SHINY",
-               "label": "Pull out the shiny thing you found in the mud.",
-               "destination": "FOUNDRTE"
-           },
-           {
-               "label": "Go looking for it.",
-               "destination": "TOWER1"
-           }
-       ]
-   },
-   "FOUNDRTE": {
-       "description": "Doctor Joseph claps his hands. \"You found it! Oh, huzzah!\" He snatches the retro...thingummy and scurries around the rocket, shouting and banging on things.\n\nYou let the good doctor go about his business and wonder if this thing could really ever fly. As you stand there pondering a strange sound reaches your ears, not from the rocket but from behind you. \n\"BZZZZRT!\"\nFollowed by strange voices behind you. Metallic, monotone voices. \"XT-4751, we have received new orders from command.\"\n\"I acknowledge RJ-1004. Orders received. Glory to Tharblaxx.",
-       "options": [
-           {
-               "label": "Turn around slowly.",
-               "destination": "ALIENS1"
-           },
-           {
-               "label": "Call for the Doctor",
-               "message": "Doctor Jo can't seem to hear you over his work and ravings.",
-               "destination": "ALIENS1"
-           }
-       ]
-   },
-   "ALIENS1": {
-       "description": "Two creatures begin to make their way over to the rocket. They are tall and thin with strange angular heads... or maybe helmets? Their intentions are unclear but they seem menacing.",
-       "options": [
-           {
-               "label": "Grab the nearest blunt instrument and attack them!",
-               "destination": "ALIENSFIGHT"
-           },
-           {
-               "label": "Call out to them.",
-               "destination": "ALIENSTALK"
-           }
-       ]
-   },
-   "ALIENSFIGHT": {
-       "description": "The wrench isn't much of a weapon and honestly, you're not much of fighter. Your first (and last) blow bounces clumsily off the alien's head/helmet. Both aliens turn to face you.",
-       "destination": "ALIENSTALK"
-   },
-   "ALIENSTALK": {
-       "description": "\"Hey, wait!\", your tremulous voice carries surprisingly well and Doctor Jo finally quits yelling and banging on things to come see what's going on. The aliens stop and face you both. One raises an open palm and says, \"Greetings Earthling. Take me to your leader.\"\n\nThey both begin to emit strange sounds, low and quiet at first but gradually louder. A strange pulsating burst of noise. One of them begins to stomp rhythmically while the other beats the chest plate of it's suit. \nSlowly understanding begins to dawn on you.",
-       "destination": "ALIENSLAUGH"
-   },
-   "ALIENSLAUGH": {
-       "description": "\"You are correct RJ-1004. Truly that line never gets old.\"\nThe aliens are laughing? Your temper begins to rise. The wrench is still in your hand but you also spy some equipment on a nearby table that looks almost like a gun.",
-       "options": [
-           {
-               "label": "Grab equipment from the table and turn it on the aliens.",
-               "destination": "PIEOLATOR"
-           },
-           {
-               "label": "Take another swing with the wrench.",
-               "destination": "BEPIED"
-           }
-       ]
-   },
-   "PIEOLATOR": {
-       "description": "You grab for the device and throw the big switch on top. The whine of a capacitor charging fills the air. \"Nine! Die PIE-o-LATOR is not perfected! Desist!\", screams the doctor. But your rage will not be diverted. As soon as the charging indicator hits green you sweep the weapon across the aliens and pull the trigger. The air is filled with screams and the smell of burning sugar. The aliens are quickly buried in a mountain of cream pies.",
-       "destination": "GOLAUNCH"
-   },
-   "BEPIED": {
-       "description": "Your second attempt at physical violence is even more feeble. The aliens push you aside and draw weapons. They train them on you and scream in horrible alien languages. The air is filled with the sounds of your own anguish and the smell of pastries.",
-       "destination": "GOLAUNCH"
-   },
-   "GOLAUNCH": {
-       "description": "You, RJ, and XT are sitting on a park bench about a mile away. The aliens have opened a small portal in their helmets and are scraping bits of pastry off of you and each other and stuffing it inside and making slurping sounds. You're basically doing the same thing. The three of you watch in wonder as the rocket begins to glide upwards atop a huge trail of fire. \"Best of luck Dr. Jo.\", you say. \"Hey is he just going to run into more guys like you up there?\", you ask your new friends. \n\"No. We are not from your galaxy. It is unlikely you or Dr. Jo will encounter our kind ever again. Goodbye.\"\n\"BIP!\"\nWith a weird sound your friends are gone and so are all the sticky desserts that they had plastered you with.\nWho is ever going to believe you met aliens? Aliens that go around starting intergalactic food fights? What a day.",
-       "destination": "ROAD1",
-       "eval": {
-           "flag": "PEOPLEPIED",
-           "exp": "PEOPLEPIED + 2"
-       }
-   }
+        "options": [
+            {
+                "label": "Investigate woods.",
+                "destination": "LARP1"
+            },
+            {
+                "label": "Go back to the road.",
+                "destination": "ROADS"
+            }
+        ]
+    },
+    "LARP1": {
+        "description": "As you enter the nearer clump of trees you experience a moment of dizziness. The world seems to come out of and then back into focus. Colors invert and then return. Suddenly out of the wood steps a figure in chain mail. A burly man with a golden beard raises a glittering sword. \"Defend yourself!\", he cries.",
+        "options": [
+            {
+                "label": "Scream loudly.",
+                "destination": "LARP2"
+            },
+            {
+                "label": "Duck for cover.",
+                "destination": "LARP2"
+            }
+        ]
+    },
+    "LARP2": {
+        "description": "Another figure steps from the wood. This time a woman in a flowing purple robe. Her jet black hair stream behind her and she raises her beringed hand to the knight. Arrows of white fire fly from her hand striking the him in the chest. He flies backwards and hits the ground. He does not stir.",
+        "options": [
+            {
+                "condition": "CARRYINGPIE",
+                "label": "Throw your pie at her.",
+                "eval": {
+                    "flag": "CARRYINGPIE",
+                    "exp": "False"
+                },
+                "increment": "PEOPLEPIED",
+                "destination": "LARPPIE"
+            },
+            {
+                "label": "Gibber with fear.",
+                "destination": "LARP3"
+            }
+        ]
+    },
+    "LARP3": {
+        "description": "She turns her terrible gaze on you, a predatory smile on her lips. Her hand comes up again. \"How foolish of you to come weaponless.\", she laughs an evil laugh. You desperately wish you had a sword, or... something to throw at her. As the arrows of light pierce the air between you, you smell something... baking? And then darkness takes you.",
+        "destination": "END"
+    },
+    "LARPPIE": {
+        "description": "When the pie leaves your hand it changes, becoming a serpentine dagger. It flies true and strikes the sorceress in the chest. Your head swims again and colors invert and you find yourself sitting on the grass in the park. A girl in front of you is holding a prop dagger under her arm and dramatically acting out her own death. She topples to the ground. A small group of young people in costumes gather around cheering and laughing, waving foam weapons. They pull you to your feet and clap you on your back and send you on your way.\nYou shake your head in wonder.",
+        "destination": "ROADS"
+    },
+    "WITCH1": {
+        "description": "A shockingly old woman sits on a stool in the booth. Her face seemingly nothing but wrinkled folds of skin. Her stringy gray hair hangs down haphazardly. \"Would you like your fortune told?\", she croaks.",
+        "options": [
+            {
+                "label": "\"Yes, please.\"",
+                "message": "\"Money first.\"\n\"Uhh, sorry, I don't have any money.\"",
+                "destination": "WITCHCURSE"
+            },
+            {
+                "label": "\"No thanks.\"",
+                "message": "\"You impolite barbarian cur!\"",
+                "destination": "WITCHCURSE"
+            }
+        ]
+    },
+    "WITCHCURSE": {
+        "description": "\"You starvelling, you eel-skin, you dried neat’s-tongue, you bull’s-pizzle, you stock-fish–O for breath to utter what is like thee!-you tailor’s-yard, you sheath, you bow-case, you vile standing tuck!\"\n\"I curse you to go backwards for the rest of your miserable days!\"",
+        "flag": "BACKWORDS",
+        "destination": "WITCHCURE"
+    },
+    "WITCHCURE": {
+        "description": "If only you had some way to strike back at this foul demon. Something to throw at her maybe?",
+        "options": [
+            {
+                "condition": "CARRYINGPIE",
+                "label": "Throw a pie.",
+                "destination": "CURED",
+                "eval": {
+                    "flag": "BACKWORDS",
+                    "exp": "False"
+                }
+            },
+            {
+                "label": "Alas!",
+                "destination": "ROADS"
+            }
+        ]
+    },
+    "CURED": {
+        "description": "The pie strikes her in the face and the spell is broken. You heroically run away.",
+        "eval": {
+            "flag": "CARRYINGPIE",
+            "exp": "False"
+        },
+        "increment": "PEOPLEPIED",
+        "destination": "ROADS"
+    },
+    "TOWER1": {
+        "description": "The tower is 4 or 5 stories tall and made of concrete. The top story has window all around, a bit like a lighthouse. But this doesn't really seem like a lighthouse. There's not light for example. Or house for that matter. There are no windows below the top floor and huge electrical cables are running into the side of the tower. Giant, sliding metal doors are facing the road. Beside them is smaller door.",
+        "options": [
+            {
+                "label": "Go inside.",
+                "destination": "TOWER2"
+            },
+            {
+                "label": "Leave.",
+                "destination": "ROADW"
+            }
+        ]
+    },
+    "TOWER2": {
+        "description": "You try the small door first and find it unlocked. Inside the hum of electrical machinery is everywhere. Cables and hoses run in big bundles across the walls and ceiling. A huge cavernous space is inside. In the center of this space...\nstands a rocket.\nFour big landing struts hold it upright, four triangular fins stick out the bottom. A giant bell nozzle projects from the engine. \n\"What are you doing here?!\", screams a shrill voice.\nYou better think fast.",
+        "options": [
+            {
+                "label": "\"Uh, dominoes pizza delivery?\"",
+                "message": "\"What?!\", screams the man. \"I didn't order pizza! We don't even have Dominoes in this town!\"",
+                "destination": "JOFREAKS"
+            },
+            {
+                "label": "I'm a reporter from the Oceanfront Gazette, here interview you, Mr...",
+                "destination": "TOWER3"
+            }
+        ]
+    },
+    "JOFREAKS": {
+        "description": "The crazy looking man raves and flaps his arms. He doesn't look exactly threatening but you're really not sure what he's capable of. You back slowyly out the door.",
+        "destination": "TOWER1"
+    },
+    "TOWER3": {
+        "description": "\"It's Doctor! Dr. Joseph von Baron Kamelstien. I'm so glad you're here. I've lost my retroturboencabulator! Without it I will never complete my mission to send intelligent life to the Moon! You have to help me.\"",
+        "options": [
+            {
+                "label": "\"Sure thing Doc. Uh, what's it look like?",
+                "destination": "DESCRIBERTE"
+            },
+            {
+                "condition": "SHINY",
+                "label": "Pull out the shiny thing you found in the mud.",
+                "destination": "FOUNDRTE"
+            }
+        ]
+    },
+    "DESCRIBERTE": {
+        "description": "The good doctor launches into a lengthly explanation of which you understand very little. \n\"Whuh?\", you query.\nDoctor von Baron Kamelstien looks at you in irritation. \"It's a shiny ball. About this big.\" He holds up his hands to show something about the size of a grapefruit.",
+        "options": [
+            {
+                "condition": "SHINY",
+                "label": "Pull out the shiny thing you found in the mud.",
+                "destination": "FOUNDRTE"
+            },
+            {
+                "label": "Go looking for it.",
+                "destination": "TOWER1"
+            }
+        ]
+    },
+    "FOUNDRTE": {
+        "description": "Doctor Joseph claps his hands. \"You found it! Oh, huzzah!\" He snatches the retro...thingummy and scurries around the rocket, shouting and banging on things.\n\nYou let the good doctor go about his business and wonder if this thing could really ever fly. As you stand there pondering a strange sound reaches your ears, not from the rocket but from behind you. \n\"BZZZZRT!\"\nFollowed by strange voices behind you. Metallic, monotone voices. \"XT-4751, we have received new orders from command.\"\n\"I acknowledge RJ-1004. Orders received. Glory to Tharblaxx.",
+        "options": [
+            {
+                "label": "Turn around slowly.",
+                "destination": "ALIENS1"
+            },
+            {
+                "label": "Call for the Doctor.",
+                "message": "Doctor Jo can't seem to hear you over his work and ravings.",
+                "destination": "ALIENS1"
+            }
+        ]
+    },
+    "ALIENS1": {
+        "description": "Two creatures begin to make their way over to the rocket. They are tall and thin with strange angular heads... or maybe helmets? Their intentions are unclear but they seem menacing.",
+        "options": [
+            {
+                "label": "Grab the nearest blunt instrument and attack them!",
+                "destination": "ALIENSFIGHT"
+            },
+            {
+                "label": "Call out to them.",
+                "destination": "ALIENSTALK"
+            }
+        ]
+    },
+    "ALIENSFIGHT": {
+        "description": "The wrench isn't much of a weapon and honestly, you're not much of fighter. Your first (and last) blow bounces clumsily off the alien's head/helmet. Both aliens turn to face you.",
+        "destination": "ALIENSTALK"
+    },
+    "ALIENSTALK": {
+        "description": "\"Hey, wait!\", your tremulous voice carries surprisingly well and Doctor Jo finally quits yelling and banging on things to come see what's going on. The aliens stop and face you both. One raises an open palm and says, \"Greetings Earthling. Take me to your leader.\"\n\nThey both begin to emit strange sounds, low and quiet at first but gradually louder. A strange pulsating burst of noise. One of them begins to stomp rhythmically while the other beats the chest plate of it's suit. \nSlowly understanding begins to dawn on you.",
+        "destination": "ALIENSLAUGH"
+    },
+    "ALIENSLAUGH": {
+        "description": "\"You are correct RJ-1004. Truly that line never gets old.\"\nThe aliens are laughing? Your temper begins to rise. The wrench is still in your hand but you also spy some equipment on a nearby table that looks almost like a gun.",
+        "options": [
+            {
+                "label": "Grab equipment from the table and turn it on the aliens.",
+                "destination": "PIEOLATOR"
+            },
+            {
+                "label": "Take another swing with the wrench.",
+                "destination": "BEPIED"
+            }
+        ]
+    },
+    "PIEOLATOR": {
+        "description": "You grab for the device and throw the big switch on top. The whine of a capacitor charging fills the air. \"Nine! Die PIE-o-LATOR is not perfected! Desist!\", screams the doctor. But your rage will not be diverted. As soon as the charging indicator hits green you sweep the weapon across the aliens and pull the trigger. The air is filled with screams and the smell of burning sugar. The aliens are quickly buried in a mountain of cream pies.",
+        "destination": "GOLAUNCH"
+    },
+    "BEPIED": {
+        "description": "Your second attempt at physical violence is even more feeble. The aliens push you aside and draw weapons. They train them on you and scream in horrible alien languages. The air is filled with the sounds of your own anguish and the smell of pastries.",
+        "destination": "GOLAUNCH"
+    },
+    "GOLAUNCH": {
+        "description": "You, RJ, and XT are sitting on a park bench about a mile away. The aliens have opened a small portal in their helmets and are scraping bits of pastry off of you and each other and stuffing it inside and making slurping sounds. You're basically doing the same thing. The three of you watch in wonder as the rocket begins to glide upwards atop a huge trail of fire. \"Best of luck Dr. Jo.\", you say. \"Hey is he just going to run into more guys like you up there?\", you ask your new friends. \n\"No. We are not from your galaxy. It is unlikely you or Dr. Jo will encounter our kind ever again. Goodbye.\"\n\"BIP!\"\nWith a weird sound your friends are gone and so are all the sticky desserts that they had plastered you with.\nWho is ever going to believe you met aliens? Aliens that go around starting intergalactic food fights? What a day.",
+        "destination": "ROAD1",
+        "eval": {
+            "flag": "PEOPLEPIED",
+            "exp": "PEOPLEPIED + 2"
+        }
+    }
 }
 
