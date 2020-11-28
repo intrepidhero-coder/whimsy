@@ -367,7 +367,7 @@
     "DEFENDER": {
         "increment": "DEFENDERPASSES",
         "predescription": {
-            "condition": "DEFENDERPASSESS == 0",
+            "condition": "DEFENDERPASSES == 0",
             "description": "As you approach the game flickers to life."
         },
         "description": "Your tiny ship appears in the center of the screen. The fire button makes dramatic laser blasts shoot towards your enemies... and your friends. Aliens are abducting colonists from the planet's surface, laying mines, and of course hunting you. Your ship responds to the slightest touch of the controls with speed and power. What will you do?",
@@ -423,7 +423,7 @@
     "JOUST": {
         "increment": "JOUSTPASSES",
         "predescription": {
-            "condition": "JOUSTPASSESS == 0",
+            "condition": "JOUSTPASSES == 0",
             "description": "As you approach the game flickers to life."
         },
         "description": "The noble knight sits atop his... Ostrich?",
