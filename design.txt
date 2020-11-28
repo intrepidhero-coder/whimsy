@@ -6,7 +6,8 @@
 [ ] Compile for windows
 [ ] Compile for linux
 [ ] Compile for mac?
-
+[ ] fix lighthouse?
+[ ] testworld
 
 You begin as a faceless person entering a depressed beach town. You interact with characters, each of which has a vignette that can be played through. Achievements are hidden and suprising things you can discover. They are tracked and summarized and the end of the game.
 
