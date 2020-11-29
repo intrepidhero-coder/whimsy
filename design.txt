@@ -1,8 +1,8 @@
 [/] Add move count to score
 [ ] Adjust moves till bus
 [/] End after intergalactic food fight
-[ ] fix emdashes in witch's dialog
-[ ] Birds in lighthouse
+[/] fix emdashes in witch's dialog
+[/] Birds in lighthouse
 [/] Count moves
 [/] End game on N moves
 [/] Add notes about making the bus at the end of the day
