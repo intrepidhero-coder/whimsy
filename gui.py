@@ -46,7 +46,7 @@ class Gui(QTextEdit):
 
         self.backstop = 0
         self.game = main.engine()
-        main.output = self.append
+        main.outputFunc = self.append
         # get the first prompt
         nextprompt = next(self.game)
         self.processOutput(nextprompt)
