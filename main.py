@@ -105,7 +105,7 @@ def engine():
         elif "quit".startswith(choice):
             choice = (yield "Are you sure you want to quit? Y/N ").lower().strip()
             if len(choice) > 0 and choice[0] == "y":
-                return
+                break
         elif "about".startswith(choice):
             output(ABOUT)
         else:
