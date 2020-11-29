@@ -12,7 +12,12 @@ Icon: Lighthouse by Nociconist from the Noun Project
 GLOBALS = {"randint": randint, "choice": choice}
 
 world = None
-output = print
+outputFunc = print
+
+def output(message):
+    if world["BACKWORDS"]:
+        message = "\n".join(["\u202e" + line for line in message.splitlines()])
+    outputFunc(message)
 
 
 def _eval(c):
