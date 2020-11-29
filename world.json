@@ -551,8 +551,16 @@
             {
                 "label": "Retrace trail back to south beach.",
                 "destination": "TRAILFROMLIGHTHOUSE"
+            },
+            {
+                "label": "Enter lighthouse.",
+                "destination": "INSIDELIGHTHOUSE"
             }
         ]
+    },
+    "INSIDELIGHTHOUSE": {
+        "description": "The rusty metal door opens with a horrible screech. You peer into the gloom and discover you have disturbed the watchful denizens of the lighthouse. A thousand beady eyes peer back at you. A thousand wings beat as one. A flock of seagulls roosting the rafters unlease a fulisade of cries and... poo.\nYou duck quickly back outside.",
+        "destination": "LIGHTHOUSE"
     },
     "NBEACH": {
         "description": "A long flat beach seems to continue on forever and disappear into a thin fog. The interminable pounding of the cold, blue-gray surf on one hand and the rolling sandy dunes on the other. Tufts of salt grass bend in the wind and loose sand skates across the ground. A flock of tiny, white birds chase the waves on invisible, speeding legs as they advance and retreat.",
