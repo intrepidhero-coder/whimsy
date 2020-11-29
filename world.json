@@ -1184,7 +1184,7 @@
         ]
     },
     "WITCHCURSE": {
-        "description": "\"You starvelling, you eel-skin, you dried neat’s-tongue, you bull’s-pizzle, you stock-fish. O for breath to utter what is like thee! You tailor’s-yard, you sheath, you bow-case, you vile standing tuck!\"\n\"I curse you to go backwards for the rest of your miserable days!\"",
+        "description": "\"You starvelling, you eel-skin, you dried neat's-tongue, you bull's-pizzle, you stock-fish. O for breath to utter what is like thee! You tailor's-yard, you sheath, you bow-case, you vile standing tuck!\"\n\"I curse you to go backwards for the rest of your miserable days!\"",
         "flag": "BACKWORDS",
         "destination": "WITCHCURE"
     },
