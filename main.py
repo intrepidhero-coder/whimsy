@@ -133,6 +133,7 @@ def engine():
                 world["MOVES"] += 1
     # Display achievements
     output("")
+    output("Number of moves: {}".format(world["MOVES"]))
     output("Final Score: {}".format(randint(1, 10000)))
     for item in world["SCORE"]:
         if "condition" in item:

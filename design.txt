@@ -1,6 +1,6 @@
-[ ] Add move count to score
+[/] Add move count to score
 [ ] Adjust moves till bus
-[ ] End after intergalactic food fight
+[/] End after intergalactic food fight
 [ ] fix emdashes in witch's dialog
 [ ] Birds in lighthouse
 [/] Count moves
