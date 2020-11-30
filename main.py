@@ -3,9 +3,12 @@ import json
 from random import choice, randint
 
 ABOUT = '''
-Welcome to Wandering Whimsy!
+
+Thanks for playing Wandering Whimsy!
 A light adventure game by FadedBlueSky Software
 Copyright: Brian Davis 2020
+Art and editing: Rachel Davis
+Game Testers: Anna, Maggie, and Carrie
 Icon: Lighthouse by Nociconist from the Noun Project
 '''
 
@@ -100,19 +103,18 @@ def engine():
             ]
             for n, opt in enumerate(options, 1):
                 output("{}. {}".format(n, opt["label"]))
-        output("(save, quit or about)")
+        output("(save or quit)")
         choice = (yield "? ")
         choice = choice.lower().strip()
         # basic game commands
         if "save".startswith(choice):
             world["CURRENT"] = currentNodeKey
             open("usergame.json", "w").write(json.dumps(world))
+            output("Game saved.")
         elif "quit".startswith(choice):
             choice = (yield "Are you sure you want to quit? Y/N ").lower().strip()
             if len(choice) > 0 and choice[0] == "y":
                 break
-        elif "about".startswith(choice):
-            output(ABOUT)
         else:
             # did the user select a valid option?
             try:
@@ -132,16 +134,21 @@ def engine():
                 currentNode["visited"] = True
                 world["MOVES"] += 1
     # Display achievements
+    if world["MOVES"] > 50:
+        output("")
+        output("Number of moves: {}".format(world["MOVES"]))
+        output("Final Score: {}".format(randint(1, 10000)))
+        for item in world["SCORE"]:
+            if "condition" in item:
+                if _eval(item["condition"]):
+                    output(item["message"])
+            elif "value" in item:
+                output(item["message"].format(_eval(item["value"])))
+        choice = yield "Press Enter"
     output("")
-    output("Number of moves: {}".format(world["MOVES"]))
-    output("Final Score: {}".format(randint(1, 10000)))
-    for item in world["SCORE"]:
-        if "condition" in item:
-            if _eval(item["condition"]):
-                output(item["message"])
-        elif "value" in item:
-            output(item["message"].format(_eval(item["value"])))
+    output(ABOUT)
     choice = yield "Press Enter"
+
 
 def main():
     game = engine()
