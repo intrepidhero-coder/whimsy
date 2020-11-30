@@ -103,7 +103,7 @@ def engine():
             ]
             for n, opt in enumerate(options, 1):
                 output("{}. {}".format(n, opt["label"]))
-        output("(save or quit)")
+        output("(save or quit)\n")
         choice = (yield "? ")
         choice = choice.lower().strip()
         # basic game commands
