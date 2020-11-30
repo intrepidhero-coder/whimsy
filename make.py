@@ -6,7 +6,7 @@ import tempfile
 import time
 import zipfile
 
-NAME = "whimsy"
+NAME = "Whimsy"
 SEED = "12345"
 MAIN = "gui"
 
