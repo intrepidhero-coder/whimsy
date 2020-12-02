@@ -111,7 +111,7 @@ def engine():
         # basic game commands
         if "save".startswith(choice):
             world["CURRENT"] = currentNodeKey
-            open("usergame.json", "w").write(json.dumps(world))
+            open(RESOURCE("usergame.json"), "w").write(json.dumps(world))
             output("Game saved.")
         elif "quit".startswith(choice):
             choice = (yield "Are you sure you want to quit? Y/N ").lower().strip()
