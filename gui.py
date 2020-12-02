@@ -1,5 +1,4 @@
 import os
-import sys
 
 
 from PySide2.QtWidgets import QApplication, QTextEdit
@@ -8,6 +7,7 @@ from PySide2.QtCore import Qt, Slot
 
 
 import main
+from resource import RESOURCE
 
 
 STYLESHEET = """
@@ -21,15 +21,6 @@ QTextEdit {
 """
 
 
-EXEDIR = (
-    hasattr(sys, "_MEIPASS")
-    and os.path.abspath(os.path.dirname(sys.executable))
-    or os.path.abspath(os.path.dirname(sys.argv[0]))
-)
-
-
-def RESOURCE(filename):
-    return os.path.join(EXEDIR, filename)
 
 
 class Gui(QTextEdit):

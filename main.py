@@ -2,6 +2,8 @@ import os
 import json
 from random import choice, randint
 
+from resource import RESOURCE
+
 ABOUT = '''
 
 Thanks for playing Wandering Whimsy!
@@ -59,10 +61,10 @@ def processDestinations(destinations):
 def engine():
     global world
     currentNodeKey = "BEGIN"
-    if os.path.exists("usergame.json"):
+    if os.path.exists(RESOURCE("usergame.json")):
         choice = (yield "Do you want to load the saved game? Y/N ").lower().strip()
         if len(choice) > 0 and choice[0] == "y":
-            world = json.load(open("usergame.json"))
+            world = json.load(open(RESOURCE("usergame.json")))
             currentNodeKey = world["CURRENT"]
     if not world:
         world = json.load(open("world.json"))
