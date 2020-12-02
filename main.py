@@ -67,7 +67,7 @@ def engine():
             world = json.load(open(RESOURCE("usergame.json")))
             currentNodeKey = world["CURRENT"]
     if not world:
-        world = json.load(open("world.json"))
+        world = json.load(open(RESOURCE("world.json")))
 
     world["MOVES"] = 0
     while currentNodeKey != "END":
