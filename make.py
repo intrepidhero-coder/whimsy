@@ -1,5 +1,6 @@
 import datetime
 import os
+import sys
 import shutil as sh
 import subprocess as sub
 import tempfile
@@ -66,10 +67,12 @@ def makeExe():
     print("Running PyInstaller")
     os.environ["PYTHONHASHSEED"] = SEED
     # TODO: add excludes
-    result = sub.run(
-        ["pyinstaller", "--onefile", "--windowed", "--noconfirm", "--icon", "lighthouse.ico", "--name", NAME, MAIN + ".py",]
-    )
+    args = ["pyinstaller", "--windowed", "--noconfirm"]
+    if sys.platform == "darwin":
+        args += ["--osx-bundle-identifier", "com.fadedbluesky.whimsy"]
+    args += ["--icon", "lighthouse.ico", "--name", NAME, MAIN + ".py"]
 
+    result = sub.run(args)
     # build.txt to dist
     """
     open(os.path.join("dist", "build.txt"), "w").write(
@@ -83,6 +86,9 @@ def makeExe():
     sh.copy("world.json", "dist") 
     sh.copy("noun_Lighthouse_1548448.png", "dist") 
 
+    if sys.platform == "darwin":
+        result = sub.run(["codesign", "-f", "-s", "Fadedbluesky OSX", os.path.join("dist", NAME + ".app"), "--deep"])
+
     # write the changelog
     """
     print("Writing changelog.txt")
@@ -95,7 +101,7 @@ def makeExe():
     # zip up the dist folder
     print("Create .zip file")
     sh.move("dist", NAME)
-    zip_filename = NAME + "_v" + tag + "_" + os.name + ".zip"
+    zip_filename = NAME + "_v" + tag + "_" + sys.platform + ".zip"
     zip_archive = zipfile.ZipFile(zip_filename, "w", zipfile.ZIP_DEFLATED)
     filenames = []
     for root, dirs, files in os.walk(NAME):
