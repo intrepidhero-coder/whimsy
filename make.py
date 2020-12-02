@@ -83,10 +83,15 @@ def makeExe():
     # copy data files
     print("Copy files in data")
     #sh.copytree("data", os.path.join("dist", "data"))
-    sh.copy("world.json", "dist") 
-    sh.copy("noun_Lighthouse_1548448.png", "dist") 
+    if sys.platform == "darwin":
+        sh.copy("world.json", os.path.join("dist", "Whimsy.app", "Contents", "MacOS"))
+        sh.copy("noun_Lighthouse_1548448.png", os.path.join("dist", "Whimsy.app", "Contents", "MacOS"))
+    else:
+        sh.copy("world.json", "dist") 
+        sh.copy("noun_Lighthouse_1548448.png", "dist") 
 
     if sys.platform == "darwin":
+        print("Signing code")
         result = sub.run(["codesign", "-f", "-s", "Fadedbluesky OSX", os.path.join("dist", NAME + ".app"), "--deep"])
 
     # write the changelog
