@@ -89,7 +89,7 @@ def makeExe():
         sh.copy("world.json", os.path.join("dist", "Whimsy.app", "Contents", "MacOS"))
         sh.copy("noun_Lighthouse_1548448.png", os.path.join("dist", "Whimsy.app", "Contents", "MacOS"))
         sh.copy("Whimsy.icns", os.path.join("dist", "Whimsy.app", "Contents", "Resources"))
-        sh.rmtree(os.path.join("dist", "Whimsy")
+        sh.rmtree(os.path.join("dist", "Whimsy"))
     else:
         sh.copy("world.json", "dist") 
         sh.copy("noun_Lighthouse_1548448.png", "dist") 
