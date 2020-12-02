@@ -69,8 +69,10 @@ def makeExe():
     # TODO: add excludes
     args = ["pyinstaller", "--windowed", "--noconfirm"]
     if sys.platform == "darwin":
-        args += ["--osx-bundle-identifier", "com.fadedbluesky.whimsy"]
-    args += ["--icon", "lighthouse.ico", "--name", NAME, MAIN + ".py"]
+        args += ["--osx-bundle-identifier", "com.fadedbluesky.whimsy", "--icon", "Whimsy.icns"]
+    else:
+        args += ["--onefile", "--icon", "lighthouse.ico"]
+    args += ["--name", NAME, MAIN + ".py"]
 
     result = sub.run(args)
     # build.txt to dist
@@ -86,6 +88,8 @@ def makeExe():
     if sys.platform == "darwin":
         sh.copy("world.json", os.path.join("dist", "Whimsy.app", "Contents", "MacOS"))
         sh.copy("noun_Lighthouse_1548448.png", os.path.join("dist", "Whimsy.app", "Contents", "MacOS"))
+        sh.copy("Whimsy.icns", os.path.join("dist", "Whimsy.app", "Contents", "Resources"))
+        sh.rmtree(os.path.join("dist", "Whimsy")
     else:
         sh.copy("world.json", "dist") 
         sh.copy("noun_Lighthouse_1548448.png", "dist") 
