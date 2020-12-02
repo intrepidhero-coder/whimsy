@@ -7,7 +7,7 @@ from PySide2.QtCore import Qt, Slot
 
 
 import main
-from resource import RESOURCE
+from util import RESOURCE
 
 
 STYLESHEET = """

@@ -2,7 +2,7 @@ import os
 import json
 from random import choice, randint
 
-from resource import RESOURCE
+from util import RESOURCE
 
 ABOUT = '''
 
